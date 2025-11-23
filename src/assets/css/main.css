@@ -1,0 +1,254 @@
+@import "../../../node_modules/vue-virtual-scroller/dist/vue-virtual-scroller.css";
+
+@font-face {
+    font-family: 'minecraft';
+    src: url(../fonts/minecraft.ttf);
+}
+
+html {
+    font-size: 16px;
+}
+
+:root {
+    --primary: #18181B;
+    --primary-hover: #27272A;
+    --white: #ffffff;
+    --secondary: #666666;
+
+    --field-radius: 5000px;
+    --grid-size: 30px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color:white;
+    line-height: 1.5;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+input, textarea, select {
+    background-color: transparent;
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: solid 1px rgba(255,255,255,0.1);
+    font-family: Inter, sans-serif;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: none;
+}
+
+
+.sidebar-elem-title {
+    /*padding-top: 2px;*/
+    /*padding-bottom: 10px;*/
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+}
+
+.sidebar-tab-info {
+    margin: 0.5rem;
+}
+
+.sidebar-tab-title, .sidebar-quest-title {
+    display: flex;
+    font-size: 1rem;
+    margin: 1rem;
+    gap: 0.25rem;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+.sidebar-item-icon {
+    width: 2rem;
+    height: 2rem;
+    align-self: center;
+    display: flex;
+}
+
+.sidebar-item-name {
+    text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
+    padding-left: 0.5rem;
+}
+
+.quest-coords-inputs, .quest-visual-inputs {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.sidebar-default-button {
+    background: var(--secondary);
+    border-radius: 5px;
+    border: black solid 1px;
+    width: 100%;
+    height: 2rem;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.sidebar-medium-button {
+    padding: 0;
+    background: var(--secondary);
+    border-radius: 5px;
+    border: black solid 1px;
+    width: 5rem;
+    height: 2rem;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.sidebar-small-button {
+    background: var(--secondary);
+    padding: 0;
+    border-radius: 5px;
+    border: black solid 1px;
+    width: 2.5rem;
+    height: 2rem;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+
+}
+
+.sidebar-add-button {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+
+    background: var(--secondary);
+    border-radius: 5px;
+    border: black solid 1px;
+    width: 2rem;
+    height: 2rem;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.bold-format {
+    font-weight: bold;
+}
+
+.italic-format {
+    font-style: italic;
+}
+
+.underline-format {
+    text-decoration: underline;
+}
+
+.line-through-format {
+    text-decoration: line-through;
+}
+
+.obfuscate-format {
+    letter-spacing: 0
+}
+
+.none-format {
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+}
+
+.tab-title-name:hover, .quest-title-name:hover, .tab-input-quests-count:hover, .tab-input-sort-index:hover {
+    background-color: var(--primary-hover) !important;
+    transition: background-color 0.2s ease;
+}
+
+
+.quest-tasks-items, .quest-rewards-items, .quest-parents-items {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+
+    display: grid;
+    grid-gap: 8px;
+}
+
+.quest-task-item, .quest-reward-item, .quest-parent-item {
+    display: grid;
+    grid-template-columns: 1fr 5rem 2.5rem;
+    grid-column-gap: 1rem;
+    padding: 2px;
+    justify-content: left;
+    align-items: center;
+    user-select: none;
+}
+
+
+.quest-task-item:hover, .quest-reward-item:hover, .quest-parent-item:hover {
+    background-color: var(--primary-hover);
+    transition: background-color 0.2s ease;
+}
+
+.task-item-data, .reward-item-data, .parent-item-data {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+}
+
+.ui-resizable-handle {
+    width: 4px;
+    cursor: ew-resize;
+    background: transparent;
+    border-right: white 1px solid;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+.ui-state-highlight {
+    line-height: 0;
+    background: var(--secondary);
+    border: black 1px solid;
+}
+
+.ui-selectable-helper {
+    border: 2px dotted red;
+    background: #FFCBDB;
+    opacity: 0.1
+}
+
+
+.quest:hover:not(.ui-selected) {
+    transform: scale(1.25);
+}
+
+.quests .ui-selected:not(#drawLine) {
+    outline: 3px solid red;
+}
