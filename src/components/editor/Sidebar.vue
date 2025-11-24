@@ -158,7 +158,7 @@ watch(() => width.value,
 }
 
 .quests-sidebar {
-  width: 25%;
+  width: min-content;
   height: 100vh;
   min-width: 15%;
   max-width: 35%;
