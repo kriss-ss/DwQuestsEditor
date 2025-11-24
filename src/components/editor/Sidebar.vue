@@ -5,6 +5,8 @@
          'ui-resizable': true,
          'no-transition': isResizing
        }"
+       :style="{ width: computedWidth }"
+       ref="sidebarElement"
   >
     <div class="quests-sidebar-content"
          @mousewheel.passive="resizableHandleEditor"
@@ -110,7 +112,8 @@ const handler = ref(null)
 const edit = inject("edit");
 const isResizing = ref(false);
 
-const width = ref(null)
+const sidebarElement = ref(null)
+const computedWidth = ref(null)
 
 
 onMounted(() => {
@@ -128,7 +131,14 @@ onMounted(() => {
       // console.log(event)
       // $(".quests").css("transform", `translateX(${-width.value}px)`)
     }
+
   });
+
+  nextTick(() => {
+    if (sidebarElement.value) {
+      computedWidth.value = sidebarElement.value.scrollWidth + 'px'
+    }
+  })
 
   sidebar.value = $('.quests-sidebar')
   handler.value= $('.ui-resizable-handle')
@@ -144,11 +154,6 @@ watch(
     () => resizableHandleEditor()
 );
 
-watch(() => width.value,
-    (oldValue, newValue) => {
-  //console.log(oldValue, newValue);
-});
-
 </script>
 
 <style scoped>
@@ -158,10 +163,10 @@ watch(() => width.value,
 }
 
 .quests-sidebar {
-  width: min-content;
   height: 100vh;
   min-width: 15%;
   max-width: 35%;
+  flex-shrink: 0;
 
   overflow: hidden;
   overflow-y: auto;
@@ -171,7 +176,6 @@ watch(() => width.value,
   font-family: Inter, sans-serif;
   color: white;
   transition: all 0.8s ease;
-
 }
 
 .quests-sidebar.collapsed {
