@@ -103,6 +103,7 @@ const saveSnapshot = () => {
 provide('saveSnapshot', saveSnapshot)
 provide('edit', edit)
 provide('gridEnable', gridEnable)
+provide('active_quest', active_quest)
 
 
 const editActiveQuest = (name) => {
