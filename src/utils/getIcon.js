@@ -20,14 +20,14 @@ export const iconById = (id) => {
     let idIcon = mod + "/" + name + (meta ? "_" + meta : "") + ".png";
 
     if (itemsIcons.includes(idIcon)) {
-        return new URL('/src/assets/icons/' + idIcon, import.meta.url).href;
+        return new URL('/icons/' + idIcon, import.meta.url).href;
     }
 
     let idIconNoMeta = mod + "/" + name + ".png";
     if (itemsIcons.includes(idIconNoMeta)) {
-        return new URL('/src/assets/icons/' + idIconNoMeta, import.meta.url).href;
+        return new URL('/icons/' + idIconNoMeta, import.meta.url).href;
     }
-    return new URL('/src/assets/icons/' + defaultIcon, import.meta.url).href;
+    return new URL('/icons/' + defaultIcon, import.meta.url).href;
 }
 
 export const iconByQuestName = (name, iconItem, tabID) => {
@@ -35,7 +35,7 @@ export const iconByQuestName = (name, iconItem, tabID) => {
     if (iconItem && !(iconItem.includes("{"))) {
         let itemNameIcon = itemNameToFile(iconItem)
         if (itemsIcons.includes(itemNameIcon)) {
-            return new URL('/src/assets/icons/' + itemNameIcon, import.meta.url).href;
+            return new URL('/icons/' + itemNameIcon, import.meta.url).href;
         }
     }
 
@@ -43,7 +43,7 @@ export const iconByQuestName = (name, iconItem, tabID) => {
     let questName = name.replaceAll(' ', '_').replaceAll("?", "&1");
     let questNamesPath = tabID + "." + questName + ".png";
     if (questIcons.includes(questNamesPath)) {
-        return new URL('/src/assets/tabs_icons/' + questNamesPath, import.meta.url).href;
+        return new URL('/tabs_icons/' + questNamesPath, import.meta.url).href;
     }
     return iconById(iconItem);
 }
