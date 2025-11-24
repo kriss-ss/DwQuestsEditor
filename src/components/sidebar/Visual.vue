@@ -70,5 +70,9 @@ const editColor = (event) => {
   padding: 0;
 }
 
+.quest-visual-input-color {
+  padding: 0;
+}
+
 
 </style>
