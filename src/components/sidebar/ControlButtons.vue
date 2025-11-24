@@ -45,6 +45,7 @@ const props = defineProps({
 const saveSnapshot = inject('saveSnapshot')
 const edit = inject('edit')
 const gridEnable = inject('gridEnable')
+const active_quest = inject('active_quest')
 
 
 const sidebarAddQuest = () => {
@@ -104,6 +105,7 @@ const checkAvailableCoords = () => {
 
 const enableEditMode = () => {
   edit.value = !edit.value;
+  active_quest.value = ""
 }
 
 const copyTab = async () => {
