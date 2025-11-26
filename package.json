@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@kouts/vue-modal": "^2.1.12",
+    "autoprefixer": "^10.4.22",
     "lodash": "^4.17.21",
     "match-sorter": "^8.0.2",
     "nbt-ts": "^1.3.6",
