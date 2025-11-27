@@ -131,9 +131,10 @@ const visible = ref(false);
   background:
       linear-gradient(rgba(2, 9, 18, 0.2), rgba(2, 9, 18, 0.2)),
       url("/bg.webp") center/cover;
+  background-size: 200% 200%;
 
   padding: 1rem;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) inset;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9) inset;
   margin: auto;
   height:95vh;
   width: 55%;
