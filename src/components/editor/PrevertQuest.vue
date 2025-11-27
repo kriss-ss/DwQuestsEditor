@@ -128,22 +128,22 @@ const visible = ref(false);
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #202235;
+  background:
+      linear-gradient(rgba(2, 9, 18, 0.2), rgba(2, 9, 18, 0.2)),
+      url("/bg.webp") center/cover;
+
   padding: 1rem;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) inset;
-
   margin: auto;
-
   height:95vh;
   width: 55%;
-
   z-index: 1;
-
   overflow: scroll;
-
   opacity: 1;
   cursor: auto;
 }
+
+
 
 .p-quest-visible {
   position: fixed;
