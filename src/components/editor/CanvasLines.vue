@@ -54,21 +54,17 @@ onBeforeUnmount(() => {
 })
 
 const resizeCanvas = () => {
-  const field = document.querySelector(".quests-field")
-  const sidebar = document.querySelector(".quests-sidebar")
-  if (!field || !canvas.value) return
+  const container = document.querySelector(".quests-container")
+  if (!container || !canvas.value) return
 
-  canvas.value.width = field.clientWidth + sidebar.clientWidth
-  canvas.value.height = field.clientHeight
+  canvas.value.width = container.clientWidth
+  canvas.value.height = container.clientHeight
 }
 
 const toScreen = (x, y) => {
-  const field = document.querySelector(".quests-field").getBoundingClientRect()
-  const sidebar = document.querySelector(".quests-sidebar").getBoundingClientRect()
-
   return {
-    x: (x * scaleField + iconSize / 2 + questNodesOffset) * scale.value + offset.value.x - field.left + sidebar.width,
-    y: (y * scaleField + iconSize / 2 + questNodesOffset) * scale.value + offset.value.y - field.top
+    x: (x * scaleField + iconSize / 2 + questNodesOffset * 2) * scale.value + offset.value.x,
+    y: (y * scaleField + iconSize / 2 + questNodesOffset) * scale.value + offset.value.y
   }
 }
 
@@ -92,19 +88,29 @@ const canvasLines = () => {
 
       const colors = isHidden ? ["#FFCBDB", "#FFCBDB"] : [questRarities[questRarity], questRarities[line[3]]]
 
+
+      const angle = Math.atan2(line[1] - quest.displayY, line[0] - quest.displayX) * (180 / Math.PI)
+      let direction =
+          (angle >= 45 && angle <= 135) ||
+          (angle < 0 && angle > -45) ||
+          (angle < -135 && angle > -180)
+
+      if (line[4] === "INVERTED") direction = !direction
+
       drawLine(
           p1,
           p2,
           colors,
           line[4],
-          isHidden
+          isHidden,
+          direction
       )
     })
   })
 }
 
 
-const drawLine = (p1, p2, colors, lineType, isHidden) => {
+const drawLine = (p1, p2, colors, lineType, isHidden, direction) => {
 
   ctx.value.beginPath()
 
@@ -120,13 +126,6 @@ const drawLine = (p1, p2, colors, lineType, isHidden) => {
     ctx.value.moveTo(p1.x, p1.y)
     ctx.value.lineTo(p2.x, p2.y)
   } else {
-    const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * (180 / Math.PI)
-    let direction =
-        (angle >= 45 && angle <= 135) ||
-        (angle < 0 && angle > -45) ||
-        (angle < -135 && angle > -180)
-
-    if (lineType === "INVERTED") direction = !direction
 
     const controlX = (p1.x + p2.x) / 2
     const controlY = direction ? Math.min(p1.y, p2.y) : Math.max(p1.y, p2.y)

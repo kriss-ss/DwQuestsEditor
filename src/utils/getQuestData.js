@@ -20,7 +20,7 @@ export const getDisplayName = (quest) => {
 export const getPosQuest = (quest) => {
 
 
-    let posX = quest.displayX * scaleField - (getQuestSize(quest) - 1) * iconSize / 2 + questNodesOffset
+    let posX = quest.displayX * scaleField - (getQuestSize(quest) - 1) * iconSize / 2 + questNodesOffset * 2
     let posY = quest.displayY * scaleField - (getQuestSize(quest) - 1) * iconSize / 2 + questNodesOffset
 
 

@@ -139,12 +139,8 @@ const saveTab = () => {
   width: 3.25rem;
   left: calc(anchor(--sidebar right) + 1rem);
   align-self: center;
-  z-index: 100;
   background: var(--primary);
   outline: 0.125rem solid var(--secondary);
-
-  top: 50%;
-  transform: translateY(-50%);
 
   border-radius: 1rem;
   padding: 0.25rem;

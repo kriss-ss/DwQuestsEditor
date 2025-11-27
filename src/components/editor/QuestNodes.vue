@@ -205,8 +205,8 @@ const disableEditMode = () => {
 
 const dragMoveQuest = (name, posX, posY) => {
   if (!props.tab.quests[name]) return;
-  let newPosX = ((posX + (getQuestSize(props.tab.quests[name]) - 1) * iconSize / 2 - questNodesOffset) / scaleField).toFixed(5)
-  let newPosY = ((posY + (getQuestSize(props.tab.quests[name]) - 1) * iconSize / 2 - questNodesOffset) / scaleField).toFixed(5)
+  let newPosX = ((posX + (getQuestSize(props.tab.quests[name]) - 1) * iconSize / 2 - questNodesOffset * 2) / scaleField).toFixed(2)
+  let newPosY = ((posY + (getQuestSize(props.tab.quests[name]) - 1) * iconSize / 2 - questNodesOffset) / scaleField).toFixed(2)
 
   props.tab.quests[name].displayX = newPosX
   props.tab.quests[name].displayY = newPosY
