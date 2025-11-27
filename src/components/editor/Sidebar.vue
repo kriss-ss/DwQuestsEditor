@@ -5,7 +5,6 @@
          'ui-resizable': true,
          'no-transition': isResizing
        }"
-       :style="{ width: computedWidth }"
        ref="sidebarElement"
   >
     <div class="quests-sidebar-content"
@@ -126,10 +125,6 @@ onMounted(() => {
       isResizing.value = false;
     },
     resize(event, ui) {
-      // width.value = ui.originalElement.offsetWidth;
-      // console.log(ui);
-      // console.log(event)
-      // $(".quests").css("transform", `translateX(${-width.value}px)`)
     }
 
   });
@@ -166,6 +161,7 @@ watch(
   height: 100vh;
   min-width: 15%;
   max-width: 35%;
+  width: min-content;
   flex-shrink: 0;
 
   overflow: hidden;
