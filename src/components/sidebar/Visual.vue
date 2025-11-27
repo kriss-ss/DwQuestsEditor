@@ -64,7 +64,6 @@ const editColor = (event) => {
 .quest-visual-input-size {
   text-align: center;
   font-weight: 600;
-  border: none;
   color: white;
   font-family: Inter, sans-serif;
   padding: 0;
