@@ -1,9 +1,9 @@
 <template>
-  <canvas id="drawLine"/>
+  <canvas id="drawLine" ref="canvas" class="lines-canvas"/>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, nextTick, inject } from 'vue';
+import {ref, onMounted, onUnmounted, watch, nextTick, inject, onBeforeUnmount} from 'vue';
 import {
   scaleField,
   iconSize,
@@ -33,82 +33,109 @@ const drawX = ref(0)
 const drawY = ref(0)
 const drawStartQuestID = ref("")
 
-const _drawQueued = ref(false)
+
+const scale = inject("scale")
+const offset = inject("offset")
 
 
 onMounted(() => {
-  canvas.value = document.getElementById('drawLine')
-  ctx.value = canvas.value.getContext('2d')
-  setupCanvas()
+  ctx.value = canvas.value.getContext("2d")
+  resizeCanvas()
   canvasLines()
+
+  window.addEventListener("resize", () => {
+    resizeCanvas()
+    canvasLines()
+  })
 })
 
-const setupCanvas = () => {
-  canvas.value.width = canvasSizes
-  canvas.value.height = canvasSizes
-  canvas.value.style.position = 'absolute'
-  canvas.value.style.left = `-${canvasCenter}px`
-  canvas.value.style.top = `-${canvasCenter}px`
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", resizeCanvas)
+})
+
+const resizeCanvas = () => {
+  const field = document.querySelector(".quests-field")
+  const sidebar = document.querySelector(".quests-sidebar")
+  if (!field || !canvas.value) return
+
+  canvas.value.width = field.clientWidth + sidebar.clientWidth
+  canvas.value.height = field.clientHeight
 }
 
+const toScreen = (x, y) => {
+  const field = document.querySelector(".quests-field").getBoundingClientRect()
+  const sidebar = document.querySelector(".quests-sidebar").getBoundingClientRect()
 
-
-// watch([
-//   () => props.quests,
-// ], () => {
-//   nextTick(() => {
-//     canvasLines()
-//   })
-// }, {deep: true})
-
+  return {
+    x: (x * scaleField + iconSize / 2 + questNodesOffset) * scale.value + offset.value.x - field.left + sidebar.width,
+    y: (y * scaleField + iconSize / 2 + questNodesOffset) * scale.value + offset.value.y - field.top
+  }
+}
 
 const canvasLines = () => {
+  if (!ctx.value || !canvas.value) return
+
   ctx.value.clearRect(0, 0, canvas.value.width, canvas.value.height)
+
   Object.keys(props.quests).forEach(key => {
-    let lines = getParentLines(props.quests[key])
-    if (lines.length === 0) return;
-    let quest_coords = [props.quests[key].displayX, props.quests[key].displayY, "DEFAULT"]
-    lines.forEach((line) => {
-      if (line[2] === "HIDDEN") {
-        ctx.value.globalAlpha = 0.15
-        ctx.value.lineWidth = 2
-        drawLine(quest_coords, line, ["#FFCBDB", "#FFCBDB"], "STRAIGHT");
-      } else {
-        ctx.value.globalAlpha = 1
-        ctx.value.lineWidth = lineWidth
-        let colors = [questRarities[props.quests[key].rarity || "UNCOMMON"], questRarities[line[3]]]
-        drawLine(quest_coords, line, colors, line[4]);
-      }
+    const quest = props.quests[key]
+
+    const parentLines = getParentLines(quest)
+    if (!parentLines.length) return
+
+    const p1 = toScreen(quest.displayX, quest.displayY)
+    const questRarity = quest.rarity || "UNCOMMON"
+
+    parentLines.forEach(line => {
+      const p2 = toScreen(line[0], line[1])
+      const isHidden = line[2] === "HIDDEN"
+
+      const colors = isHidden ? ["#FFCBDB", "#FFCBDB"] : [questRarities[questRarity], questRarities[line[3]]]
+
+      drawLine(
+          p1,
+          p2,
+          colors,
+          line[4],
+          isHidden
+      )
     })
   })
 }
 
-const drawLine = (point1, point2, colors, lineType) => {
-  const [x1, y1] = [point1[0] * scaleField + iconSize / 2 + canvasCenter + questNodesOffset, point1[1] * scaleField + iconSize / 2 + canvasCenter + questNodesOffset];
-  const [x2, y2] = [point2[0] * scaleField + iconSize / 2 + canvasCenter + questNodesOffset, point2[1] * scaleField + iconSize / 2 + canvasCenter + questNodesOffset];
-  if (typeof colors[0] == 'undefined' || typeof colors[1] == 'undefined') return 0;
-  const grad = ctx.value.createLinearGradient(x1,y1, x2,y2);
-  grad.addColorStop(0, colors[0]);
-  grad.addColorStop(1, colors[1]);
-  ctx.value.beginPath();
-  ctx.value.moveTo(x1,y1);
-  let direction = false;
+
+const drawLine = (p1, p2, colors, lineType, isHidden) => {
+
+  ctx.value.beginPath()
+
+  const grad = ctx.value.createLinearGradient(p1.x, p1.y, p2.x, p2.y)
+  grad.addColorStop(0, colors[0] || "#ffffff")
+  grad.addColorStop(1, colors[1] || "#ffffff")
+
+  ctx.value.strokeStyle = grad
+  ctx.value.globalAlpha = isHidden ? 0.15 : 1
+  ctx.value.lineWidth = isHidden ? 1 : 2
+
   if (lineType === "STRAIGHT") {
-    ctx.value.lineTo(x2, y2);
+    ctx.value.moveTo(p1.x, p1.y)
+    ctx.value.lineTo(p2.x, p2.y)
   } else {
-    const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
-    if ((angle >= 45 && angle <= 135) ||
+    const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * (180 / Math.PI)
+    let direction =
+        (angle >= 45 && angle <= 135) ||
         (angle < 0 && angle > -45) ||
-        (angle < -135 && angle > -180)) {
-      direction = true;
-    }
-    if (lineType === "INVERTED") direction = !direction;
-    const controlX = (x1 + x2) / 2;
-    const controlY = direction ? Math.min(y1, y2) : Math.max(y1, y2);
-    ctx.value.quadraticCurveTo(controlX, controlY, x2, y2);
+        (angle < -135 && angle > -180)
+
+    if (lineType === "INVERTED") direction = !direction
+
+    const controlX = (p1.x + p2.x) / 2
+    const controlY = direction ? Math.min(p1.y, p2.y) : Math.max(p1.y, p2.y)
+
+    ctx.value.moveTo(p1.x, p1.y)
+    ctx.value.quadraticCurveTo(controlX, controlY, p2.x, p2.y)
   }
-  ctx.value.strokeStyle = grad;
-  ctx.value.stroke();
+
+  ctx.value.stroke()
 }
 
 const getParentLines = (quest) => {
@@ -130,53 +157,38 @@ const getParentLines = (quest) => {
   return lines;
 }
 
-// const getWindowResolution = () => {
-//   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity
-//
-//   for (const { displayX, displayY } of Object.values(this.tab.quests)) {
-//     minX = Math.min(minX, displayX);
-//     minY = Math.min(minY, displayY);
-//     maxX = Math.max(maxX, displayX);
-//     maxY = Math.max(maxY, displayY);
-//   }
-//
-//   let width = Math.ceil((-minX + maxX) * scaleContainer) + iconSize
-//   let height = Math.ceil ((-minY + maxY) * scaleContainer) + iconSize
-//
-//   let offsetX = -minX * scaleContainer
-//   let offsetY = -minY * scaleContainer
-//
-//   // console.log(width, height, offsetX, offsetY)
-//   return [width * 0, height * 0, offsetX * 0, offsetY * 0]
-// }
+watch([offset, scale, () => props.quests], () => {
+  nextTick(() => canvasLines())
+}, { deep: true })
+
+const draw = (e) => {
+
+  if (isDrawing.value && e.target.id === "") {
+    lineDraw(drawX.value, drawY.value, e.pageX, e.pageY);
+    drawX.value = e.pageX;
+    drawY.value = e.pageY;
+  }
+}
 
 const lineDraw = (x1, y1, x2, y2) => {
   ctx.value.beginPath();
-  ctx.value.strokeStyle = 'lightgray';
-  ctx.value.lineWidth = 2;
   ctx.value.moveTo(x1, y1);
   ctx.value.lineTo(x2, y2);
   ctx.value.stroke();
-  ctx.value.closePath();
-}
-
-const draw = (e) => {
-  if(isDrawing.value && e.target.id === "drawLine") {
-
-    lineDraw(drawX.value, drawY.value, e.offsetX, e.offsetY);
-    drawX.value = e.offsetX;
-    drawY.value = e.offsetY;
-  }
 }
 
 const beginDrawing = (e) => {
   if (e.target.classList[0] === 'quest') {
     ctx.value.globalAlpha = 1
+    ctx.value.strokeStyle = 'lightgray';
+    ctx.value.lineWidth = 2;
     drawX.value = e.target.parentElement.x;
     drawY.value = e.target.parentElement.y;
     isDrawing.value = true;
     drawStartQuestID.value = e.target.id;
+
   }
+
 }
 
 const stopDrawing = (e) => {
@@ -184,8 +196,7 @@ const stopDrawing = (e) => {
     drawX.value = 0;
     drawY.value = 0;
     isDrawing.value = false;
-
-    if (e.target.id !== "drawLine" && e.target.id !== drawStartQuestID.value) {
+    if (e.target.classList[0] === "quest" && e.target.id !== drawStartQuestID.value) {
       props.quests[e.target.id].parents.push({"questID": drawStartQuestID.value});
       props.saveSnapshot()
     }
@@ -204,5 +215,10 @@ defineExpose({
 
 
 <style scoped>
-
+.lines-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
 </style>

@@ -11,14 +11,19 @@
 
       <div class="quests-field"
            @mousedown="drag.startDrag($event, edit); onFieldClick($event)"
-           @mousemove="drag.onDrag"
-           @mouseup="drag.endDrag"
+           @mousedown.shift="edit ? canvasRef.beginDrawing($event) : null"
+           @mousemove="drag.onDrag($event); canvasRef.draw($event)"
+           @mouseup="drag.endDrag($event); canvasRef.stopDrawing($event)"
            @mouseleave="drag.endDrag"
            @wheel.prevent="drag.onZoom"
            @contextmenu.prevent>
 
+        <CanvasLines
+            ref="canvasRef"
+            :quests="tab.quests"
+            :save-snapshot="saveSnapshot"/>
+
         <div class="quests" id="quests"
-             @mousemove="canvasRef.draw" @mousedown.shift="edit ? canvasRef.beginDrawing($event) : null" @mouseup="canvasRef.stopDrawing"
              :style="{transform: `${drag.getTransform()}`}">
           <div
               class="grid-container"
@@ -26,10 +31,6 @@
               :style="{ '--grid-size': `${gridSize}px` }"
           >
           </div>
-          <CanvasLines
-              ref="canvasRef"
-              :quests="tab.quests"
-              :save-snapshot="saveSnapshot"/>
 
           <QuestNodes :save-snapshot="saveSnapshot"
                       :print-graph="printGraph"
@@ -39,6 +40,7 @@
                       :scale="scale"
                       @edit-active-quest="editActiveQuest"/>
         </div>
+
         <PrevertQuest
             v-if="active_quest"
             @wheel.stop
@@ -49,6 +51,7 @@
             :tabID="tab.tabID"
         />
       </div>
+
       <items-list
           ref="itemSelector"
           :items-type="'item'"

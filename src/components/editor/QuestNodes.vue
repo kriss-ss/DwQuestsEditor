@@ -135,13 +135,14 @@ const onQuestClick = (name) => {
 const editMode = () => {
   let selected = $([]), offset = { top: 0, left: 0 };
 
-  $(".quests").on("mousemove", function(event) {
+  $(".quests-field").on("mousemove", function(event) {
     if (event.shiftKey) {
       $(".ui-selectable-helper").hide()
     }
   })
       .selectable({
-        filter: '> .quest-nodes .quest',
+        filter: '> > .quest-nodes .quest',
+
         stop: function() {
           $(".ui-selectable-helper").show()
         }
@@ -172,12 +173,7 @@ const editMode = () => {
 
         let top = (off.top + dt) / scale.value;
         let left = (off.left + dl) / scale.value;
-
-
-
         dragMoveQuest(el[0].id, left, top);
-
-
       });
 
       if (!(_drawQueued.value)) {
@@ -201,36 +197,16 @@ const editMode = () => {
 }
 
 const disableEditMode = () => {
-  $(".quests, .quests div, .quest-icon")
+  $(".quests-field, .quests div, .quest-icon")
       .removeData()
       .off()
       .removeClass("ui-selected ui-selectee ui-draggable ui-draggable-handle");
 }
 
 const dragMoveQuest = (name, posX, posY) => {
-  // const quest = props.tab.quests[name];
   if (!props.tab.quests[name]) return;
-
-  // const gridValue = 50
-  // if (posX % gridValue <= gridValue / 2) {
-  //   posX = posX - posX % gridValue
-  // } else {
-  //   posX = posX - posX % gridValue + 50
-  // }
-  //
-  // if (posY % gridValue <= gridValue / 2) {
-  //   posY = posY - posY % gridValue
-  // } else {
-  //   posY = posY - posY % gridValue + 50
-  // }
-  //
-  // console.log(posX % gridValue, posX, posY)
-
-  let newPosX = ((posX + (getQuestSize(props.tab.quests[name]) - 1) * iconSize / 2 - questNodesOffset) / scaleField).toFixed(3)
-  let newPosY = ((posY + (getQuestSize(props.tab.quests[name]) - 1) * iconSize / 2 - questNodesOffset) / scaleField).toFixed(3)
-
-
-
+  let newPosX = ((posX + (getQuestSize(props.tab.quests[name]) - 1) * iconSize / 2 - questNodesOffset) / scaleField).toFixed(5)
+  let newPosY = ((posY + (getQuestSize(props.tab.quests[name]) - 1) * iconSize / 2 - questNodesOffset) / scaleField).toFixed(5)
 
   props.tab.quests[name].displayX = newPosX
   props.tab.quests[name].displayY = newPosY

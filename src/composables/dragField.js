@@ -7,6 +7,7 @@ export function dragField() {
     const startDragPosition = ref({ x: 0, y: 0 })
 
     provide('scale', scale)
+    provide("offset", offset)
 
     const config = {
         minScale: 0.5,
