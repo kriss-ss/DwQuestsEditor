@@ -1,24 +1,19 @@
 <template>
   <main>
     <div class="quests-container">
-      <Sidebar
-          :tab="tab"
-          :quest="active_quest"
-          :parent-selector="parentSelector"
-          :item-selector="itemSelector"
-          :print-graph="printGraph"
-      />
-
       <div class="quests-field"
            @mousedown="drag.startDrag($event, edit); onFieldClick($event)"
-           @mousemove="drag.onDrag"
-           @mouseup="drag.endDrag"
+           @mousedown.shift="edit ? canvasRef.beginDrawing($event) : null"
+           @mousemove="drag.onDrag($event); canvasRef.draw($event)"
+           @mouseup="drag.endDrag($event); canvasRef.stopDrawing($event)"
            @mouseleave="drag.endDrag"
            @wheel.prevent="drag.onZoom"
            @contextmenu.prevent>
-
+        <CanvasLines
+            ref="canvasRef"
+            :quests="tab.quests"
+            :save-snapshot="saveSnapshot"/>
         <div class="quests" id="quests"
-             @mousemove="canvasRef.draw" @mousedown.shift="edit ? canvasRef.beginDrawing($event) : null" @mouseup="canvasRef.stopDrawing"
              :style="{transform: `${drag.getTransform()}`}">
           <div
               class="grid-container"
@@ -26,10 +21,6 @@
               :style="{ '--grid-size': `${gridSize}px` }"
           >
           </div>
-          <CanvasLines
-              ref="canvasRef"
-              :quests="tab.quests"
-              :save-snapshot="saveSnapshot"/>
 
           <QuestNodes :save-snapshot="saveSnapshot"
                       :print-graph="printGraph"
@@ -39,16 +30,23 @@
                       :scale="scale"
                       @edit-active-quest="editActiveQuest"/>
         </div>
-        <PrevertQuest
-            v-if="active_quest"
-            @wheel.stop
-            @mousemove.stop
-            @mousedown.stop
-            :quest="tab.quests[active_quest]"
-            :name="active_quest"
-            :tabID="tab.tabID"
-        />
       </div>
+      <Sidebar
+          :tab="tab"
+          :quest="active_quest"
+          :parent-selector="parentSelector"
+          :item-selector="itemSelector"
+          :print-graph="printGraph"
+      />
+      <PrevertQuest
+          v-if="active_quest"
+          @wheel.stop
+          @mousemove.stop
+          @mousedown.stop
+          :quest="tab.quests[active_quest]"
+          :name="active_quest"
+          :tabID="tab.tabID"
+      />
       <items-list
           ref="itemSelector"
           :items-type="'item'"
@@ -206,8 +204,8 @@ onMounted(() => {
 
 
 .quests-field {
-  min-width: 500px;
-  min-height: 500px;
+  width: 100%;
+  height: 100%;
   flex-grow: 1;
   background: rgb(61,53,17);
   background: radial-gradient(circle, rgba(61,53,17,1) 0%, rgba(24,10,70,1) 100%);
@@ -216,6 +214,8 @@ onMounted(() => {
   position: relative;
   user-select: none;
   cursor: grab;
+
+  position: absolute;
 }
 
 .quests-field:active {

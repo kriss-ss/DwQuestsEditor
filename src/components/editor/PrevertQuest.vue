@@ -5,14 +5,13 @@
     opacity: visible ? 0.25 : 1,
     }"
   >
-    <div class="p-quest-close"></div>
-    <div class="p-quest-visible"
-    @click="visible = !visible">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15.0007 12C15.0007 13.6569 13.6576 15 12.0007 15C10.3439 15 9.00073 13.6569 9.00073 12C9.00073 10.3431 10.3439 9 12.0007 9C13.6576 9 15.0007 10.3431 15.0007 12Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M12.0012 5C7.52354 5 3.73326 7.94288 2.45898 12C3.73324 16.0571 7.52354 19 12.0012 19C16.4788 19 20.2691 16.0571 21.5434 12C20.2691 7.94291 16.4788 5 12.0012 5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
+<!--    <div class="p-quest-visible"-->
+<!--    @click="visible = !visible">-->
+<!--      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--        <path d="M15.0007 12C15.0007 13.6569 13.6576 15 12.0007 15C10.3439 15 9.00073 13.6569 9.00073 12C9.00073 10.3431 10.3439 9 12.0007 9C13.6576 9 15.0007 10.3431 15.0007 12Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--        <path d="M12.0012 5C7.52354 5 3.73326 7.94288 2.45898 12C3.73324 16.0571 7.52354 19 12.0012 19C16.4788 19 20.2691 16.0571 21.5434 12C20.2691 7.94291 16.4788 5 12.0012 5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--      </svg>-->
+<!--    </div>-->
     <div class="p-quest-data">
       <div class="p-quest-data-icon">
         <img
@@ -132,16 +131,13 @@ const visible = ref(false);
   background-color: #202235;
   padding: 1rem;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) inset;
-  color: white;
+
   margin: auto;
 
   height:95vh;
-  width: 65%;
+  width: 55%;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 1;
 
   overflow: scroll;
 
@@ -210,7 +206,6 @@ const visible = ref(false);
   width: fit-content;
   background: rgba(0, 0, 0, 0.4);
   margin-left: 0.75rem;
-  font-weight: bold;
   /*margin-bottom: 5px;*/
   padding: 0.5rem;
 
@@ -236,9 +231,10 @@ const visible = ref(false);
 .p-quest-task-type, .p-quest-task-name, .p-quest-reward-name,
 .p-quest-reward-name, .p-quest-task-count, .p-quest-reward-count {
   display: flex;
+  justify-content: left;
   align-items: center;
-  justify-content: center;
-
+  text-align: center;
+  padding-top: 0.25rem;
 }
 
 .p-quest-task-name, .p-quest-reward-name {
@@ -254,8 +250,8 @@ const visible = ref(false);
   text-align: center;
   width: 100%;
   height: 2.25rem;
-  /*padding: 2px;*/
 
+  /*padding: 2px;*/
 }
 
 
@@ -263,15 +259,13 @@ const visible = ref(false);
 .p-quest-description-title, .p-quest-tasks-title,
 .p-quest-rewards-title, .p-quest-task, .p-quest-reward,
 .p-quest-reward-empty {
-  font-family: minecraft, sans-serif !important;
-  text-shadow: 1px 1px 1px #3F3F3F;
-
+  font-family: minecraft, sans-serif;
 }
 
 .p-quest-line {
   content: '';
   width: 31.25rem;
-  height: 0.33rem;
+  min-height: 0.33rem;
   margin: 0.5rem;
 }
 

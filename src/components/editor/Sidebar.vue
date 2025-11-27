@@ -124,12 +124,9 @@ onMounted(() => {
     },
     stop() {
       isResizing.value = false;
+      computedWidth.value = sidebarElement.value.scrollWidth + 'px'
     },
     resize(event, ui) {
-      // width.value = ui.originalElement.offsetWidth;
-      // console.log(ui);
-      // console.log(event)
-      // $(".quests").css("transform", `translateX(${-width.value}px)`)
     }
 
   });
@@ -166,6 +163,7 @@ watch(
   height: 100vh;
   min-width: 15%;
   max-width: 35%;
+
   flex-shrink: 0;
 
   overflow: hidden;
@@ -175,20 +173,16 @@ watch(
   background: var(--primary);
   font-family: Inter, sans-serif;
   color: white;
-  transition: all 0.8s ease;
+  transition: all 1s ease;
 }
 
 .quests-sidebar.collapsed {
   width: 0;
   min-width: 0;
   max-width: 0;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 25%;
 }
 
-.quests-sidebar.collapsed {
-  transform: translateX(-200%);
-}
 
 .quests-sidebar.no-transition {
   transition: none;
