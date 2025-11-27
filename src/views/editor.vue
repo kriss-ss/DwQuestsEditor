@@ -204,19 +204,22 @@ onMounted(() => {
 
 
 .quests-field {
-  width: 100%;
-  height: 100%;
-  flex-grow: 1;
-  background: rgb(61,53,17);
-  background: radial-gradient(circle, rgba(61,53,17,1) 0%, rgba(24,10,70,1) 100%);
-  box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.8);
-  overflow: hidden;
-  position: relative;
-  user-select: none;
-  cursor: grab;
+   width: 100%;
+   height: 100%;
+   flex-grow: 1;
+   overflow: hidden;
+   position: absolute;
+   user-select: none;
+   cursor: grab;
 
-  position: absolute;
-}
+   background:
+       linear-gradient(rgba(2, 9, 18, 0.3), rgba(2, 9, 18, 0.3)),
+       url("/bg.webp") center/cover;
+
+   box-shadow: inset 0 0 1rem rgba(0,0,0,0.85);
+ }
+
+
 
 .quests-field:active {
   cursor: grabbing;
