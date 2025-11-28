@@ -65,6 +65,9 @@
       >
         <div class="p-quest-reward"
         v-for="reward in getQuestRewards(quest)"
+             @mouseenter="showTooltip(reward, $event)"
+             @mouseleave="hideTooltip"
+             @mousemove="updateTooltipPosition"
         >
           <div class="p-quest-reward-icon">
             <img class="p-reward-icon" :src="iconById(reward.id)" alt="">
@@ -73,11 +76,17 @@
             <div class="p-quest-reward-name">{{reward.name}} -</div>
             <div class="p-quest-reward-count">{{reward.count}} шт</div>
           </div>
-          <span class="p-quest-reward-hover" v-html="convertDescription(reward.data)"></span>
+
         </div>
       </div>
       <div v-else class="p-quest-rewards-rewards">
         <div class="p-quest-reward-empty">Награды отсутствуют</div>
+      </div>
+      <div class="p-quest-reward-hover"
+          :class="{ 'active': activeTooltip }"
+          :style="tooltipStyle"
+      >
+        <div v-html="activeTooltipContent"></div>
       </div>
     </div>
   </div>
@@ -89,7 +98,7 @@ import {questRarities, taskTypes} from "@/constants/questConstants.js";
 import {getPosQuest, getQuestSize, getQuestColor, getQuestDescription, getQuestRewards, getQuestTasks, getIconItem} from "@/utils/getQuestData.js";
 import {iconByQuestName, iconById} from "@/utils/getIcon.js";
 import {convertDescription} from "@/utils/convertDescription.js";
-import {ref} from "vue";
+import {reactive, ref} from "vue";
 
 
 const props = defineProps({
@@ -108,6 +117,32 @@ const props = defineProps({
 })
 
 const visible = ref(false);
+
+const activeTooltip = ref(false)
+const activeTooltipContent = ref('')
+const tooltipStyle = reactive({
+  left: '0px',
+  top: '0px'
+})
+
+
+const showTooltip = (reward, event) => {
+  activeTooltipContent.value = convertDescription(reward.data)
+  activeTooltip.value = true
+  updateTooltipPosition(event)
+}
+
+const hideTooltip = () => {
+  activeTooltip.value = false
+}
+
+const updateTooltipPosition = (event) => {
+  const rect = event.currentTarget.getBoundingClientRect()
+  const tooltip = document.querySelector('.p-quest-reward-hover')
+
+  tooltipStyle.left = `${rect.left}px`
+  tooltipStyle.top = `${rect.top - tooltip.offsetHeight}px`
+}
 
 </script>
 
@@ -177,6 +212,10 @@ const visible = ref(false);
   margin-top: 0.5rem;
 }
 
+.p-quest-rewards {
+  position: relative;
+}
+
 .p-quest-description, .p-quest-tasks, .p-quest-rewards {
   width: 100%;
 
@@ -199,6 +238,7 @@ const visible = ref(false);
 .p-quest-tasks-tasks, .p-quest-rewards-rewards {
   background: rgba(0, 0, 0, 0.2);
   padding: 1rem 1rem 1rem;
+  position: relative;
 }
 
 .p-quest-description-title,
@@ -235,7 +275,7 @@ const visible = ref(false);
   justify-content: left;
   align-items: center;
   text-align: center;
-  padding-top: 0.25rem;
+  padding-top: 0.5rem;
 }
 
 .p-quest-task-name, .p-quest-reward-name {
@@ -259,8 +299,12 @@ const visible = ref(false);
 .p-quest-data-name, .p-quest-description-text,
 .p-quest-description-title, .p-quest-tasks-title,
 .p-quest-rewards-title, .p-quest-task, .p-quest-reward,
-.p-quest-reward-empty {
+.p-quest-reward-empty, .p-quest-reward-hover {
   font-family: minecraft, sans-serif;
+}
+
+.p-quest-description-text, .p-quest-task,  .p-quest-reward, .p-quest-reward-empty, .p-quest-reward-hover {
+  font-size: 14px;
 }
 
 .p-quest-line {
@@ -271,21 +315,22 @@ const visible = ref(false);
 }
 
 .p-quest-reward-hover {
-  /*width: 100%;*/
+  position: fixed;
   opacity: 0;
   background: #12040F;
-  border: solid 4px #1A0139;
+  border: 4px solid #1A0139;
   border-radius: 8px;
-  z-index: 1;
-  position: fixed;
-  left: 40%;
-  /*top: -300px;*/
-  transition: opacity 0.2s;
-  padding: 5px;
+  padding: 12px;
+  max-width: 400px;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.p-quest-reward:hover > .p-quest-reward-hover:not(:hover) {
-  opacity: 0.95;
+.p-quest-reward-hover.active {
+  opacity: 1;
+  transform: translateY(0);
 }
+
 
 </style>
