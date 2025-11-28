@@ -89,6 +89,7 @@ const wrapSelectedText = (colorSymbol) => {
     textarea.value.selectionStart = start;
     textarea.value.selectionEnd = start + wrappedText.length;
     textarea.value.focus();
+    saveSnapshot()
   });
 }
 

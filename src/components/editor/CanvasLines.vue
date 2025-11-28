@@ -89,7 +89,8 @@ const canvasLines = () => {
       const colors = isHidden ? ["#FFCBDB", "#FFCBDB"] : [questRarities[questRarity], questRarities[line[3]]]
 
 
-      const angle = Math.atan2(line[1] - quest.displayY, line[0] - quest.displayX) * (180 / Math.PI)
+      const angle = (Math.atan2(line[1] - quest.displayY, line[0] - quest.displayX) * (180 / Math.PI)).toFixed(5);
+
       let direction =
           (angle >= 45 && angle <= 135) ||
           (angle < 0 && angle > -45) ||
