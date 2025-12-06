@@ -28,11 +28,17 @@
                      @change="editRewardCount($event, reward.num_id)"/>
 
               <span
-                  class="reward-gift-settings"
+                  class="reward-settings"
                   v-if="getRewardType(reward.id) === 'GIFT'"
               >
                 <Gift :reward="reward" :quest="quest" :item-selector="itemSelector" />
                 </span>
+              <span
+                  class="reward-settings"
+                  v-if="getRewardType(reward.id) === 'SCRIPT'"
+              >
+                <Script :reward="reward" :quest="quest"/>
+              </span>
             </span>
           </span>
 
@@ -56,6 +62,7 @@ import {iconById} from "@/utils/getIcon.js";
 import {rewardTypes} from "@/constants/questConstants.js";
 import Gift from "@/components/sidebar/Gift.vue";
 import {inject} from "vue";
+import Script from "@/components/sidebar/Script.vue";
 
 const props = defineProps({
   quest: {
@@ -131,7 +138,7 @@ const getRewardCount = (reward) => {
 <style scoped>
 
 
-.reward-gift-settings {
+.reward-settings {
   display: grid;
   grid-row-gap: 0.5rem;
   grid-column: 1 / -1;
@@ -142,7 +149,7 @@ const getRewardCount = (reward) => {
   /*grid-template-columns: 1fr 40px;*/
 }
 
-.reward-gift-settings::before {
+.reward-settings::before {
   content: "";
   position: absolute;
   left: -1.5rem;
