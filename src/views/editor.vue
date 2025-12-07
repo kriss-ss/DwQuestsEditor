@@ -57,7 +57,12 @@
       <items-list
           ref="parentSelector"
           :items-type="'parent'"
-          :items="Object.keys(tab.quests).filter(e => e !== active_quest)"
+          :items="Object.entries(tab.quests)
+  .filter(([key]) => key !== active_quest)
+  .reduce((acc, [key, quest]) => {
+    acc[key] = quest.iconItem;
+    return acc;
+  }, {})"
           :placeholder-text="'Введите название родителя..'"
           :tabID="tab.tabID"
       />

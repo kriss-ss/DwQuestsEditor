@@ -4,8 +4,7 @@ import itemsIcons from '@/assets/json/iconsList/itemsNamesIcons.json'
 
 
 export const iconById = (id) => {
-    if (!id) return new URL('src/assets/icons/' + defaultIcon, import.meta.url).href
-
+    if (!id) return new URL('/icons/' + defaultIcon, import.meta.url).href
     if (id.includes("{")) {
         id = id.substring(0, id.indexOf("{"));
     }
