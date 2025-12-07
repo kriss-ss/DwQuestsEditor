@@ -65,7 +65,7 @@
     </div>
 
   </div>
-    <ControlButtons
+    <Menu
         :tab="tab"
     />
 </template>
@@ -81,7 +81,7 @@ import Tasks from "@/components/sidebar/Tasks.vue";
 import Rewards from "@/components/sidebar/Rewards.vue";
 import Parents from "@/components/sidebar/Parents.vue";
 import Grid from "@/components/sidebar/Grid.vue";
-import ControlButtons from "@/components/sidebar/ControlButtons.vue";
+import Menu from "@/components/sidebar/Menu.vue";
 import {nextTick, onMounted, ref, watch, inject, provide} from "vue";
 
 const props = defineProps({
