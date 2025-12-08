@@ -21,11 +21,10 @@ export function editorHistory(initialState, options = {}) {
     const setupKeyListeners = () => {
         _keyHandler.value = (e) => {
             if (shouldIgnoreKeyEvent(e)) return
-
-            if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'z') {
+            if (e.ctrlKey && e.shiftKey && e.code === 'KeyZ') {
                 e.preventDefault()
                 redo()
-            } else if (e.ctrlKey && e.key === 'z') {
+            } else if (e.ctrlKey && e.code === 'KeyZ') {
                 e.preventDefault()
                 undo()
             }
