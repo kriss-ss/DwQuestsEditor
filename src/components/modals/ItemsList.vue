@@ -35,8 +35,8 @@
             class="items-list-item"
             @click="handleItemClick(key)"
         >
-          <img class="items-list-item-icon" :src="iconByQuestName(key, value, props.tabID)" alt="">
-          <div class="items-list-item-name">{{ key }}</div>
+          <img class="items-list-item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
+          <div class="items-list-item-name">{{ value.name ?? key }}</div>
         </div>
 
       </template>

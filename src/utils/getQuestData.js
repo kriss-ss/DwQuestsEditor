@@ -105,6 +105,7 @@ export const getQuestParents = (quest, quests) => {
             id: quest_id,
             num_id: n++,
             name: parent.questID,
+            questName: quests[parent.questID]?.displayName,
             lineType: parent.lineType || "DEFAULT",
             parentType: parent.parentType || "Обычная",
         })

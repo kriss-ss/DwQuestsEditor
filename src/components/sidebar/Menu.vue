@@ -66,11 +66,12 @@ const sidebarAddQuest = () => {
   }
   saveSnapshot()
 
-  edit.value = false
-  nextTick(() => {
-    edit.value = true
-  })
-
+  if (edit.value) {
+    edit.value = false
+    nextTick(() => {
+      edit.value = true
+    })
+  }
 }
 
 const checkAvailableCoords = () => {
