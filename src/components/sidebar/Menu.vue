@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import {inject} from "vue";
+import {inject, nextTick} from "vue";
 
 const props = defineProps({
   tab: {
@@ -65,6 +65,12 @@ const sidebarAddQuest = () => {
     "rewards": []
   }
   saveSnapshot()
+
+  edit.value = false
+  nextTick(() => {
+    edit.value = true
+  })
+
 }
 
 const checkAvailableCoords = () => {
