@@ -57,7 +57,7 @@
       <items-list
           ref="parentSelector"
           :items-type="'parent'"
-          :items="Object.keys(tab.quests).filter(e => e !== active_quest)"
+          :items="getParentsList()"
           :placeholder-text="'Введите название родителя..'"
           :tabID="tab.tabID"
       />
@@ -112,6 +112,18 @@ const onFieldClick = (event) => {
   if (!event.target.closest('.quest')) {
     active_quest.value = "";
   }
+}
+
+const getParentsList = () => {
+  return Object.entries(tab.value.quests)
+      .filter(([key]) => key !== active_quest.value)
+      .reduce((acc, [key, quest]) => {
+        acc[key] = {
+          id: quest.iconItem,
+          name: quest.displayName
+        };
+        return acc;
+      }, {});
 }
 
 // const toggleEditMode = () => {

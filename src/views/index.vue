@@ -33,7 +33,7 @@
             ref="fileInput"
             @change="FromFileTab"
             style="display: none;"
-            accept="application/json,.json"
+            accept="application/json,.json,.txt"
         />
 
         <span
@@ -58,8 +58,8 @@ const router = useRouter();
 const fileInput = ref(null)
 
 const readFile = (file) => {
-  if (!file.name.endsWith('.json')) {
-    alert('Пожалуйста, выберите JSON файл');
+  if (!file.name.endsWith('.json') && !file.name.endsWith('.txt')) {
+    alert('Пожалуйста, выберите правильный файл');
     return;
   }
   const reader = new FileReader();

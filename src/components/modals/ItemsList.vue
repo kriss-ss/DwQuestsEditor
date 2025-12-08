@@ -33,10 +33,10 @@
         <div
             v-if="itemsType === 'parent'"
             class="items-list-item"
-            @click="handleItemClick(items[key])"
+            @click="handleItemClick(key)"
         >
-          <img class="items-list-item-icon" :src="iconByQuestName(items[key], '', props.tabID)" alt="">
-          <div class="items-list-item-name">{{ items[key] }}</div>
+          <img class="items-list-item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
+          <div class="items-list-item-name">{{ value.name ?? key }}</div>
         </div>
 
       </template>

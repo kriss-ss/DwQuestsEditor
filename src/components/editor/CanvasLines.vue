@@ -157,7 +157,7 @@ const getParentLines = (quest) => {
   return lines;
 }
 
-watch([offset, scale, () => props.quests], () => {
+watch([offset, scale], () => {
   nextTick(() => canvasLines())
 }, { deep: true })
 
