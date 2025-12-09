@@ -41,14 +41,9 @@ export function dragField() {
         const newScale = scale.value * (event.deltaY < 0 ? 1 + zoomFactor : 1 - zoomFactor);
         const clampedScale = Math.min(Math.max(newScale, config.minScale), config.maxScale);
 
-        const rect = document.querySelector(".quests-field").getBoundingClientRect();
-        const mouseX = event.clientX - rect.left - 40;
-        const mouseY = event.clientY - rect.top - 40;
-
         const scaleRatio = clampedScale / scale.value;
-        offset.value.x = mouseX - (mouseX - offset.value.x) * scaleRatio;
-        offset.value.y = mouseY - (mouseY - offset.value.y) * scaleRatio;
-
+        offset.value.x = event.x - (event.x - offset.value.x) * scaleRatio;
+        offset.value.y = event.y - (event.y - offset.value.y) * scaleRatio;
         scale.value = clampedScale;
 
         if (isDragging.value) {
@@ -57,6 +52,7 @@ export function dragField() {
     }
 
     const getTransform = () => {
+        console.log(123)
         return `translate(${offset.value.x}px, ${offset.value.y}px) scale(${scale.value})`
     }
 
