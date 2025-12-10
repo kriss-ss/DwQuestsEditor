@@ -48,7 +48,7 @@
         <div class="p-quest-task"
              v-for="task in getQuestTasks(quest)">
           <div class="p-quest-task-icon">
-            <img class="p-task-icon" :src="iconById(task.id)" alt="">
+            <img loading="lazy" class="p-task-icon icon" :src="iconById(task.id)" alt="">
           </div>
           <div class="p-quest-task-data">
             <span class="p-quest-task-type" v-if="!task.hasCustomDescription">{{taskTypes[task.type] || "Сбор"}}:</span>
@@ -70,7 +70,7 @@
              @mousemove="updateTooltipPosition"
         >
           <div class="p-quest-reward-icon">
-            <img class="p-reward-icon" :src="iconById(reward.id)" alt="">
+            <img loading="lazy" class="p-reward-icon icon" :src="iconById(reward.id)" alt="">
           </div>
           <div class="p-quest-reward-data">
             <div class="p-quest-reward-name">{{reward.name}} -</div>
@@ -330,6 +330,11 @@ const updateTooltipPosition = (event) => {
 .p-quest-reward-hover.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
 }
 
 

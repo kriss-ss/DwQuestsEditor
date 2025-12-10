@@ -8,7 +8,7 @@
         class="quest-title-icon"
         @click="showItemPicker($event, editQuestIcon, 'NaN')"
     >
-      <img class="sidebar-item-icon" :src="questIcon" alt=""/>
+      <img loading="lazy" class="sidebar-item-icon" :src="questIcon" alt=""/>
     </div>
   </div>
 </template>

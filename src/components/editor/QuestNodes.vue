@@ -21,7 +21,7 @@
             '--quest-color': quest.color,
           }"
     >
-      <img :src="quest.icon" class="quest-icon"  alt=""/>
+      <img loading="lazy" :src="quest.icon" class="quest-icon"  alt=""/>
     </div>
   </div>
 </template>

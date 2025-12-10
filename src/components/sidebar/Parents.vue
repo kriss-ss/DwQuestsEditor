@@ -13,7 +13,7 @@
               <span
                   class="parent-item-data"
               >
-                <img class="sidebar-item-icon" @click="showParentPicker($event, editParentItem, parent)" :src="iconByQuestName(parent.name, parent.id, props.tabID)" alt=""/>
+                <img loading="lazy" class="sidebar-item-icon" @click="showParentPicker($event, editParentItem, parent)" :src="iconByQuestName(parent.name, parent.id, props.tabID)" alt=""/>
                 <p class="sidebar-item-name">{{parent.questName ?? parent.name}}</p>
               </span>
               <SelectButton

@@ -13,7 +13,7 @@
               <span
                   class="reward-item-data"
               >
-                <img class="sidebar-item-icon" @click="showItemPicker($event, editRewardItem, reward)" :src="iconById(reward.id)" alt=""/>
+                <img loading="lazy" class="sidebar-item-icon" @click="showItemPicker($event, editRewardItem, reward)" :src="iconById(reward.id)" alt=""/>
                 <p class="sidebar-item-name">{{ reward.name }}</p>
               </span>
               <SelectButton
