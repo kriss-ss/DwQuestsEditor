@@ -17,6 +17,8 @@
             height: `${quest.size}px`,
             boxShadow: `0 0 ${quest.size / 2}px ${quest.size / 5}px ${quest.color}`,
             background: `radial-gradient( var(--white), ${quest.color})`,
+            '--quest-size': `${quest.size}px`,
+            '--quest-color': quest.color,
           }"
     >
       <img :src="quest.icon" class="quest-icon"  alt=""/>
@@ -239,6 +241,14 @@ watch(() => edit.value, (newValue) => {
   transform-origin: center;
   will-change: transform;
 
+  &::before {
+    content: '';
+    position: absolute;
+    width: calc(var(--quest-size) * 1.5);
+    height: calc(var(--quest-size) * 1.5);
+    border-radius: 50%;
+    opacity: 0;
+  }
 }
 
 .quest-icon {

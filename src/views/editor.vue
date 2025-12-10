@@ -9,6 +9,9 @@
            @mouseleave="drag.endDrag"
            @wheel.prevent="drag.onZoom"
            @contextmenu.prevent>
+
+
+        
         <CanvasLines
             ref="canvasRef"
             :quests="tab.quests"
@@ -171,7 +174,6 @@ onMounted(() => {
     localStorage.setItem('current-tab', JSON.stringify(tab.value));
   }, 5000);
 
-  $(".template-img").draggable({})
 
 })
 

@@ -52,7 +52,6 @@ export function dragField() {
     }
 
     const getTransform = () => {
-        console.log(123)
         return `translate(${offset.value.x}px, ${offset.value.y}px) scale(${scale.value})`
     }
 
