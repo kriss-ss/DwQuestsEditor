@@ -28,7 +28,7 @@
 
 <script setup>
 
-import {ref, watch, nextTick, inject, computed} from 'vue';
+import {ref, watch, nextTick, inject, computed, provide} from 'vue';
 import {iconSize, questNodesOffset, scaleField} from "@/constants/questConstants.js";
 import {getPosQuest, getQuestSize, getQuestColor, getIconItem, getDisplayName} from "@/utils/getQuestData.js";
 import {iconByQuestName} from "@/utils/getIcon.js";
@@ -51,7 +51,7 @@ const props = defineProps({
 const saveSnapshot = inject('saveSnapshot')
 const scale = inject('scale')
 const edit = inject('edit')
-
+const gridEnable = inject('gridEnable')
 const emit = defineEmits(['edit-active-quest'])
 
 
@@ -136,6 +136,7 @@ const onQuestClick = (name) => {
 
 const editMode = () => {
   let selected = $([]), offset = { top: 0, left: 0 };
+  let draggableId = null;
 
   $(".quests-field").on("mousemove", function(event) {
     if (event.shiftKey) {
@@ -158,11 +159,18 @@ const editMode = () => {
       if (!$(this).is(".ui-selected")) {
         $(".ui-selected").removeClass("ui-selected");
       }
+      draggableId = $(this)[0].id
       selected = $(".ui-selected").each(function () {
         let el = $(this);
         el.data("offset", el.offset());
       });
       offset = $(this).offset();
+      if (gridEnable.value) {
+        $(".quest").draggable("option", "grid", [30 * scale.value, 30 * scale.value]);
+      } else {
+        $(".quest").draggable("option", "grid", false);
+      }
+
     },
     drag: function (ev, ui) {
 
@@ -175,6 +183,14 @@ const editMode = () => {
 
         let top = (off.top + dt) / scale.value;
         let left = (off.left + dl) / scale.value;
+
+        if (el[0].id === draggableId) {
+          ui.position = {
+            left: left,
+            top: top
+          };
+        }
+
         dragMoveQuest(el[0].id, left, top);
       });
 

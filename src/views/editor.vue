@@ -200,6 +200,8 @@ onMounted(() => {
   left: calc(var(--field-radius) * -1);
   width: calc(var(--field-radius) * 2);
   height: calc(var(--field-radius) * 2);
+  margin-left: 15px;
+  margin-top: 25px;
   pointer-events: none;
   background-image:
       linear-gradient(to right, rgba(0, 0, 0, 0.3) 2px, transparent 1px),
