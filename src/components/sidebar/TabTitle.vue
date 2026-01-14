@@ -5,7 +5,7 @@
         class="tab-title-icon"
         @click="showItemPicker($event, editTabIcon, 'NaN')"
     >
-      <img class="sidebar-item-icon" :src="iconById(tab.iconItem)" alt="./assets/icons/minecraft/bedrock.png"/>
+      <img loading="lazy" class="sidebar-item-icon" :src="iconById(tab.iconItem)" alt="./assets/icons/minecraft/bedrock.png"/>
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@
               @click.right.shift="deleteGiftItem(item)"
               @click="showItemPicker($event, editGiftItem, item)"
           >
-        <img class="sidebar-item-icon" :src="iconById(item.id)" alt=""/>
+        <img loading="lazy" class="sidebar-item-icon" :src="iconById(item.id)" alt=""/>
         <p class="sidebar-item-name">{{ item.name }}</p>
       </span>
           <input class="sidebar-small-button quest-reward-count center" type="text" :value="item.count"

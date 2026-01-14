@@ -9,6 +9,9 @@
            @mouseleave="drag.endDrag"
            @wheel.prevent="drag.onZoom"
            @contextmenu.prevent>
+
+
+        
         <CanvasLines
             ref="canvasRef"
             :quests="tab.quests"
@@ -18,7 +21,9 @@
           <div
               class="grid-container"
               :class="{'gridEnable': gridEnable}"
-              :style="{ '--grid-size': `${gridSize}px` }"
+              :style="{'--grid-size': `${gridSize * 30}px`,
+                       marginRight: `${parseFloat(gridModifier.left) * 30}px`,
+                       marginBottom: `${parseFloat(gridModifier.top) * 30}px`,}"
           >
           </div>
 
@@ -74,7 +79,7 @@ import {editorHistory} from "@/composables/editorHistory.js";
 import ItemsList from "@/components/modals/ItemsList.vue";
 import {dragField} from "@/composables/dragField.js";
 import {getItems} from "@/utils/getItems.js";
-import {onBeforeUnmount, onMounted, ref, provide, nextTick} from "vue";
+import {onBeforeUnmount, onMounted, ref, provide, nextTick, inject} from "vue";
 import {useRouter} from "vue-router";
 
 
@@ -90,7 +95,8 @@ const drag = ref(null)
 const historyManager = ref(null)
 const updateTabInterval = ref(null)
 const gridEnable = ref(false)
-const gridSize = ref(30)
+const gridSize = ref(1)
+const gridModifier = ref({left: 0, top: 0})
 
 
 const saveSnapshot = () => {
@@ -102,6 +108,9 @@ provide('saveSnapshot', saveSnapshot)
 provide('edit', edit)
 provide('gridEnable', gridEnable)
 provide('active_quest', active_quest)
+provide('gridSize', gridSize)
+provide('gridModifier', gridModifier)
+
 
 
 const editActiveQuest = (name) => {
@@ -171,7 +180,6 @@ onMounted(() => {
     localStorage.setItem('current-tab', JSON.stringify(tab.value));
   }, 5000);
 
-  $(".template-img").draggable({})
 
 })
 
@@ -194,14 +202,14 @@ onMounted(() => {
 
 .grid-container {
   position: absolute;
-  top: calc(var(--field-radius) * -1);
-  left: calc(var(--field-radius) * -1);
+  top: calc((var(--field-radius)) * -1 - 5px);
+  left: calc((var(--field-radius)) * -1 + 15px);
   width: calc(var(--field-radius) * 2);
   height: calc(var(--field-radius) * 2);
   pointer-events: none;
   background-image:
-      linear-gradient(to right, rgba(0, 0, 0, 0.3) 2px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 2px, transparent 1px);
+      linear-gradient(to left, rgba(0, 0, 0, 0.3) 2px, transparent 1px),
+      linear-gradient(to top, rgba(0, 0, 0, 0.3) 2px, transparent 1px);
   background-size: var(--grid-size) var(--grid-size);
   opacity: 0;
   transform: scale(0.95);

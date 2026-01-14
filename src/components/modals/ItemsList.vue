@@ -27,7 +27,7 @@
             class="items-list-item"
             @click="handleItemClick(key)"
         >
-          <img class="items-list-item-icon" :src="iconById(key)" alt="">
+          <img loading="lazy" class="items-list-item-icon" :src="iconById(key)" alt="">
           <div class="items-list-item-name">{{ getRusNameFromId(key) }} ({{ value.itemId }})</div>
         </div>
         <div
@@ -35,7 +35,7 @@
             class="items-list-item"
             @click="handleItemClick(key)"
         >
-          <img class="items-list-item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
+          <img loading="lazy" class="items-list-item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
           <div class="items-list-item-name">{{ value.name ?? key }}</div>
         </div>
 
@@ -212,6 +212,11 @@ const handleOutsideClick = (e) => {
 .items-list-item-container::-webkit-scrollbar-thumb {
   width: 0.5rem;
   background: #77767D;
+}
+
+.items-list-item-icon {
+  width: 32px;
+  height: 32px;
 }
 
 </style>

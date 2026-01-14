@@ -167,8 +167,8 @@ const getItemHover = (item) => {
             itemLore = Object.values(nbt?.display?.Lore).join("\n")
         }
 
-
-        return `${itemName} §r${items[hoverItemID].itemId}§7\n${itemLore}\n§o§9${hoverItemMod}`
+        console.log(hoverItemID)
+        return `${itemName} §r${items[hoverItemID]?.itemId}§7\n${itemLore}\n§o§9${hoverItemMod}`
 
     }
     return `${getRusNameFromId(hoverItemID)} §r${items[hoverItemID]?.itemId}§7\n§o§9${hoverItemMod}`
