@@ -52,6 +52,7 @@ const saveSnapshot = inject('saveSnapshot')
 const scale = inject('scale')
 const edit = inject('edit')
 const gridEnable = inject('gridEnable')
+const gridSize = inject('gridSize')
 const emit = defineEmits(['edit-active-quest'])
 
 
@@ -166,7 +167,7 @@ const editMode = () => {
       });
       offset = $(this).offset();
       if (gridEnable.value) {
-        $(".quest").draggable("option", "grid", [30 * scale.value, 30 * scale.value]);
+        $(".quest").draggable("option", "grid", [gridSize.value * 30 * scale.value, gridSize.value * 30 * scale.value]);
       } else {
         $(".quest").draggable("option", "grid", false);
       }
