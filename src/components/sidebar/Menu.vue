@@ -173,10 +173,11 @@ const saveTab = () => {
   font-family: Inter, sans-serif;
   display: flex;
   z-index: 1;
+  pointer-events: none;
 }
 
 .grid-settings {
-  position: relative;
+
   height: fit-content;
   width: 150px;
   margin-left: 1rem;
@@ -190,7 +191,7 @@ const saveTab = () => {
   opacity: 0;
   transform: scale(0.2) translateX(-200%);
   transition: all 0.2s ease;
-  z-index: 0;
+
 }
 
 .grid-settings.grid-enable {
@@ -240,6 +241,7 @@ const saveTab = () => {
   border-radius: 0.75rem;
   padding: 0.25rem;
   opacity: 0.95;
+  pointer-events: auto;
 }
 
 .menu-buttons span {
