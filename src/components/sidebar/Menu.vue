@@ -197,6 +197,7 @@ const saveTab = () => {
 .grid-settings.grid-enable {
   opacity: 1;
   transform: scale(1);
+  pointer-events: auto;
 }
 
 .grid-settings div {

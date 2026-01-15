@@ -17,6 +17,7 @@
             :quests="tab.quests"
             :save-snapshot="saveSnapshot"/>
         <div class="quests" id="quests"
+             :class="{'edit-mode': edit}"
              :style="{transform: `${drag.getTransform()}`}">
           <div
               class="grid-container"
