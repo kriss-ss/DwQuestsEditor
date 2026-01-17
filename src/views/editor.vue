@@ -23,8 +23,8 @@
               class="grid-container"
               :class="{'gridEnable': gridEnable}"
               :style="{'--grid-size': `${gridSize * 30}px`,
-                       marginRight: `${parseFloat(gridModifier.left) * 30}px`,
-                       marginBottom: `${parseFloat(gridModifier.top) * 30}px`,}"
+                       marginLeft: `${parseFloat(gridModifier.left) * 30}px`,
+                       marginTop: `${parseFloat(gridModifier.top) * 30}px`,}"
           >
           </div>
 
@@ -203,8 +203,8 @@ onMounted(() => {
 
 .grid-container {
   position: absolute;
-  top: calc((var(--field-radius)) * -1 - 5px);
-  left: calc((var(--field-radius)) * -1 + 15px);
+  top: calc((var(--field-radius)) * -1);
+  left: calc((var(--field-radius)) * -1);
   width: calc(var(--field-radius) * 2);
   height: calc(var(--field-radius) * 2);
   pointer-events: none;
@@ -212,6 +212,7 @@ onMounted(() => {
       linear-gradient(to left, rgba(0, 0, 0, 0.3) 2px, transparent 1px),
       linear-gradient(to top, rgba(0, 0, 0, 0.3) 2px, transparent 1px);
   background-size: var(--grid-size) var(--grid-size);
+  background-position: calc((var(--field-radius)) + 1016px) calc((var(--field-radius)) + 516px);
   opacity: 0;
   transform: scale(0.95);
   transition: all 0.1s ease;
