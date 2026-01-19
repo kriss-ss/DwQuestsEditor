@@ -77,8 +77,9 @@ const gridModifier = inject('gridModifier')
 
 
 const sidebarAddQuest = () => {
-  const questName = 'Квест' + Object.keys(props.tab.quests).length;
-  const coords = checkAvailableCoords();
+  const questName = checkAvailableName()
+  // const coords = checkAvailableCoords();
+  const coords = {x: 0, y: 0}
   props.tab.quests[questName] = {
     "displayX": coords.x,
     "displayY": coords.y,
@@ -101,6 +102,17 @@ const sidebarAddQuest = () => {
     })
   }
 }
+
+const checkAvailableName = () => {
+  let questsNum = Object.keys(props.tab.quests).length;
+  let name = `Квест${questsNum}`;
+
+  while (props.tab.quests[name]) {
+    name = `Квест${++questsNum}`;
+  }
+
+  return name;
+};
 
 const checkAvailableCoords = () => {
   const gridSize = 1.5;
