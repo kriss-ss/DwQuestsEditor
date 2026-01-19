@@ -219,6 +219,10 @@ const saveTab = () => {
   flex-direction: column;
 }
 
+.grid-settings p {
+  user-select: none;
+}
+
 .grid-settings > * {
   display: flex;
   gap: 0.5rem;
