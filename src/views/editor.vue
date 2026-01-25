@@ -58,7 +58,6 @@
           :items-type="'item'"
           :items="items"
           :placeholder-text="'Введите название или id..'"
-          class="test-test"
       />
       <items-list
           ref="parentSelector"

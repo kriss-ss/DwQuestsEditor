@@ -7,16 +7,16 @@
   >
     <input
         v-model="searchValue"
-        class="items-list-search"
+        class="search"
         :placeholder="placeholderText" />
     <svg
-        class="items-list-search-icon"
+        class="search-icon"
         width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#646A77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
 
     <RecycleScroller
-        class="items-list-item-container"
+        class="items-container"
         :items="itemsMatches"
         :item-size="48"
         key-field="0"
@@ -24,19 +24,19 @@
       <template #default="{ item: [key, value] }">
         <div
             v-if="itemsType === 'item'"
-            class="items-list-item"
+            class="item"
             @click="handleItemClick(key)"
         >
-          <img loading="lazy" class="items-list-item-icon" :src="iconById(key)" alt="">
-          <div class="items-list-item-name">{{ getRusNameFromId(key) }} ({{ value.itemId }})</div>
+          <img loading="lazy" class="item-icon" :src="iconById(key)" alt="">
+          <div class="item-name">{{ getRusNameFromId(key) }} ({{ value.itemId }})</div>
         </div>
         <div
             v-if="itemsType === 'parent'"
-            class="items-list-item"
+            class="item"
             @click="handleItemClick(key)"
         >
-          <img loading="lazy" class="items-list-item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
-          <div class="items-list-item-name">{{ value.name ?? key }}</div>
+          <img loading="lazy" class="item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
+          <div class="item-name">{{ value.name ?? key }}</div>
         </div>
 
       </template>
@@ -153,7 +153,7 @@ const handleOutsideClick = (e) => {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25)
 }
 
-.items-list-search {
+.search {
   width: 100%;
   height: 2rem;
   margin-bottom: 0.5rem;
@@ -166,20 +166,20 @@ const handleOutsideClick = (e) => {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.items-list-search-icon {
+.search-icon {
   position: absolute;
   top: 0.625rem;
   left: 0.625rem;
 }
 
-.items-list-item-container {
+.items-container {
   border: #1E1F22 solid 2px;
   height: 15.5rem;
   overflow: scroll;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.items-list-item {
+.item {
   border-radius: 4px;
   padding: 0.25rem;
   color: white;
@@ -193,30 +193,31 @@ const handleOutsideClick = (e) => {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25)
 }
 
-.items-list-item:hover {
+.item:hover {
   background-color: #1E1F22;
   transition: background-color 0.2s ease;
 }
 
-.items-list-item-name {
-  font-family: Arial, Helvetica, sans-serif;
+.item-name {
+  font-family: Inter, sans-serif;
+  line-height: 1;
 }
 
 
-.items-list-item-container::-webkit-scrollbar {
+.items-container::-webkit-scrollbar {
   width: 0.5rem;
   height: 0;
   background: var(--primary-hover);
 }
 
-.items-list-item-container::-webkit-scrollbar-thumb {
+.items-container::-webkit-scrollbar-thumb {
   width: 0.5rem;
   background: #77767D;
 }
 
-.items-list-item-icon {
-  width: 32px;
-  height: 32px;
+.item-icon {
+  width: 2rem;
+  height: 2rem;
 }
 
 </style>
