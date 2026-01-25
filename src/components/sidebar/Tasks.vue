@@ -14,7 +14,7 @@
                   class="task-item-data"
               >
                 <img loading="lazy" class="sidebar-item-icon" @click="showItemPicker($event, editTaskItem, task)" :src="iconById(task.id)" alt=""/>
-                <p class="sidebar-item-name">{{task.name}}</p>
+                <p class="sidebar-item-name">{{task.name}} <span class="item-id">({{task.id}})</span></p>
               </span>
               <SelectButton
                   class="sidebar-medium-button quest-task-type center"

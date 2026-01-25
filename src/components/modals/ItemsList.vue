@@ -8,18 +8,25 @@
     <input
         v-model="searchValue"
         class="search"
+        @keydown.enter.prevent="handleItemClick(searchValue)"
         :placeholder="placeholderText" />
     <svg
         class="search-icon"
         width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#646A77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-
+    <div
+      v-if="itemsMatches.length === 0"
+      class="no-items"
+    >
+      <p class="item-new"> Предмет не найден<br> <br> Нажмите <code>Enter</code>, чтобы добавить новый предмет <br> Используйте буквенный ID формата: <code>minecraft:stone</code></p>
+    </div>
     <RecycleScroller
         class="items-container"
         :items="itemsMatches"
         :item-size="48"
         key-field="0"
+        v-if="itemsMatches.length > 0"
     >
       <template #default="{ item: [key, value] }">
         <div
@@ -28,7 +35,7 @@
             @click="handleItemClick(key)"
         >
           <img loading="lazy" class="item-icon" :src="iconById(key)" alt="">
-          <div class="item-name">{{ getRusNameFromId(key) }} ({{ value.itemId }})</div>
+          <p class="item-name">{{ getRusNameFromId(key) }} ({{ value.itemId }})</p>
         </div>
         <div
             v-if="itemsType === 'parent'"
@@ -36,11 +43,14 @@
             @click="handleItemClick(key)"
         >
           <img loading="lazy" class="item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
-          <div class="item-name">{{ value.name ?? key }}</div>
+          <p class="item-name">{{ value.name ?? key }}</p>
         </div>
 
+
       </template>
+
     </RecycleScroller>
+
   </div>
 </template>
 
@@ -218,6 +228,22 @@ const handleOutsideClick = (e) => {
 .item-icon {
   width: 2rem;
   height: 2rem;
+}
+
+.no-items {
+  padding: 0.25rem;
+  border: #1E1F22 solid 1px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25)
+}
+
+.item-new {
+  font-family: Inter, sans-serif;
+}
+
+.item-new code {
+  background: var(--primary);
+  color: darkcyan;
+  font-weight: bold;
 }
 
 </style>

@@ -267,3 +267,7 @@ select {
 .quests .ui-selected:not(#drawLine) {
     outline: 3px solid red;
 }
+
+.item-id {
+    color: var(--secondary);
+}

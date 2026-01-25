@@ -9,6 +9,7 @@ export const iconById = (id) => {
         id = id.substring(0, id.indexOf("{"));
     }
     id = id.split(":")
+    if (id.length === 1) return new URL('/icons/' + defaultIcon, import.meta.url).href;
     let mod = id[0].replaceAll(' ', '_').replaceAll("?", "$4$").replaceAll("|", "$8$")
     let name = id[1].replaceAll(' ', '_').replaceAll("?", "$4$").replaceAll("|", "$8$")
     let meta = null
