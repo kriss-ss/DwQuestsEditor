@@ -53,6 +53,7 @@ const scale = inject('scale')
 const edit = inject('edit')
 const gridEnable = inject('gridEnable')
 const gridSize = inject('gridSize')
+const offsetField = inject('offset')
 const emit = defineEmits(['edit-active-quest'])
 
 
@@ -136,8 +137,9 @@ const onQuestClick = (name) => {
 }
 
 const editMode = () => {
-  let selected = $([]), offset = { top: 0, left: 0 };
+  let selected = $([]), offset = { top: 0, left: 0}, startDrag = {x: 0, y: 0}, offsetToGrid = {top: 0, left: 0};
   let draggableId = null;
+  let isOnGrid = false
 
   $(".quests-field").on("mousemove", function(event) {
     if (event.shiftKey) {
@@ -161,29 +163,69 @@ const editMode = () => {
         $(".ui-selected").removeClass("ui-selected");
       }
       draggableId = $(this)[0].id
+
+      const quest = props.tab.quests[draggableId];
+      const cell = parseFloat(gridSize.value);
+
+      startDrag = {x: ev.clientX, y: ev.clientY};
+
+      offsetToGrid = {
+        top: quest.displayY > 0 ? (Math.abs(quest.displayY) % cell) : cell - (Math.abs(quest.displayY) % cell),
+        left: quest.displayX > 0 ? (Math.abs(quest.displayX) % cell) : cell - (Math.abs(quest.displayX) % cell)
+      };
+
+      if (offsetToGrid.top === cell) {
+        offsetToGrid.top = 0;
+      }
+      if (offsetToGrid.left === cell) {
+        offsetToGrid.left = 0;
+      }
+
+      isOnGrid = offsetToGrid.top === 0 && offsetToGrid.left === 0
+
       selected = $(".ui-selected").each(function () {
         let el = $(this);
         el.data("offset", el.offset());
       });
       offset = $(this).offset();
-      if (gridEnable.value) {
-        $(".quest").draggable("option", "grid", [gridSize.value * 30 * scale.value, gridSize.value * 30 * scale.value]);
-      } else {
-        $(".quest").draggable("option", "grid", false);
+
+      const options = {
+        grid: gridEnable.value ? [gridSize.value * 30 * scale.value, gridSize.value * 30 * scale.value] : false,
       }
+      $(".quest").draggable('option', options)
 
     },
     drag: function (ev, ui) {
 
-      let dt = (ui.position.top - offset.top);
-      let dl = (ui.position.left - offset.left);
+      let dt = (ui.position.top - offset.top)
+      let dl = (ui.position.left - offset.left)
 
       selected.each(function () {
-        let el = $(this), off = el.data("offset");
+        let el = $(this), off = el.data("offset")
         if (el[0].id === "drawLine") return;
 
         let top = (off.top + dt) / scale.value;
         let left = (off.left + dl) / scale.value;
+
+        if (gridEnable.value && !isOnGrid) {
+          const pos = {x: ev.clientX, y: ev.clientY};
+          const distance = Math.hypot(startDrag.x - pos.x, startDrag.y - pos.y);
+          const enableDistance = 16 * scale.value;
+
+          if (distance > enableDistance) {
+
+            const dx = pos.x - startDrag.x
+            const dy = pos.y - startDrag.y
+
+            let modifierCoords = {
+              x: dx > 0 ? parseFloat(gridSize.value) * 30 : 0,
+              y: dy > 0 ? parseFloat(gridSize.value) * 30 : 0,
+            }
+
+            top -= (offsetToGrid.top * 30 - modifierCoords.y)
+            left -= (offsetToGrid.left * 30 - modifierCoords.x)
+          }
+        }
 
         if (el[0].id === draggableId) {
           ui.position = {

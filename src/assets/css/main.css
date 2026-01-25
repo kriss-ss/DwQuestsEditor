@@ -252,6 +252,22 @@ select {
     transform: scale(1.25);
 }
 
+.edit-mode .quest:hover:not(.ui-selected) {
+    transform: none;
+    outline: 3px solid rgba(255, 0, 0, 0.5);
+    animation: pulse-border 1s infinite;
+}
+
+@keyframes pulse-border {
+    0% { outline-color: rgba(255, 0, 0, 0.3); }
+    50% { outline-color: rgba(255, 0, 0, 0.7); }
+    100% { outline-color: rgba(255, 0, 0, 0.3); }
+}
+
 .quests .ui-selected:not(#drawLine) {
     outline: 3px solid red;
+}
+
+.item-id {
+    color: var(--secondary);
 }

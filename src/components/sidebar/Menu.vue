@@ -77,8 +77,9 @@ const gridModifier = inject('gridModifier')
 
 
 const sidebarAddQuest = () => {
-  const questName = 'Квест' + Object.keys(props.tab.quests).length;
-  const coords = checkAvailableCoords();
+  const questName = checkAvailableName()
+  // const coords = checkAvailableCoords();
+  const coords = {x: 0, y: 0}
   props.tab.quests[questName] = {
     "displayX": coords.x,
     "displayY": coords.y,
@@ -101,6 +102,17 @@ const sidebarAddQuest = () => {
     })
   }
 }
+
+const checkAvailableName = () => {
+  let questsNum = Object.keys(props.tab.quests).length;
+  let name = `Квест${questsNum}`;
+
+  while (props.tab.quests[name]) {
+    name = `Квест${++questsNum}`;
+  }
+
+  return name;
+};
 
 const checkAvailableCoords = () => {
   const gridSize = 1.5;
@@ -173,10 +185,11 @@ const saveTab = () => {
   font-family: Inter, sans-serif;
   display: flex;
   z-index: 1;
+  pointer-events: none;
 }
 
 .grid-settings {
-  position: relative;
+
   height: fit-content;
   width: 150px;
   margin-left: 1rem;
@@ -190,12 +203,13 @@ const saveTab = () => {
   opacity: 0;
   transform: scale(0.2) translateX(-200%);
   transition: all 0.2s ease;
-  z-index: 0;
+
 }
 
 .grid-settings.grid-enable {
   opacity: 1;
   transform: scale(1);
+  pointer-events: auto;
 }
 
 .grid-settings div {
@@ -203,6 +217,10 @@ const saveTab = () => {
   align-content: center;
   display: flex;
   flex-direction: column;
+}
+
+.grid-settings p {
+  user-select: none;
 }
 
 .grid-settings > * {
@@ -240,6 +258,7 @@ const saveTab = () => {
   border-radius: 0.75rem;
   padding: 0.25rem;
   opacity: 0.95;
+  pointer-events: auto;
 }
 
 .menu-buttons span {
