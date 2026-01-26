@@ -279,7 +279,7 @@ const saveTab = () => {
 }
 
 .edit-mode.edit, .grid-mode.gridEnable {
-  background: green;
+  background: darkcyan;
   transition: background 1s ease;
 }
 

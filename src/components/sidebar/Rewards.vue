@@ -14,7 +14,7 @@
                   class="reward-item-data"
               >
                 <img loading="lazy" class="sidebar-item-icon" @click="showItemPicker($event, editRewardItem, reward)" :src="iconById(reward.id)" alt=""/>
-                <p class="sidebar-item-name">{{ reward.name }} <span class="item-id">({{reward.id}})</span></p>
+                <p class="sidebar-item-name" :title="reward.id">{{ reward.name }}</p>
               </span>
               <SelectButton
                   class="sidebar-medium-button quest-reward-type center"
