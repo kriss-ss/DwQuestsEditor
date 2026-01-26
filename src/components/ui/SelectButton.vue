@@ -1,8 +1,6 @@
 <template>
   <select
       @change="emit('changeSelect', $event.target.value)"
-      @mousewheel.passive="scrollValues"
-      @mousewheel.prevent
   >
     <option
         ref="option"
@@ -37,6 +35,8 @@ const emit = defineEmits(["changeSelect"]);
 
 
 const scrollValues = (event) => {
+  //  @mousewheel.passive="scrollValues"
+  //  @mousewheel.prevent
   const currentValue = Object.keys(props.items).indexOf(event.target.value)
   const itemsLength = Object.keys(props.items).length;
   let newValue;
