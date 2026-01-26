@@ -25,7 +25,9 @@
               <!--              <span class="sidebar-medium-button quest-reward-type">{{getRewardTypeWord(reward.id)}}</span>-->
               <input class="sidebar-small-button quest-reward-count center" type="text"
                      :value="getRewardCount(quest.rewards[reward.num_id])"
-                     @change="editRewardCount($event, reward.num_id)"/>
+                     @change="editRewardCount($event, reward.num_id)"
+                     :disabled="isRewardCountDisabled(quest.rewards[reward.num_id])"
+              />
 
               <span
                   class="reward-settings"
@@ -98,7 +100,21 @@ const editRewardItem = (reward, item) => {
 }
 
 const editRewardType = (event, n) => {
+  if (event === "GIFT") {
+    props.quest.rewards[n] = "DwQuests:Gift{MinRandom:1,display:{Lore:\"\",Name:\"Гифт\"},Items:[],DropType:\"RANDOM\",Layers:[0,0],MaxRandom:1}"
+  }
+  else if (event === "SCRIPT") {
+    props.quest.rewards[n] = "customnpcs:scripted_item"
+  }
+  else if (event === "DEFAULT") {
+    props.quest.rewards[n] = "minecraft:dirt"
+  }
+  saveSnapshot()
+}
 
+const isRewardCountDisabled = (rewardString) => {
+  const type = getRewardType(rewardString)
+  return type === 'GIFT' || type === 'SCRIPT'
 }
 
 const editRewardCount = (event, n) => {
@@ -156,6 +172,12 @@ const getRewardCount = (reward) => {
   top: -1.25rem;
   bottom: 0;
   width: 0.125rem;
+  background-color: var(--secondary);
+}
+
+.sidebar-small-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
   background-color: var(--secondary);
 }
 </style>
