@@ -211,7 +211,7 @@ onMounted(() => {
       linear-gradient(to left, rgba(0, 0, 0, 0.3) 2px, transparent 1px),
       linear-gradient(to top, rgba(0, 0, 0, 0.3) 2px, transparent 1px);
   background-size: var(--grid-size) var(--grid-size);
-  background-position: calc((var(--field-radius)) + 1016px) calc((var(--field-radius)) + 516px);
+  background-position: calc((var(--field-radius)) + 1017px) calc((var(--field-radius)) + 517px);
   opacity: 0;
   transform: scale(0.95);
   transition: all 0.1s ease;
