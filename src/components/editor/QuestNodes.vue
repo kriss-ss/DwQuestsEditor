@@ -53,7 +53,6 @@ const scale = inject('scale')
 const edit = inject('edit')
 const gridEnable = inject('gridEnable')
 const gridSize = inject('gridSize')
-const offsetField = inject('offset')
 const emit = defineEmits(['edit-active-quest'])
 
 

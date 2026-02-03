@@ -95,7 +95,7 @@ const drag = ref(null)
 const historyManager = ref(null)
 const updateTabInterval = ref(null)
 const gridEnable = ref(false)
-const gridSize = ref(1)
+const gridSize = ref(4)
 const gridModifier = ref({left: 0, top: 0})
 
 

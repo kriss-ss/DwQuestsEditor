@@ -97,6 +97,19 @@ select {
     height: 2rem;
     align-self: center;
     display: flex;
+    cursor: pointer;
+    filter: drop-shadow(0 0 3px darkcyan);
+
+    transition: all 0.25s;
+}
+
+.sidebar-item-icon:hover {
+    filter: drop-shadow(0 0 8px darkcyan);
+    transform: scale(1.1);
+}
+
+.sidebar-item-icon:active {
+    transform: scale(0.95);
 }
 
 .sidebar-item-name {
