@@ -11,7 +11,7 @@
           <span
               class="reward-item-data"
               @contextmenu.prevent
-              @click.right.shift="deleteGiftItem(item)"
+              @click.right.shift.stop="deleteGiftItem(item)"
               @click="showItemPicker($event, editGiftItem, item)"
           >
         <img loading="lazy" class="sidebar-item-icon" :src="iconById(item.id)" alt=""/>
