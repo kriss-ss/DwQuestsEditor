@@ -33,6 +33,7 @@
             v-if="itemsType === 'item'"
             class="item"
             @click="handleItemClick(key)"
+            :title="key"
         >
           <img loading="lazy" class="item-icon" :src="iconById(key)" alt="">
           <p class="item-name">{{ getRusNameFromId(key) }} ({{ value.itemId }})</p>
@@ -242,7 +243,7 @@ const handleOutsideClick = (e) => {
 
 .item-new code {
   background: var(--primary);
-  color: darkcyan;
+  color: var(--special);
   font-weight: bold;
 }
 

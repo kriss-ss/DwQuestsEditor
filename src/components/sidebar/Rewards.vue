@@ -14,18 +14,22 @@
                   class="reward-item-data"
               >
                 <img loading="lazy" class="sidebar-item-icon" @click="showItemPicker($event, editRewardItem, reward)" :src="iconById(reward.id)" alt=""/>
-                <p class="sidebar-item-name">{{ reward.name }} <span class="item-id">({{reward.id}})</span></p>
+                <p class="sidebar-item-name" :title="reward.id">{{ reward.name }}</p>
               </span>
               <SelectButton
                   class="sidebar-medium-button quest-reward-type center"
                   :items="rewardTypes"
                   :selected="getRewardType(reward.id)"
                   @change-select="editRewardType($event, reward.num_id)"
+                  title="Тип награды"
               />
               <!--              <span class="sidebar-medium-button quest-reward-type">{{getRewardTypeWord(reward.id)}}</span>-->
               <input class="sidebar-small-button quest-reward-count center" type="text"
                      :value="getRewardCount(quest.rewards[reward.num_id])"
-                     @change="editRewardCount($event, reward.num_id)"/>
+                     @change="editRewardCount($event, reward.num_id)"
+                     :disabled="isRewardCountDisabled(quest.rewards[reward.num_id])"
+                     title="Количество предметов"
+              />
 
               <span
                   class="reward-settings"
@@ -44,6 +48,7 @@
 
     <span class="sidebar-add-button reward-add center"
           @click="sidebarAddReward()"
+          title="Добавить награду"
     ><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.6665 11H20.3332" stroke="#1C1C1C" stroke-width="3.33333" stroke-linecap="round"
                   stroke-linejoin="round"/>
@@ -98,7 +103,21 @@ const editRewardItem = (reward, item) => {
 }
 
 const editRewardType = (event, n) => {
+  if (event === "GIFT") {
+    props.quest.rewards[n] = "DwQuests:Gift{MinRandom:1,display:{Lore:\"\",Name:\"Гифт\"},Items:[],DropType:\"RANDOM\",Layers:[0,0],MaxRandom:1}"
+  }
+  else if (event === "SCRIPT") {
+    props.quest.rewards[n] = "customnpcs:scripted_item"
+  }
+  else if (event === "DEFAULT") {
+    props.quest.rewards[n] = "minecraft:dirt"
+  }
+  saveSnapshot()
+}
 
+const isRewardCountDisabled = (rewardString) => {
+  const type = getRewardType(rewardString)
+  return type === 'GIFT' || type === 'SCRIPT'
 }
 
 const editRewardCount = (event, n) => {
@@ -156,6 +175,12 @@ const getRewardCount = (reward) => {
   top: -1.25rem;
   bottom: 0;
   width: 0.125rem;
+  background-color: var(--secondary);
+}
+
+.sidebar-small-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
   background-color: var(--secondary);
 }
 </style>

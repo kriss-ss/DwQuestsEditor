@@ -9,8 +9,9 @@
 
         <span
             @click="addNewTab"
-            class="index-menu-new">
-
+            class="index-menu-new"
+            title="Создать новую вкладку"
+        >
           <svg height="3rem" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M2.4585 18.5H34.5418" stroke="#1C1C1C" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M18.5 2.4585V34.5418" stroke="#1C1C1C" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
@@ -19,7 +20,9 @@
 
         <span
             @click="openFilePicker"
-            class="index-menu-file">
+            class="index-menu-file"
+            title="Загрузить вкладку пользователя (.txt, .json)"
+        >
           <svg height="3rem" viewBox="0 0 30 38" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M19.9998 2.3335H4.99984C4.11578 2.3335 3.26794 2.68469 2.64281 3.30981C2.01769 3.93493 1.6665 4.78277 1.6665 5.66683V32.3335C1.6665 33.2176 2.01769 34.0654 2.64281 34.6905C3.26794 35.3156 4.11578 35.6668 4.99984 35.6668H24.9998C25.8839 35.6668 26.7317 35.3156 27.3569 34.6905C27.982 34.0654 28.3332 33.2176 28.3332 32.3335V10.6668L19.9998 2.3335Z" stroke="var(--primary)" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M18.3335 2.3335V9.00016C18.3335 9.88422 18.6847 10.7321 19.3098 11.3572C19.9349 11.9823 20.7828 12.3335 21.6668 12.3335H28.3335" stroke="var(--primary)" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
@@ -38,7 +41,9 @@
 
         <span
             @click="RecentTab"
-            class="index-menu-insert">
+            class="index-menu-insert"
+            title="Открыть последнюю редактируемую вкладку"
+        >
           <svg height="3rem" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M25.0002 3.3335H15.0002C14.5581 3.3335 14.1342 3.50909 13.8217 3.82165C13.5091 4.13421 13.3335 4.55814 13.3335 5.00016V8.3335C13.3335 9.3335 14.0002 10.0002 15.0002 10.0002H25.0002C26.0002 10.0002 26.6668 9.3335 26.6668 8.3335V5.00016C26.6668 4.00016 26.0002 3.3335 25.0002 3.3335Z" stroke="var(--primary)" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M13.3332 6.6665H9.99984C9.11578 6.6665 8.26794 7.01769 7.64281 7.64281C7.01769 8.26794 6.6665 9.11578 6.6665 9.99984V33.3332C6.6665 34.2172 7.01769 35.0651 7.64281 35.6902C8.26794 36.3153 9.11578 36.6665 9.99984 36.6665H29.9998C30.8839 36.6665 31.7317 36.3153 32.3569 35.6902C32.982 35.0651 33.3332 34.2172 33.3332 33.3332M26.6665 6.6665H29.9998C30.8839 6.6665 31.7317 7.01769 32.3569 7.64281C32.982 8.26794 33.3332 9.11578 33.3332 9.99984V13.3332M18.3332 23.3332H34.9998" stroke="var(--primary)" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>

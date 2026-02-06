@@ -1,12 +1,22 @@
 <template>
   <div class="sidebar-quest-description">
-    <p class="sidebar-elem-title">Описание</p>
+    <div class="sidebar-elem-title">
+      <p>Описание</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="title-icon">
+        <title>Для использования модификаторов выделите часть текста</title>
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+        <path d="M12 17l0 .01" />
+        <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4" />
+      </svg>
+    </div>
+
     <span class="quest-description-format-buttons">
-            <span class="format-button bold-format" @click="wrapSelectedText('l')">Ж</span>
-            <span class="format-button italic-format" @click="wrapSelectedText('o')">К</span>
-            <span class="format-button underline-format" @click="wrapSelectedText('n')">Ч</span>
-            <span class="format-button line-through-format" @click="wrapSelectedText('m')">М</span>
-            <span class="format-button obfuscate-format" @click="wrapSelectedText('k')">k</span>
+            <span class="format-button bold-format" @click="wrapSelectedText('l')" title="Полужирный">Ж</span>
+            <span class="format-button italic-format" @click="wrapSelectedText('o')" title="Курсив">К</span>
+            <span class="format-button underline-format" @click="wrapSelectedText('n')" title="Подчеркнутый">Ч</span>
+            <span class="format-button line-through-format" @click="wrapSelectedText('m')" title="Зачеркнутый">М</span>
+            <span class="format-button obfuscate-format" @click="wrapSelectedText('k')" title="Обфускация">k</span>
             <span class="format-colors-buttons">
               <span
                   v-for="color in Object.keys(mcColors)"
@@ -97,6 +107,13 @@ const wrapSelectedText = (colorSymbol) => {
 
 <style scoped>
 
+.title-icon {
+  transition: all 0.2s ease;
+}
+
+.title-icon:hover {
+  stroke: var(--special);
+}
 
 .quest-description-input {
   width: 100%;

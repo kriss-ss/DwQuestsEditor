@@ -3,29 +3,39 @@
     <div class="menu-buttons">
       <span
           @click="sidebarAddQuest"
-          class="menu-button add-quest">
+          class="menu-button add-quest"
+          title="Добавить квест"
+      >
   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-square-rounded-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" /><path d="M15 12h-6" /><path d="M12 9v6" /></svg>
       </span>
       <span
           @click="enableEditMode"
           class="menu-button edit-mode"
-          :class="{'edit': edit}">
+          :class="{'edit': edit}"
+          title="Режим перемещения"
+      >
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
       </span>
       <span
           @click="gridEnable = !gridEnable"
           :class="{'gridEnable': gridEnable}"
-          class="menu-button grid-mode">
+          class="menu-button grid-mode"
+          title="Активация сетки"
+      >
   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 6h18" /><path d="M3 12h18" /><path d="M3 18h18" /><path d="M6 3v18" /><path d="M12 3v18" /><path d="M18 3v18" /></svg>
       </span>
       <span
           @click="copyTab"
-          class="menu-button copy-tab">
+          class="menu-button copy-tab"
+          title="Копирование вкладки в буфер"
+      >
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
       </span>
       <span
           @click="saveTab"
-          class="menu-button save-tab">
+          class="menu-button save-tab"
+          title="Скачивание вкладки"
+      >
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
       </span>
     </div>
@@ -279,7 +289,7 @@ const saveTab = () => {
 }
 
 .edit-mode.edit, .grid-mode.gridEnable {
-  background: green;
+  background: var(--special);
   transition: background 1s ease;
 }
 

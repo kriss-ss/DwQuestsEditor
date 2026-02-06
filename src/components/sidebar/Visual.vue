@@ -8,6 +8,7 @@
           :items="wordSizes"
           :selected="quest.iconSize"
           @change-select="editSize"
+          title="Размер квеста"
       />
 
       <select
@@ -16,7 +17,9 @@
 
           :key="quest + '-color'"
           :style="{background: questRarities[quest.rarity ?? 'UNCOMMON']}"
-          name="quest-color" :id="quest + '-color'">
+          name="quest-color" :id="quest + '-color'"
+          title="Цвет квеста"
+      >
         <option
             v-for="color in Object.keys(questRarities)"
             class="quest-visual-input-color-option"
@@ -67,10 +70,20 @@ const editColor = (event) => {
   color: white;
   font-family: Inter, sans-serif;
   padding: 0;
+  transition: all 0.2s ease;
 }
 
 .quest-visual-input-color {
   padding: 0;
+  transition: all 0.2s ease;
+}
+
+.quest-visual-input-size:hover {
+  background: var(--primary-hover);
+}
+
+.quest-visual-input-size:active, .quest-visual-input-color:active {
+  scale: 0.95;
 }
 
 
