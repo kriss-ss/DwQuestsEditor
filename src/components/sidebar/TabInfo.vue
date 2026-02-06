@@ -7,7 +7,9 @@
       <input type="text"
              :value="tab.sortIndex"
              @change="editSortIndex($event)"
-             class="tab-input-sort-index">
+             class="tab-input-sort-index"
+             title="Расположение вкладки относительно других вкладок. &#13;&#10;Вкладки идут друг за другом по возрастанию."
+      >
     </div>
   </div>
 </template>

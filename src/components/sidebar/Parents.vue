@@ -21,18 +21,21 @@
                   :items="parentTypes"
                   :selected="parent.parentType"
                   @change-select="editParentType($event, parent.num_id)"
+                  title="Тип зависимости"
               />
               <SelectButton
                   class="sidebar-small-button quest-parent-count center"
                   :items="lineTypes"
                   :selected="parent.lineType"
                   @change-select="editLineType($event, parent.num_id)"
+                  title="Направление линии"
               />
             </span>
           </span>
     <span
         class="sidebar-add-button parent-add center"
         @click="sidebarAddParent()"
+        title="Добавить зависимость"
     >
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.6665 11H20.3332" stroke="#1C1C1C" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>

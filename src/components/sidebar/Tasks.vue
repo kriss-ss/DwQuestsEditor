@@ -21,13 +21,20 @@
                   :items="taskTypes"
                   :selected="task.type"
                   @change-select="editTaskType($event, task.num_id)"
+                  title="Тип задачи"
               />
-              <input class="sidebar-small-button quest-task-count center" type="text" :value="quest.tasks[task.num_id].requiredCount" @change="editTaskCount($event, task.num_id)"/>
+              <input class="sidebar-small-button quest-task-count center"
+                     type="text" :value="quest.tasks[task.num_id].requiredCount"
+                     @change="editTaskCount($event, task.num_id)"
+                     title="Количество предметов"
+              />
 
             </span>
           </span>
     <span class="sidebar-add-button task-add center"
-          @click="sidebarAddTask()">
+          @click="sidebarAddTask()"
+          title="Добавить задачу"
+    >
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.6665 11H20.3332" stroke="#1C1C1C" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M11 1.6665V20.3332" stroke="#1C1C1C" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>

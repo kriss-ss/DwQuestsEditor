@@ -1,6 +1,10 @@
 <template>
   <div class="sidebar-tab-title">
-    <input class="tab-title-name" :value="tab.tabID" @change="editTabID">
+    <input class="tab-title-name"
+           :value="tab.tabID"
+           @change="editTabID"
+           title="Название вкладки (ID)"
+    >
     <div
         class="tab-title-icon"
         @click="showItemPicker($event, editTabIcon, 'NaN')"

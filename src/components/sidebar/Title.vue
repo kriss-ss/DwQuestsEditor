@@ -3,6 +3,7 @@
     <input class="quest-title-name"
            :value="quest.displayName || questName"
            @change="editDisplayName($event)"
+           title="Название квеста"
     >
     <div
         class="quest-title-icon"
