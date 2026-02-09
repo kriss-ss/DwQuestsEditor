@@ -33,16 +33,16 @@ export const taskTypes = {
     "ENTITY_KILL": "Ликвидирование",
     "TASK_CONFIRM": "Подтвердить",
 
-    "ITEM_TRANSFORM": "Преобразование",
-    "ITEM_SMELT": "Выплавка",
-    "ITEM_GRIND": "Измельчение",
-    "ITEM_EXTRACT": "Экстрагирование",
-    "ITEM_COMPRESS": "Сжатие",
-    "ITEM_CANNING": "Консервирование",
-    "ITEM_CENTRIFUGE": "Центрифугирование",
-    "ITEM_CUT": "Резка",
-    "ITEM_EXTRUDE": "Выдавливание",
-    "ITEM_ROLL": "Прокатка",
+    // "ITEM_TRANSFORM": "Преобразование",
+    // "ITEM_SMELT": "Выплавка",
+    // "ITEM_GRIND": "Измельчение",
+    // "ITEM_EXTRACT": "Экстрагирование",
+    // "ITEM_COMPRESS": "Сжатие",
+    // "ITEM_CANNING": "Консервирование",
+    // "ITEM_CENTRIFUGE": "Центрифугирование",
+    // "ITEM_CUT": "Резка",
+    // "ITEM_EXTRUDE": "Выдавливание",
+    // "ITEM_ROLL": "Прокатка",
 }
 
 export const lineTypes = {
