@@ -1,29 +1,49 @@
-# questseditor
+## Редактор квестов мода DwQuests <img src="./public/favicon.ico" height=26 style="vertical-align: middle" />
 
-This template should help get you started developing with Vue 3 in Vite.
+**Визуальный редактор для создания и редактирования вкладок с квестами.**
+Простой и удобный интерфейс с возможностью использовать весь функционал мода DwQuests.
 
-## Recommended IDE Setup
+[dwquests.netlify.net](https://dwquests.netlify.net) | ...
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+![Превью](./public/preview.png)
 
-## Customize configuration
+## ✨Возможности
+-  **Создание или изменение** существующей вкладки квестов
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Детальное модифицирование** наполнения квестов:
+    - название, размер, редкость и расположение
+    - описание с полноценным форматированием, включая цвет текста и т.д
+    - иконка с возможностью выбрать любой предмет прямо на сайте
+    - задачи, награды, зависимости
 
-## Project Setup
+- **Предпросмотр** итогового квеста
 
-```sh
-npm install
-```
+- **Режим редактирования** расположений квестов:
+   - перемещение по интерактивному полю
+   - выставление ровно по заданной сетке
+   - Рисование линий зависимостей между квестами
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
+## ⚙️Использование
+1. Создать новую вкладку или импортировать существующую из игры:
+    ```sh
+    /dwq tab copy <название>
+    ```
+2. Выполнить редактирование.
+3. Выгрузить вкладку и вставить в игру
+    - **Новая вкладка:**
+    ```sh
+    /dwq tab add <название_вкладки>
+    ```
+    - **Отредактированная вкладка:**
+    ```sh
+    /dwq tab paste <название_вкладки>
+    ```
 
-### Compile and Minify for Production
 
-```sh
-npm run build
-```
+## ⚖️Лицензирование
+Проект распространяется на условиях лицензии [MIT](LICENSE.md)
+
+---
+
+Благодарности автору мода **DwQuests** - [@SkyDrive94](https://github.com/SkyDrive94)
