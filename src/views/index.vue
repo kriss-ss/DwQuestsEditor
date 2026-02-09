@@ -3,7 +3,7 @@
       @dragover.prevent
       @drop="dropFileTab"
       class="index-page">
-    <img src="/src/assets/img/bg.png" class="index-bg" alt="">
+    <img src="/src/assets/img/bg.png" class="index-bg" alt="" loading="lazy">
     <div class="index-container">
       <div class="index-menu">
 
