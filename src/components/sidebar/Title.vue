@@ -67,6 +67,7 @@ const showItemPicker = (event, func, data) => {
 
 .sidebar-item-icon {
   margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .quest-title-name {
@@ -74,7 +75,7 @@ const showItemPicker = (event, func, data) => {
   font-weight: bold;
   /*text-align: center;*/
   background: transparent;
-  width: 18.325rem;
+  width: 100%;
 }
 
 </style>

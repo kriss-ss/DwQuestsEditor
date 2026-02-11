@@ -3,7 +3,7 @@
     <p class="sidebar-elem-title">Зависимости</p>
 
     <span class="quest-parents-items">
-            <span class="quest-parent-item"
+            <span class="quest-parent-item sidebar-item"
                   v-for="parent in getQuestParents(quest, quests)"
                   :key="parent"
                   :class="'parent-item-' + parent.num_id"

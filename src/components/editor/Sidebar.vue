@@ -197,4 +197,8 @@ watch(
   position: relative;
 }
 
+.devider {
+  border-color: var(--secondary);
+}
+
 </style>

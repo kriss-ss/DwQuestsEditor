@@ -12,10 +12,12 @@
               class="reward-item-data"
               @contextmenu.prevent
               @click.right.shift.stop="deleteGiftItem(item)"
-              @click="showItemPicker($event, editGiftItem, item)"
           >
-        <img loading="lazy" class="sidebar-item-icon" :src="iconById(item.id)" alt=""/>
-        <p class="sidebar-item-name">{{ item.name }}</p>
+        <img loading="lazy" class="sidebar-item-icon"
+             :src="iconById(item.id)"
+             @click="showItemPicker($event, editGiftItem, item)"
+             alt=""/>
+        <p class="sidebar-item-name" :title="item.id">{{ item.name }}</p>
       </span>
           <input class="sidebar-small-button quest-reward-count center"
                  type="text" :value="item.count"
@@ -175,7 +177,8 @@ const deleteGiftItem = (item) => {
   display: grid;
   grid-template-columns: 1fr 2.5rem;
   align-items: center;
-  padding: 0.125rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
 }
 
 .reward-gift-item:hover {

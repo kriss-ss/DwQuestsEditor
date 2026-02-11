@@ -75,7 +75,7 @@ const editColor = (event) => {
 
 .quest-visual-input-color {
   padding: 0;
-  transition: all 0.2s ease;
+  transition: scale 0.2s ease;
 }
 
 .quest-visual-input-size:hover {

@@ -3,7 +3,7 @@
     <p class="sidebar-elem-title">Задачи</p>
 
     <span class="quest-tasks-items">
-            <span class="quest-task-item"
+            <span class="quest-task-item sidebar-item"
                   :key="task"
                   :class="'task-item-' + task.num_id"
                   v-for="task in getQuestTasks(quest)"

@@ -271,7 +271,7 @@ const saveTab = () => {
   pointer-events: auto;
 }
 
-.menu-buttons span {
+.menu-button {
   display: flex;
   position: relative;
   align-self: center;
@@ -280,12 +280,13 @@ const saveTab = () => {
   cursor: pointer;
   padding: 0.375rem;
   border-radius: 0.5rem;
+  transition: background-color 0.2s ease,
+  box-shadow 0.2s ease;
 }
 
 .menu-button:hover {
-  background-color: var(--primary);
-  filter: brightness(2);
-  transition: background-color 0.2s ease;
+  background-color: var(--primary-hover);
+  box-shadow: 0 0 0.25rem var(--special);
 }
 
 .edit-mode.edit, .grid-mode.gridEnable {
