@@ -70,6 +70,11 @@ export const wordSizes = {
     "HUGE": "Огромный"
 }
 
+export const giftTypes = {
+    "DEFAULT": "Все предметы",
+    "RANDOM": "Случайно"
+}
+
 export const mcFormats = {
     "l": "bold-format",
     "o": "italic-format",

@@ -1,9 +1,77 @@
+<!--
+Имя:
+Лор:
+Тип:
+  - Все предметы
+  - Случайно:
+      От скольки до скольки (ex. 1-2)
+      Если одно значение n => MinRandom=MaxRandom=n
+      Если m-n => MinRandom=m;MaxRandom=n (MinRandom > 0)
+-->
+
+
 <template>
-        <textarea
-            class="reward-gift-nbt"
-            :value="reward.id"
-            @change="editGiftNbt($event, reward)"
-        ></textarea>
+<!--        <textarea-->
+<!--            class="reward-gift-nbt"-->
+<!--            :value="reward.id"-->
+<!--            @change="editGiftNbt($event, reward)"-->
+<!--        ></textarea>-->
+    <div class="gift-info">
+        <div class="gift-name">
+          <p>Имя:</p>
+          <input type="text"
+                 class="gift-input-field"
+                 :value="getGiftName()"
+                 @change="editGiftName($event, reward)"
+          >
+        </div>
+        <div class="gift-lore">
+          <p>Лор:</p>
+          <textarea type="text"
+                 class="gift-input-field"
+                 :value="getGiftLore()"
+                 @change="editGiftLore($event, reward)"
+          ></textarea>
+        </div>
+        <div class="gift-type">
+          <p>Тип:</p>
+          <div class="gift-type-buttons">
+          <SelectButton
+              class="button-gift-type center"
+              :items="giftTypes"
+              :selected="getGiftType()"
+              @change-select="editGiftType($event, reward)"
+              title="Тип гифта"
+          />
+          <div class="gift-type-random"
+               v-if="getGiftType() === 'RANDOM'">
+              <div class="gift-type-random-input">
+                <p>От:</p>
+                <input
+                    class="sidebar-small-button quest-task-count center"
+                    type="text"
+                    :value="getGiftRandomValues().MinRandom"
+                    @change="editGiftRandom($event, reward, 'min')"
+                    title="Минимальное количество"
+                />
+              </div>
+              <div class="gift-type-random-input">
+                <p>До:</p>
+                <input
+                    class="sidebar-small-button quest-task-count center"
+                    type="text"
+                    :value="getGiftRandomValues().MaxRandom"
+                    @change="editGiftRandom($event, reward, 'max')"
+                    title="Максимальное количество"
+                />
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+    </div>
         <span
             class="reward-gift-item"
             v-for="item in getGiftItems()"
@@ -45,6 +113,8 @@ import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
 import {giftStringToObject, customStringify} from "@/utils/giftParser.js";
 import {inject} from "vue";
 import {nbtParser} from "@/utils/nbtParser.js";
+import {giftTypes} from "@/constants/questConstants.js";
+import SelectButton from "@/components/ui/SelectButton.vue";
 
 const props = defineProps({
   reward: {
@@ -109,6 +179,94 @@ const getGiftItems = () => {
   return ""
 }
 
+const getGiftName = () => {
+  let giftID = props.reward.id
+  let giftNBT = giftStringToObject(giftID)
+  return giftNBT.display.Name
+}
+
+const editGiftName = (event, reward) => {
+  let giftID = props.quest.rewards[reward.num_id]
+  let giftNBT = giftStringToObject(giftID)
+
+  let finalGift = giftID.slice(0, giftID.indexOf("{"));
+  giftNBT.display.Name = event.target.value
+
+  finalGift = finalGift + customStringify(giftNBT)
+  props.quest.rewards[reward.num_id] = finalGift
+  saveSnapshot()
+}
+
+const getGiftLore = () => {
+  let giftID = props.reward.id
+  let giftNBT = giftStringToObject(giftID)
+  return giftNBT.display.Lore
+}
+
+const editGiftLore = (event, reward) => {
+  let giftID = props.quest.rewards[reward.num_id]
+  let giftNBT = giftStringToObject(giftID)
+
+  let finalGift = giftID.slice(0, giftID.indexOf("{"));
+  giftNBT.display.Lore = event.target.value
+
+  finalGift = finalGift + customStringify(giftNBT)
+  props.quest.rewards[reward.num_id] = finalGift
+  saveSnapshot()
+}
+
+const getGiftType = () => {
+  let giftID = props.reward.id
+  let giftNBT = giftStringToObject(giftID)
+  return giftNBT.DropType
+}
+
+const editGiftType = (event, reward) => {
+  let giftID = props.quest.rewards[reward.num_id]
+  let giftNBT = giftStringToObject(giftID)
+
+  let finalGift = giftID.slice(0, giftID.indexOf("{"));
+  giftNBT.DropType = event
+
+  if (event === "RANDOM") {
+    giftNBT.MinRandom = 1
+    giftNBT.MaxRandom = 1
+  } else if (event === "DEFAULT") {
+    delete giftNBT.MinRandom
+    delete giftNBT.MaxRandom
+  }
+
+  finalGift = finalGift + customStringify(giftNBT)
+  props.quest.rewards[reward.num_id] = finalGift
+  saveSnapshot()
+}
+
+const getGiftRandomValues = () => {
+  let giftID = props.reward.id
+  let giftNBT = giftStringToObject(giftID)
+  return {
+    MinRandom: giftNBT.MinRandom.value || 1,
+    MaxRandom: giftNBT.MaxRandom.value || 1,
+  }
+}
+
+const editGiftRandom = (event, reward, type) => {
+  let giftID = props.quest.rewards[reward.num_id]
+  let giftNBT = giftStringToObject(giftID)
+
+  let finalGift = giftID.slice(0, giftID.indexOf("{"));
+
+  if (type === 'min') {
+    giftNBT.MinRandom = parseInt(event.target.value)
+  } else if (type === 'max') {
+    giftNBT.MaxRandom = parseInt(event.target.value)
+  }
+
+  finalGift = finalGift + customStringify(giftNBT)
+  props.quest.rewards[reward.num_id] = finalGift
+  saveSnapshot()
+}
+
 const editGiftNbt = (event, reward) => {
   props.quest.rewards[reward.num_id] = event.target.value;
   saveSnapshot()
@@ -164,6 +322,67 @@ const deleteGiftItem = (item) => {
 </script>
 
 <style scoped>
+
+.gift-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
+}
+
+.gift-name, .gift-lore, .gift-type {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.gift-name p, .gift-lore p, .gift-type > p:first-child {
+  width: 2rem;
+  flex-shrink: 0;
+}
+
+.gift-input-field,
+.gift-type-buttons {
+  flex: 1
+}
+
+.gift-type-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.gift-type-random {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.5625rem;
+}
+
+.gift-type-random-input {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.gift-input-field {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+.button-gift-type {
+  padding: 0;
+  background: var(--secondary);
+  border-radius: 5px;
+  border: black solid 1px;
+  width: 8rem;
+  height: 2rem;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: scale 0.2s ease;
+}
 
 .reward-gift-nbt {
   height: 6.25rem;

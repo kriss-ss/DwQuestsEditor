@@ -131,7 +131,7 @@ select {
 .quest-coords-inputs, .quest-visual-inputs {
     display: flex;
     gap: 1rem;
-    width: 20.5rem;
+    max-width: 20.5rem;
 }
 
 .sidebar-default-button {
