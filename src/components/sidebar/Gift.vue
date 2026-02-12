@@ -330,6 +330,12 @@ const deleteGiftItem = (item) => {
   padding: 0.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.gift-info:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 0 0.25rem var(--special);
 }
 
 .gift-name, .gift-lore, .gift-type {
@@ -398,11 +404,12 @@ const deleteGiftItem = (item) => {
   align-items: center;
   padding: 0.25rem;
   border-radius: 0.5rem;
+  transition: all 0.2s ease;
 }
 
 .reward-gift-item:hover {
-  background: var(--primary);
-  transition: background-color 0.2s ease;
+  background: var(--primary-hover);
+  box-shadow: 0 0 0.25rem var(--special);
 }
 
 </style>

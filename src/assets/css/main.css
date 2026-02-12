@@ -253,6 +253,10 @@ select {
     box-shadow: 0 0 0.25rem var(--special);
 }
 
+.gift-item:hover {
+    background-color: var(--primary) !important;
+}
+
 .task-item-data, .reward-item-data, .parent-item-data {
     align-items: center;
     display: grid;
