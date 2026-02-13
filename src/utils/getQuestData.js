@@ -147,6 +147,8 @@ const getItemHover = (item) => {
         let itemsCount = ""
         if (typeof nbt.MaxRandom?.value === "undefined") {
             itemsCount = "Содержит все предметы"
+        } else if (nbt.MinRandom.value === nbt.MaxRandom.value) {
+            itemsCount = `Содержит ${nbt.MinRandom.value} случайный предмет`
         } else if (nbt.MaxRandom.value === 1) {
             itemsCount = "Содержит 1 случайный предмет"
         } else {

@@ -3,7 +3,7 @@ import {mcFormats, mcColors} from "@/constants/questConstants.js";
 export const convertDescription = (text) => {
     return text
         .replace(/§([0-9a-f])/g, (match, color, content) => {
-            const colorCode = mcColors[color] || "#FFFFFF";
+            const colorCode = mcColors.find(c => c.key === color).value || "#FFFFFF";
             return `<span style="color: ${colorCode}">`;
         })
         .replace(/§([lomnk])/g, (match, format, content) => {

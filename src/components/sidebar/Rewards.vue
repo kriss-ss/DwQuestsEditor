@@ -3,10 +3,12 @@
     <p class="sidebar-elem-title">Награды</p>
 
     <span class="quest-rewards-items">
-            <span class="quest-reward-item"
+            <span class="quest-reward-item sidebar-item"
                   v-for="reward in getQuestRewards(quest)"
                   :key="reward"
-                  :class="'reward-item-' + reward.num_id"
+                  :class="['reward-item-' + reward.num_id, {
+                            'gift-item': getRewardType(reward.id) === 'GIFT'
+                          }]"
                   @contextmenu.prevent
                   @click.right.shift="sidebarDeleteReward(reward.num_id)"
             >

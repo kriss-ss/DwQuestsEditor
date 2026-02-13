@@ -19,11 +19,12 @@
             <span class="format-button obfuscate-format" @click="wrapSelectedText('k')" title="Обфускация">k</span>
             <span class="format-colors-buttons">
               <span
-                  v-for="color in Object.keys(mcColors)"
-                  @click="wrapSelectedText(color)"
+                  v-for="color in mcColors"
+                  :key="color.key"
+                  @click="wrapSelectedText(color.key)"
                   class="color-button"
                   :style="{
-                    backgroundColor: mcColors[color]
+                    backgroundColor: color.value
                    }"
               ></span>
             </span>

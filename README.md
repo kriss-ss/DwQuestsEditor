@@ -3,7 +3,7 @@
 **Визуальный редактор для создания и редактирования вкладок с квестами.**
 Простой и удобный интерфейс с возможностью использовать весь функционал мода DwQuests.
 
-[dwquests.netlify.net](https://dwquests.netlify.net) | ...
+[dwquests.vercel.app](https://dwquests.vercel.app) | [dwquests.netlify.app](https://dwquests.netlify.app)
 
 ![Превью](./public/preview.png)
 
@@ -30,7 +30,7 @@
     /dwq tab copy <название>
     ```
 2. Выполнить редактирование.
-3. Выгрузить вкладку и вставить в игру
+3. Выгрузить вкладку и вставить в игру <BR><BR>
     - **Новая вкладка:**
     ```sh
     /dwq tab add <название_вкладки>

@@ -70,6 +70,11 @@ export const wordSizes = {
     "HUGE": "Огромный"
 }
 
+export const giftTypes = {
+    "DEFAULT": "Все предметы",
+    "RANDOM": "Случайно"
+}
+
 export const mcFormats = {
     "l": "bold-format",
     "o": "italic-format",
@@ -78,21 +83,21 @@ export const mcFormats = {
     "k": "obfuscate-format"
 }
 
-export const mcColors = {
-    "0": "#000000",
-    "1": "#0000AA",
-    "2": "#00AA00",
-    "3": "#00AAAA",
-    "4": "#AA0000",
-    "5": "#AA00AA",
-    "6": "#FFAA00",
-    "7": "#AAAAAA",
-    "f": "#FFFFFF",
-    "9": "#5555FF",
-    "a": "#55FF55",
-    "b": "#55FFFF",
-    "c": "#FF5555",
-    "d": "#FF55FF",
-    "e": "#FFFF55",
-    "8": "#555555",
-}
+export const mcColors = [
+    {key: "0", value: "#000000"},
+    {key: "1", value: "#0000AA"},
+    {key: "2", value: "#00AA00"},
+    {key: "3", value: "#00AAAA"},
+    {key: "4", value: "#AA0000"},
+    {key: "5", value: "#AA00AA"},
+    {key: "6", value: "#FFAA00"},
+    {key: "7", value: "#AAAAAA"},
+    {key: "8", value: "#555555"},
+    {key: "9", value: "#5555FF"},
+    {key: "a", value: "#55FF55"},
+    {key: "b", value: "#55FFFF"},
+    {key: "c", value: "#FF5555"},
+    {key: "d", value: "#FF55FF"},
+    {key: "e", value: "#FFFF55"},
+    {key: "f", value: "#FFFFFF"},
+]

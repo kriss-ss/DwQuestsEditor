@@ -106,7 +106,7 @@ const onQuestClick = (name) => {
           let elems = $('.quest-tasks-items').children();
           const newElems = {};
           for(let i = 0; i < elems.length; i++) {
-            let elemId = elems[i].classList[1].split("-")[2]
+            let elemId = elems[i].classList[2].split("-")[2]
             newElems[i.toString()] = props.tab.quests[name].tasks[elemId];
           }
           props.tab.quests[name].tasks = newElems;
@@ -115,7 +115,7 @@ const onQuestClick = (name) => {
           let elems = $('.quest-rewards-items').children();
           const newElems = [];
           for(let i = 0; i < elems.length; i++) {
-            let elemId = elems[i].classList[1].split("-")[2]
+            let elemId = elems[i].classList[2].split("-")[2]
             newElems.push(props.tab.quests[name].rewards[elemId]);
           }
           props.tab.quests[name].rewards = newElems;
@@ -124,7 +124,7 @@ const onQuestClick = (name) => {
           let elems = $('.quest-parents-items').children();
           const newElems = [];
           for(let i = 0; i < elems.length; i++) {
-            let elemId = elems[i].classList[1].split("-")[2]
+            let elemId = elems[i].classList[2].split("-")[2]
             newElems.push(props.tab.quests[name].parents[elemId]);
           }
           props.tab.quests[name].parents = newElems;

@@ -49,11 +49,12 @@ const showItemPicker = (event, func, data) => {
 <style scoped>
 
 .tab-title-icon {
-  margin-left: 0.5rem
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .tab-title-name {
-  width: 18rem;
+  width: 100%;
   font-size: 1.5rem;
   font-weight: bold;
   /*text-align: center;*/
