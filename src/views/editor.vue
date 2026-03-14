@@ -66,6 +66,9 @@
           :placeholder-text="'Введите название родителя..'"
           :tabID="tab.tabID"
       />
+      <context-menu
+        ref="contextMenu"
+      />
     </div>
   </main>
 </template>
@@ -77,6 +80,7 @@ import QuestNodes from "@/components/editor/QuestNodes.vue";
 import CanvasLines from "@/components/editor/CanvasLines.vue";
 import {editorHistory} from "@/composables/editorHistory.js";
 import ItemsList from "@/components/modals/ItemsList.vue";
+import ContextMenu from "@/components/modals/ContextMenu.vue";
 import {dragField} from "@/composables/dragField.js";
 import {getItems} from "@/utils/getItems.js";
 import {onBeforeUnmount, onMounted, ref, provide, nextTick, inject} from "vue";
@@ -90,6 +94,7 @@ const scale = ref(1)
 const items = ref({})
 const itemSelector = ref({})
 const parentSelector = ref({})
+const contextMenu = ref({})
 const canvasRef = ref(null)
 const drag = ref(null)
 const historyManager = ref(null)
@@ -97,6 +102,12 @@ const updateTabInterval = ref(null)
 const gridEnable = ref(false)
 const gridSize = ref(4)
 const gridModifier = ref({left: 0, top: 0})
+const buffer = ref({
+  "Описание": [],
+  "Задачи": [],
+  "Награды": [],
+  "Зависимости": []
+})
 
 
 const saveSnapshot = () => {
@@ -110,7 +121,8 @@ provide('gridEnable', gridEnable)
 provide('active_quest', active_quest)
 provide('gridSize', gridSize)
 provide('gridModifier', gridModifier)
-
+provide('contextMenu', contextMenu)
+provide('buffer', buffer)
 
 
 const editActiveQuest = (name) => {

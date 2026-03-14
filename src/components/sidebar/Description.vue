@@ -47,7 +47,6 @@
 import {mcColors} from "@/constants/questConstants.js";
 import {inject, nextTick, onMounted, ref} from "vue";
 
-
 const props = defineProps({
   quest: {
     type: Object,

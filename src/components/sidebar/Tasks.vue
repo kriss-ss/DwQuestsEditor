@@ -1,5 +1,9 @@
 <template>
-  <div class="sidebar-quest-tasks">
+  <div
+      class="sidebar-quest-tasks"
+      @click.right.exact="showContextMenu($event, null)"
+      @contextmenu.prevent
+  >
     <p class="sidebar-elem-title">Задачи</p>
 
     <span class="quest-tasks-items">
@@ -8,6 +12,7 @@
                   :class="'task-item-' + task.num_id"
                   v-for="task in getQuestTasks(quest)"
                   @contextmenu.prevent
+                  @click.right.exact.stop="showContextMenu($event, task)"
                   @click.right.shift="sidebarDeleteTask(task.num_id)"
             >
               <span
@@ -31,6 +36,7 @@
 
             </span>
           </span>
+
     <span class="sidebar-add-button task-add center"
           @click="sidebarAddTask()"
           title="Добавить задачу"
@@ -40,6 +46,16 @@
             <path d="M11 1.6665V20.3332" stroke="#1C1C1C" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           </span>
+
+    <div class="quest-tasks-tasksType">
+      <label for="checkbox" class="quest-tasks-tasksType">Игроку нужно выполнить одну Задачу на выбор?</label>
+      <input
+          type="checkbox"
+          id="checkbox"
+          :checked="quest?.tasksType === 'ONE_OF'"
+          @click="editTasksType"
+      >
+    </div>
   </div>
 </template>
 
@@ -62,6 +78,44 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const contextMenu = inject('contextMenu')
+const buffer = inject("buffer")
+
+
+const showContextMenu = (event, item) => {
+  const options = {
+    "Копировать": item != null ? copy : null,
+    "Вставить": buffer.value['Задачи'].length !== 0 ? paste : null,
+  }
+  contextMenu.value.openContextMenu(event, item, options)
+}
+
+const copy = (item) => {
+  buffer.value["Задачи"][0] = item
+}
+
+const paste = (item) => {
+  const new_item = buffer.value["Задачи"][0]
+  const new_index = item !== null ? parseInt(item.num_id) + 1 : Object.keys(props.quest.tasks).length
+
+  const items = props.quest.tasks
+
+  const new_items = {};
+  let modifier = 0
+  for (let i = 0;i < Object.keys(items).length;i++) {
+    if (i === new_index) modifier = 1;
+    new_items[(i + modifier).toString()] = items[i]
+  }
+
+  props.quest.tasks = new_items;
+
+  props.quest.tasks[new_index.toString()] = {
+    'type': new_item.type,
+    'requiredCount': new_item.count,
+    'forgeName': new_item.id,
+  }
+  saveSnapshot()
+}
 
 const sidebarDeleteTask = (id) => {
   delete props.quest.tasks[id];
@@ -113,8 +167,33 @@ const sidebarAddTask = () => {
   saveSnapshot()
 }
 
+const editTasksType = () => {
+  if (props.quest?.tasksType === "ONE_OF") {
+    delete props.quest.tasksType
+  } else {
+    props.quest.tasksType = "ONE_OF"
+  }
+  saveSnapshot()
+}
+
 </script>
 
 <style scoped>
+
+.quest-tasks-tasksType {
+
+  font-size: 14px;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+}
+
+.quest-tasks-tasksType input {
+
+  margin-left: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  background: var(--special)
+}
 
 </style>

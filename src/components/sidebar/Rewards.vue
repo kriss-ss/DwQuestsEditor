@@ -1,5 +1,9 @@
 <template>
-  <div class="sidebar-quest-rewards">
+  <div
+      class="sidebar-quest-rewards"
+      @click.right.exact="showContextMenu($event, null)"
+      @contextmenu.prevent
+  >
     <p class="sidebar-elem-title">Награды</p>
 
     <span class="quest-rewards-items">
@@ -10,6 +14,7 @@
                             'gift-item': getRewardType(reward.id) === 'GIFT'
                           }]"
                   @contextmenu.prevent
+                  @click.right.exact.stop="showContextMenu($event, reward)"
                   @click.right.shift="sidebarDeleteReward(reward.num_id)"
             >
               <span
@@ -83,6 +88,8 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const contextMenu = inject('contextMenu')
+const buffer = inject("buffer")
 
 const sidebarAddReward = () => {
   props.quest.rewards.push("minecraft:dirt")
@@ -97,6 +104,25 @@ const showItemPicker = (event, func, data) => {
   props.itemSelector.open(event, (selectedId) => {
     func(data, selectedId);
   });
+}
+
+const showContextMenu = (event, item) => {
+  const options = {
+    "Копировать": item != null ? copy : null,
+    "Вставить": buffer.value['Награды'].length !== 0 ? paste : null,
+  }
+  contextMenu.value.openContextMenu(event, item, options)
+}
+
+const copy = (item) => {
+  buffer.value["Награды"][0] = item
+}
+
+const paste = (item) => {
+  const new_item = buffer.value["Награды"][0]
+  const new_index = item !== null ? parseInt(item.num_id) + 1 : props.quest.rewards.length
+  props.quest.rewards.splice(new_index, 0, new_item.count > 1 ? new_item.id + "=" + new_item.count : new_item.id)
+  saveSnapshot()
 }
 
 const editRewardItem = (reward, item) => {

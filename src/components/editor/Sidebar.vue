@@ -68,6 +68,7 @@
     <Menu
         :tab="tab"
     />
+  <ContextMenu/>
 </template>
 
 <script setup>
@@ -83,6 +84,7 @@ import Parents from "@/components/sidebar/Parents.vue";
 import Grid from "@/components/sidebar/Grid.vue";
 import Menu from "@/components/sidebar/Menu.vue";
 import {nextTick, onMounted, ref, watch, inject, provide} from "vue";
+import ContextMenu from "@/components/modals/ContextMenu.vue";
 
 const props = defineProps({
   tab: {

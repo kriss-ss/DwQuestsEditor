@@ -1,5 +1,9 @@
 <template>
-  <div class="sidebar-quest-parents">
+  <div
+      class="sidebar-quest-parents"
+      @click.right.exact="showContextMenu($event, null)"
+      @contextmenu.prevent
+  >
     <p class="sidebar-elem-title">Зависимости</p>
 
     <span class="quest-parents-items">
@@ -8,6 +12,7 @@
                   :key="parent"
                   :class="'parent-item-' + parent.num_id"
                   @contextmenu.prevent
+                  @click.right.exact.stop="showContextMenu($event, parent)"
                   @click.right.shift="sidebarDeleteParent(parent.num_id)"
             >
               <span
@@ -73,6 +78,33 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const contextMenu = inject('contextMenu')
+const buffer = inject("buffer")
+
+const showContextMenu = (event, item) => {
+  const options = {
+    "Копировать": item != null ? copy : null,
+    "Вставить": buffer.value['Зависимости'].length !== 0 ? paste : null,
+  }
+  contextMenu.value.openContextMenu(event, item, options)
+}
+
+const copy = (item) => {
+  buffer.value["Зависимости"][0] = item
+}
+
+const paste = (item) => {
+  const new_item = buffer.value["Зависимости"][0]
+  const new_index = item !== null ? parseInt(item.num_id) + 1 : props.quest.parents.length
+
+  const new_parent = {
+    'questID': new_item.name,
+    'lineType': new_item.lineType,
+    'parentType': new_item.parentType,
+  }
+  props.quest.parents.splice(new_index, 0, new_parent)
+  saveSnapshot()
+}
 
 const sidebarAddParent = () => {
   props.quest.parents.push({"questID": "Выберите зависимость.."})
