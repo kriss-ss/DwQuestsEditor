@@ -1,5 +1,9 @@
 <template>
-  <div class="sidebar-quest-tasks">
+  <div
+      class="sidebar-quest-tasks"
+      @click.right.exact="showContextMenu($event, null)"
+      @contextmenu.prevent
+  >
     <p class="sidebar-elem-title">Задачи</p>
 
     <span class="quest-tasks-items">
@@ -8,6 +12,7 @@
                   :class="'task-item-' + task.num_id"
                   v-for="task in getQuestTasks(quest)"
                   @contextmenu.prevent
+                  @click.right.exact.stop="showContextMenu($event, task)"
                   @click.right.shift="sidebarDeleteTask(task.num_id)"
             >
               <span
@@ -62,6 +67,44 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const contextMenu = inject('contextMenu')
+const buffer = inject("buffer")
+
+
+const showContextMenu = (event, item) => {
+  const options = {
+    "Копировать": item != null ? copy : null,
+    "Вставить": buffer.value['Задачи'].length !== 0 ? paste : null,
+  }
+  contextMenu.value.openContextMenu(event, item, options)
+}
+
+const copy = (item) => {
+  buffer.value["Задачи"][0] = item
+}
+
+const paste = (item) => {
+  const new_item = buffer.value["Задачи"][0]
+  const new_index = item !== null ? parseInt(item.num_id) + 1 : Object.keys(props.quest.tasks).length
+
+  const items = props.quest.tasks
+
+  const new_items = {};
+  let modifier = 0
+  for (let i = 0;i < Object.keys(items).length;i++) {
+    if (i === new_index) modifier = 1;
+    new_items[(i + modifier).toString()] = items[i]
+  }
+
+  props.quest.tasks = new_items;
+
+  props.quest.tasks[new_index.toString()] = {
+    'type': new_item.type,
+    'requiredCount': new_item.count,
+    'forgeName': new_item.id,
+  }
+  saveSnapshot()
+}
 
 const sidebarDeleteTask = (id) => {
   delete props.quest.tasks[id];
