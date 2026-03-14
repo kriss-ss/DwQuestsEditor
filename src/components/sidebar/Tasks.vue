@@ -36,6 +36,7 @@
 
             </span>
           </span>
+
     <span class="sidebar-add-button task-add center"
           @click="sidebarAddTask()"
           title="Добавить задачу"
@@ -45,6 +46,16 @@
             <path d="M11 1.6665V20.3332" stroke="#1C1C1C" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           </span>
+
+    <div class="quest-tasks-tasksType">
+      <label for="checkbox" class="quest-tasks-tasksType">Игроку нужно выполнить одну Задачу на выбор?</label>
+      <input
+          type="checkbox"
+          id="checkbox"
+          :checked="quest?.tasksType === 'ONE_OF'"
+          @click="editTasksType"
+      >
+    </div>
   </div>
 </template>
 
@@ -156,8 +167,33 @@ const sidebarAddTask = () => {
   saveSnapshot()
 }
 
+const editTasksType = () => {
+  if (props.quest?.tasksType === "ONE_OF") {
+    delete props.quest.tasksType
+  } else {
+    props.quest.tasksType = "ONE_OF"
+  }
+  saveSnapshot()
+}
+
 </script>
 
 <style scoped>
+
+.quest-tasks-tasksType {
+
+  font-size: 14px;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+}
+
+.quest-tasks-tasksType input {
+
+  margin-left: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  background: var(--special)
+}
 
 </style>
