@@ -5,7 +5,8 @@
        :style="{ top: position.top + 'px', left: position.left + 'px' }"
   >
     <div class="menu-item">
-      <p class="item-title">Меню</p>
+      <p class="item-title">Буфер</p>
+      <p class="item-title title-name">{{title}}</p>
     </div>
     <hr>
     <div
@@ -24,19 +25,18 @@
 
 import {inject, provide, ref, watch} from "vue";
 
-const buffer = inject("buffer")
-
 const visibleContextMenu = ref(false)
 const position = ref({ top: 0, left: 0 })
 const item = ref({})
 const options = ref({})
+const title = ref("")
 
 const onSelect = ref(null)
 
 const contextMenu = ref(null)
 
 
-const openContextMenu = (event, data, features) => {
+const openContextMenu = (event, data, features, titleInfo="") => {
   if (Object.values(features).every(item => item === null)) return;
 
   position.value = {
@@ -45,6 +45,7 @@ const openContextMenu = (event, data, features) => {
   };
   item.value = data
   options.value = features
+  title.value = titleInfo
 
   visibleContextMenu.value = true;
 
@@ -52,14 +53,6 @@ const openContextMenu = (event, data, features) => {
   setTimeout(() => {
     document.addEventListener('click', handleOutsideClick);
   }, 0);
-}
-
-const getTitle = () => {
-  if (buffer.value["Награды"].length !== 0) {
-    return "Буфер: " + buffer.value["Награды"][0].name
-  } else {
-    return "Меню"
-  }
 }
 
 defineExpose({
@@ -99,6 +92,7 @@ const handleOutsideClick = (e) => {
   font-family: Inter, sans-serif;
   font-size: 14px;
   opacity: 1;
+  width: 10rem;
 }
 
 .menu-item {
@@ -119,7 +113,11 @@ const handleOutsideClick = (e) => {
   overflow: hidden;
   white-space: nowrap;
   max-width: 150px;
-  text-align: center;
+}
+
+.title-name {
+  color: var(--special);
+  font-style: italic;
 }
 
 .unavailable {
