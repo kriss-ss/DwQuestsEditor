@@ -111,7 +111,8 @@ const showContextMenu = (event, item) => {
     "Копировать": item != null ? copy : null,
     "Вставить": buffer.value['Награды'].length !== 0 ? paste : null,
   }
-  contextMenu.value.openContextMenu(event, item, options)
+  const title = buffer.value['Награды'][0]?.name
+  contextMenu.value.openContextMenu(event, item, options, title)
 }
 
 const copy = (item) => {
