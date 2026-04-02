@@ -16,7 +16,7 @@
           class="sidebar-default-button quest-visual-input-color"
 
           :key="quest + '-color'"
-          :style="{background: questRarities[quest.rarity ?? 'UNCOMMON']}"
+          :style="{background: questRarities[quest.rarity || 'UNCOMMON']}"
           name="quest-color" :id="quest + '-color'"
           title="Цвет квеста"
       >
