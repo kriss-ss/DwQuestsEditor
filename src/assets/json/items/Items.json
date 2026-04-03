@@ -1272,7 +1272,7 @@
     "itemId": "177"
   },
   "IC2:blockHarz": {
-    "itemName": "ic2.blockHarz",
+    "itemName": "Резиновый ковер",
     "itemId": "178"
   },
   "IC2:blockRubber": {
@@ -1308,67 +1308,67 @@
     "itemId": "186"
   },
   "IC2:blockWall": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187"
   },
   "IC2:blockWall:1": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:1"
   },
   "IC2:blockWall:2": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:2"
   },
   "IC2:blockWall:3": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:3"
   },
   "IC2:blockWall:4": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:4"
   },
   "IC2:blockWall:5": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:5"
   },
   "IC2:blockWall:6": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:6"
   },
   "IC2:blockWall:7": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:7"
   },
   "IC2:blockWall:8": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:8"
   },
   "IC2:blockWall:9": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:9"
   },
   "IC2:blockWall:10": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:10"
   },
   "IC2:blockWall:11": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:11"
   },
   "IC2:blockWall:12": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:12"
   },
   "IC2:blockWall:13": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:13"
   },
   "IC2:blockWall:14": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:14"
   },
   "IC2:blockWall:15": {
-    "itemName": "ic2.blockWall",
+    "itemName": "Стена",
     "itemId": "187:15"
   },
   "IC2:blockScaffold": {
@@ -20636,7 +20636,7 @@
     "itemId": "2198"
   },
   "EnderIO:blockLiquid_sunshine": {
-    "itemName": "Жидкий солнечный свет",
+    "itemName": "Солнечный свет",
     "itemId": "2199"
   },
   "EnderIO:blockZombieGenerator": {
@@ -20652,7 +20652,7 @@
     "itemId": "2204"
   },
   "EnderIO:blockCloud_seed_concentrated": {
-    "itemName": "Концентрированное облако",
+    "itemName": "Концентрированное облако семян",
     "itemId": "2205"
   },
   "EnderIO:blockPaintedWall": {
@@ -20660,7 +20660,7 @@
     "itemId": "2206"
   },
   "EnderIO:blockLightNode": {
-    "itemName": "tile.blockLightNode.name",
+    "itemName": "Light Node",
     "itemId": "2207"
   },
   "EnderIO:blockFarmStation": {
@@ -20756,8 +20756,12 @@
     "itemId": "2226:6"
   },
   "EnderIO:blockIngotStorage:7": {
-    "itemName": "Блок соулария",
+    "itemName": "Блок призрачного сплава",
     "itemId": "2226:7"
+  },
+  "EnderIO:blockIngotStorage:8": {
+    "itemName": "Блок стали Края",
+    "itemId": "2226:8"
   },
   "EnderIO:blockPaintedGlowstone": {
     "itemName": "Покрашенный светящийся камень",
@@ -20780,12 +20784,16 @@
     "itemId": "2234"
   },
   "EnderIO:blockSolarPanel": {
-    "itemName": "Фотовольтовая ячейка",
+    "itemName": "Фотовольтовая панель",
     "itemId": "2235"
   },
   "EnderIO:blockSolarPanel:1": {
-    "itemName": "Продвинутая фотовольтовая ячейка",
+    "itemName": "Продвинутая фотовольтовая панель",
     "itemId": "2235:1"
+  },
+  "EnderIO:blockSolarPanel:2": {
+    "itemName": "Вибрирующая фотовольтовая панель",
+    "itemId": "2235:2"
   },
   "EnderIO:blockExperienceObelisk": {
     "itemName": "Обелиск опыта",
@@ -20908,11 +20916,11 @@
     "itemId": "2267"
   },
   "EnderIO:blockCloud_seed": {
-    "itemName": "Облако",
+    "itemName": "Облако семян",
     "itemId": "2268"
   },
   "EnderIO:blockConduitFacade": {
-    "itemName": "tile.blockConduitFacade.name",
+    "itemName": "Conduit Facade",
     "itemId": "2270"
   },
   "EnderIO:blockDarkSteelLadder": {
@@ -20946,10 +20954,6 @@
   "EnderIO:blockCapBank:3": {
     "itemName": "Вибрирующий блок конденсаторов",
     "itemId": "2277:3"
-  },
-  "EnderIO:blockCapBank:4": {
-    "itemName": "Мелодичный блок конденсаторов",
-    "itemId": "2277:4"
   },
   "OpenComputers:carpetedCapacitor": {
     "itemName": "Конденсатор с ковровым покрытием",
@@ -23603,6 +23607,1698 @@
     "itemName": "§bГенератор адского камня",
     "itemId": "2866"
   },
+  "ExtraUtilities:color_blockCoal": {
+    "itemName": "Окрашенный Угольный блок (Белый)",
+    "itemId": "2867"
+  },
+  "ExtraUtilities:color_blockCoal:1": {
+    "itemName": "Окрашенный Угольный блок (Оранжевый)",
+    "itemId": "2867:1"
+  },
+  "ExtraUtilities:color_blockCoal:2": {
+    "itemName": "Окрашенный Угольный блок (Сиреневый)",
+    "itemId": "2867:2"
+  },
+  "ExtraUtilities:color_blockCoal:3": {
+    "itemName": "Окрашенный Угольный блок (Светло-синий)",
+    "itemId": "2867:3"
+  },
+  "ExtraUtilities:color_blockCoal:4": {
+    "itemName": "Окрашенный Угольный блок (Жёлтый)",
+    "itemId": "2867:4"
+  },
+  "ExtraUtilities:color_blockCoal:5": {
+    "itemName": "Окрашенный Угольный блок (Лаймовый)",
+    "itemId": "2867:5"
+  },
+  "ExtraUtilities:color_blockCoal:6": {
+    "itemName": "Окрашенный Угольный блок (Розовый)",
+    "itemId": "2867:6"
+  },
+  "ExtraUtilities:color_blockCoal:7": {
+    "itemName": "Окрашенный Угольный блок (Серый)",
+    "itemId": "2867:7"
+  },
+  "ExtraUtilities:color_blockCoal:8": {
+    "itemName": "Окрашенный Угольный блок (Светло-серый)",
+    "itemId": "2867:8"
+  },
+  "ExtraUtilities:color_blockCoal:9": {
+    "itemName": "Окрашенный Угольный блок (Бирюзовый)",
+    "itemId": "2867:9"
+  },
+  "ExtraUtilities:color_blockCoal:10": {
+    "itemName": "Окрашенный Угольный блок (Фиолетовый)",
+    "itemId": "2867:10"
+  },
+  "ExtraUtilities:color_blockCoal:11": {
+    "itemName": "Окрашенный Угольный блок (Синий)",
+    "itemId": "2867:11"
+  },
+  "ExtraUtilities:color_blockCoal:12": {
+    "itemName": "Окрашенный Угольный блок (Коричневый)",
+    "itemId": "2867:12"
+  },
+  "ExtraUtilities:color_blockCoal:13": {
+    "itemName": "Окрашенный Угольный блок (Зелёный)",
+    "itemId": "2867:13"
+  },
+  "ExtraUtilities:color_blockCoal:14": {
+    "itemName": "Окрашенный Угольный блок (Красный)",
+    "itemId": "2867:14"
+  },
+  "ExtraUtilities:color_blockCoal:15": {
+    "itemName": "Окрашенный Угольный блок (Чёрный)",
+    "itemId": "2867:15"
+  },
+  "metatweaker:GHTreesPlating": {
+    "itemName": "Обшивка теплицы для деревьев",
+    "itemId": "2868"
+  },
+  "metatweaker:GHTreesFrame": {
+    "itemName": "Каркас теплицы для деревьев",
+    "itemId": "2869"
+  },
+  "metatweaker:GHCore": {
+    "itemName": "Ядро теплицы",
+    "itemId": "2870"
+  },
+  "ExtraUtilities:plant/ender_lilly": {
+    "itemName": "Семена лилии Края",
+    "itemId": "2871"
+  },
+  "ExtraUtilities:trading_post": {
+    "itemName": "Стол обмена",
+    "itemId": "2872"
+  },
+  "ExtraUtilities:drum": {
+    "itemName": "Барабан",
+    "itemId": "2873"
+  },
+  "ExtraUtilities:drum:1": {
+    "itemName": "Барабан из бедрокия",
+    "itemId": "2873:1"
+  },
+  "ExtraUtilities:color_blockRedstone": {
+    "itemName": "Окрашенный Блок красного камня (Белый)",
+    "itemId": "2874"
+  },
+  "ExtraUtilities:color_blockRedstone:1": {
+    "itemName": "Окрашенный Блок красного камня (Оранжевый)",
+    "itemId": "2874:1"
+  },
+  "ExtraUtilities:color_blockRedstone:2": {
+    "itemName": "Окрашенный Блок красного камня (Сиреневый)",
+    "itemId": "2874:2"
+  },
+  "ExtraUtilities:color_blockRedstone:3": {
+    "itemName": "Окрашенный Блок красного камня (Светло-синий)",
+    "itemId": "2874:3"
+  },
+  "ExtraUtilities:color_blockRedstone:4": {
+    "itemName": "Окрашенный Блок красного камня (Жёлтый)",
+    "itemId": "2874:4"
+  },
+  "ExtraUtilities:color_blockRedstone:5": {
+    "itemName": "Окрашенный Блок красного камня (Лаймовый)",
+    "itemId": "2874:5"
+  },
+  "ExtraUtilities:color_blockRedstone:6": {
+    "itemName": "Окрашенный Блок красного камня (Розовый)",
+    "itemId": "2874:6"
+  },
+  "ExtraUtilities:color_blockRedstone:7": {
+    "itemName": "Окрашенный Блок красного камня (Серый)",
+    "itemId": "2874:7"
+  },
+  "ExtraUtilities:color_blockRedstone:8": {
+    "itemName": "Окрашенный Блок красного камня (Светло-серый)",
+    "itemId": "2874:8"
+  },
+  "ExtraUtilities:color_blockRedstone:9": {
+    "itemName": "Окрашенный Блок красного камня (Бирюзовый)",
+    "itemId": "2874:9"
+  },
+  "ExtraUtilities:color_blockRedstone:10": {
+    "itemName": "Окрашенный Блок красного камня (Фиолетовый)",
+    "itemId": "2874:10"
+  },
+  "ExtraUtilities:color_blockRedstone:11": {
+    "itemName": "Окрашенный Блок красного камня (Синий)",
+    "itemId": "2874:11"
+  },
+  "ExtraUtilities:color_blockRedstone:12": {
+    "itemName": "Окрашенный Блок красного камня (Коричневый)",
+    "itemId": "2874:12"
+  },
+  "ExtraUtilities:color_blockRedstone:13": {
+    "itemName": "Окрашенный Блок красного камня (Зелёный)",
+    "itemId": "2874:13"
+  },
+  "ExtraUtilities:color_blockRedstone:14": {
+    "itemName": "Окрашенный Блок красного камня (Красный)",
+    "itemId": "2874:14"
+  },
+  "ExtraUtilities:color_blockRedstone:15": {
+    "itemName": "Окрашенный Блок красного камня (Чёрный)",
+    "itemId": "2874:15"
+  },
+  "ExtraUtilities:enderCollector": {
+    "itemName": "Коллектор Края",
+    "itemId": "2875"
+  },
+  "ExtraUtilities:extractor_base_remote": {
+    "itemName": "Поисковый узел (Предметы)",
+    "itemId": "2876"
+  },
+  "ExtraUtilities:extractor_base_remote:6": {
+    "itemName": "Поисковый узел (Жидкости)",
+    "itemId": "2876:6"
+  },
+  "metadrive:block_treefarm": {
+    "itemName": "§bТеплица для деревьев",
+    "itemId": "2877"
+  },
+  "ExtraUtilities:spike_base": {
+    "itemName": "Железный шип",
+    "itemId": "2878"
+  },
+  "ExtraUtilities:color_obsidian": {
+    "itemName": "Окрашенный Обсидиан (Белый)",
+    "itemId": "2879"
+  },
+  "ExtraUtilities:color_obsidian:1": {
+    "itemName": "Окрашенный Обсидиан (Оранжевый)",
+    "itemId": "2879:1"
+  },
+  "ExtraUtilities:color_obsidian:2": {
+    "itemName": "Окрашенный Обсидиан (Сиреневый)",
+    "itemId": "2879:2"
+  },
+  "ExtraUtilities:color_obsidian:3": {
+    "itemName": "Окрашенный Обсидиан (Светло-синий)",
+    "itemId": "2879:3"
+  },
+  "ExtraUtilities:color_obsidian:4": {
+    "itemName": "Окрашенный Обсидиан (Жёлтый)",
+    "itemId": "2879:4"
+  },
+  "ExtraUtilities:color_obsidian:5": {
+    "itemName": "Окрашенный Обсидиан (Лаймовый)",
+    "itemId": "2879:5"
+  },
+  "ExtraUtilities:color_obsidian:6": {
+    "itemName": "Окрашенный Обсидиан (Розовый)",
+    "itemId": "2879:6"
+  },
+  "ExtraUtilities:color_obsidian:7": {
+    "itemName": "Окрашенный Обсидиан (Серый)",
+    "itemId": "2879:7"
+  },
+  "ExtraUtilities:color_obsidian:8": {
+    "itemName": "Окрашенный Обсидиан (Светло-серый)",
+    "itemId": "2879:8"
+  },
+  "ExtraUtilities:color_obsidian:9": {
+    "itemName": "Окрашенный Обсидиан (Бирюзовый)",
+    "itemId": "2879:9"
+  },
+  "ExtraUtilities:color_obsidian:10": {
+    "itemName": "Окрашенный Обсидиан (Фиолетовый)",
+    "itemId": "2879:10"
+  },
+  "ExtraUtilities:color_obsidian:11": {
+    "itemName": "Окрашенный Обсидиан (Синий)",
+    "itemId": "2879:11"
+  },
+  "ExtraUtilities:color_obsidian:12": {
+    "itemName": "Окрашенный Обсидиан (Коричневый)",
+    "itemId": "2879:12"
+  },
+  "ExtraUtilities:color_obsidian:13": {
+    "itemName": "Окрашенный Обсидиан (Зелёный)",
+    "itemId": "2879:13"
+  },
+  "ExtraUtilities:color_obsidian:14": {
+    "itemName": "Окрашенный Обсидиан (Красный)",
+    "itemId": "2879:14"
+  },
+  "ExtraUtilities:color_obsidian:15": {
+    "itemName": "Окрашенный Обсидиан (Чёрный)",
+    "itemId": "2879:15"
+  },
+  "ExtraUtilities:enderQuarry": {
+    "itemName": "Карьер Края",
+    "itemId": "2880"
+  },
+  "ExtraUtilities:filing": {
+    "itemName": "Шкаф",
+    "itemId": "2881"
+  },
+  "ExtraUtilities:filing:1": {
+    "itemName": "Шкаф (Продвинутый)",
+    "itemId": "2881:1"
+  },
+  "ExtraUtilities:block_bedrockium": {
+    "itemName": "Блок бедрокия",
+    "itemId": "2882"
+  },
+  "ExtraUtilities:color_stone": {
+    "itemName": "Окрашенный Камень (Белый)",
+    "itemId": "2883"
+  },
+  "ExtraUtilities:color_stone:1": {
+    "itemName": "Окрашенный Камень (Оранжевый)",
+    "itemId": "2883:1"
+  },
+  "ExtraUtilities:color_stone:2": {
+    "itemName": "Окрашенный Камень (Сиреневый)",
+    "itemId": "2883:2"
+  },
+  "ExtraUtilities:color_stone:3": {
+    "itemName": "Окрашенный Камень (Светло-синий)",
+    "itemId": "2883:3"
+  },
+  "ExtraUtilities:color_stone:4": {
+    "itemName": "Окрашенный Камень (Жёлтый)",
+    "itemId": "2883:4"
+  },
+  "ExtraUtilities:color_stone:5": {
+    "itemName": "Окрашенный Камень (Лаймовый)",
+    "itemId": "2883:5"
+  },
+  "ExtraUtilities:color_stone:6": {
+    "itemName": "Окрашенный Камень (Розовый)",
+    "itemId": "2883:6"
+  },
+  "ExtraUtilities:color_stone:7": {
+    "itemName": "Окрашенный Камень (Серый)",
+    "itemId": "2883:7"
+  },
+  "ExtraUtilities:color_stone:8": {
+    "itemName": "Окрашенный Камень (Светло-серый)",
+    "itemId": "2883:8"
+  },
+  "ExtraUtilities:color_stone:9": {
+    "itemName": "Окрашенный Камень (Бирюзовый)",
+    "itemId": "2883:9"
+  },
+  "ExtraUtilities:color_stone:10": {
+    "itemName": "Окрашенный Камень (Фиолетовый)",
+    "itemId": "2883:10"
+  },
+  "ExtraUtilities:color_stone:11": {
+    "itemName": "Окрашенный Камень (Синий)",
+    "itemId": "2883:11"
+  },
+  "ExtraUtilities:color_stone:12": {
+    "itemName": "Окрашенный Камень (Коричневый)",
+    "itemId": "2883:12"
+  },
+  "ExtraUtilities:color_stone:13": {
+    "itemName": "Окрашенный Камень (Зелёный)",
+    "itemId": "2883:13"
+  },
+  "ExtraUtilities:color_stone:14": {
+    "itemName": "Окрашенный Камень (Красный)",
+    "itemId": "2883:14"
+  },
+  "ExtraUtilities:color_stone:15": {
+    "itemName": "Окрашенный Камень (Чёрный)",
+    "itemId": "2883:15"
+  },
+  "ExtraUtilities:endMarker": {
+    "itemName": "Маркер Края",
+    "itemId": "2884"
+  },
+  "ExtraUtilities:color_lightgem": {
+    "itemName": "Окрашенный Светящийся камень (Белый)",
+    "itemId": "2885"
+  },
+  "ExtraUtilities:color_lightgem:1": {
+    "itemName": "Окрашенный Светящийся камень (Оранжевый)",
+    "itemId": "2885:1"
+  },
+  "ExtraUtilities:color_lightgem:2": {
+    "itemName": "Окрашенный Светящийся камень (Сиреневый)",
+    "itemId": "2885:2"
+  },
+  "ExtraUtilities:color_lightgem:3": {
+    "itemName": "Окрашенный Светящийся камень (Светло-синий)",
+    "itemId": "2885:3"
+  },
+  "ExtraUtilities:color_lightgem:4": {
+    "itemName": "Окрашенный Светящийся камень (Жёлтый)",
+    "itemId": "2885:4"
+  },
+  "ExtraUtilities:color_lightgem:5": {
+    "itemName": "Окрашенный Светящийся камень (Лаймовый)",
+    "itemId": "2885:5"
+  },
+  "ExtraUtilities:color_lightgem:6": {
+    "itemName": "Окрашенный Светящийся камень (Розовый)",
+    "itemId": "2885:6"
+  },
+  "ExtraUtilities:color_lightgem:7": {
+    "itemName": "Окрашенный Светящийся камень (Серый)",
+    "itemId": "2885:7"
+  },
+  "ExtraUtilities:color_lightgem:8": {
+    "itemName": "Окрашенный Светящийся камень (Светло-серый)",
+    "itemId": "2885:8"
+  },
+  "ExtraUtilities:color_lightgem:9": {
+    "itemName": "Окрашенный Светящийся камень (Бирюзовый)",
+    "itemId": "2885:9"
+  },
+  "ExtraUtilities:color_lightgem:10": {
+    "itemName": "Окрашенный Светящийся камень (Фиолетовый)",
+    "itemId": "2885:10"
+  },
+  "ExtraUtilities:color_lightgem:11": {
+    "itemName": "Окрашенный Светящийся камень (Синий)",
+    "itemId": "2885:11"
+  },
+  "ExtraUtilities:color_lightgem:12": {
+    "itemName": "Окрашенный Светящийся камень (Коричневый)",
+    "itemId": "2885:12"
+  },
+  "ExtraUtilities:color_lightgem:13": {
+    "itemName": "Окрашенный Светящийся камень (Зелёный)",
+    "itemId": "2885:13"
+  },
+  "ExtraUtilities:color_lightgem:14": {
+    "itemName": "Окрашенный Светящийся камень (Красный)",
+    "itemId": "2885:14"
+  },
+  "ExtraUtilities:color_lightgem:15": {
+    "itemName": "Окрашенный Светящийся камень (Чёрный)",
+    "itemId": "2885:15"
+  },
+  "metadrive:block_ic2_centrifuge": {
+    "itemName": "§bКвантовая термальная центрифуга",
+    "itemId": "2886"
+  },
+  "ExtraUtilities:color_stonebrick": {
+    "itemName": "Окрашенный Булыжник (Белый)",
+    "itemId": "2887"
+  },
+  "ExtraUtilities:color_stonebrick:1": {
+    "itemName": "Окрашенный Булыжник (Оранжевый)",
+    "itemId": "2887:1"
+  },
+  "ExtraUtilities:color_stonebrick:2": {
+    "itemName": "Окрашенный Булыжник (Сиреневый)",
+    "itemId": "2887:2"
+  },
+  "ExtraUtilities:color_stonebrick:3": {
+    "itemName": "Окрашенный Булыжник (Светло-синий)",
+    "itemId": "2887:3"
+  },
+  "ExtraUtilities:color_stonebrick:4": {
+    "itemName": "Окрашенный Булыжник (Жёлтый)",
+    "itemId": "2887:4"
+  },
+  "ExtraUtilities:color_stonebrick:5": {
+    "itemName": "Окрашенный Булыжник (Лаймовый)",
+    "itemId": "2887:5"
+  },
+  "ExtraUtilities:color_stonebrick:6": {
+    "itemName": "Окрашенный Булыжник (Розовый)",
+    "itemId": "2887:6"
+  },
+  "ExtraUtilities:color_stonebrick:7": {
+    "itemName": "Окрашенный Булыжник (Серый)",
+    "itemId": "2887:7"
+  },
+  "ExtraUtilities:color_stonebrick:8": {
+    "itemName": "Окрашенный Булыжник (Светло-серый)",
+    "itemId": "2887:8"
+  },
+  "ExtraUtilities:color_stonebrick:9": {
+    "itemName": "Окрашенный Булыжник (Бирюзовый)",
+    "itemId": "2887:9"
+  },
+  "ExtraUtilities:color_stonebrick:10": {
+    "itemName": "Окрашенный Булыжник (Фиолетовый)",
+    "itemId": "2887:10"
+  },
+  "ExtraUtilities:color_stonebrick:11": {
+    "itemName": "Окрашенный Булыжник (Синий)",
+    "itemId": "2887:11"
+  },
+  "ExtraUtilities:color_stonebrick:12": {
+    "itemName": "Окрашенный Булыжник (Коричневый)",
+    "itemId": "2887:12"
+  },
+  "ExtraUtilities:color_stonebrick:13": {
+    "itemName": "Окрашенный Булыжник (Зелёный)",
+    "itemId": "2887:13"
+  },
+  "ExtraUtilities:color_stonebrick:14": {
+    "itemName": "Окрашенный Булыжник (Красный)",
+    "itemId": "2887:14"
+  },
+  "ExtraUtilities:color_stonebrick:15": {
+    "itemName": "Окрашенный Булыжник (Чёрный)",
+    "itemId": "2887:15"
+  },
+  "ExtraUtilities:colorWoodPlanks": {
+    "itemName": "Окрашенный Дубовые доски (Белый)",
+    "itemId": "2888"
+  },
+  "ExtraUtilities:colorWoodPlanks:1": {
+    "itemName": "Окрашенный Дубовые доски (Оранжевый)",
+    "itemId": "2888:1"
+  },
+  "ExtraUtilities:colorWoodPlanks:2": {
+    "itemName": "Окрашенный Дубовые доски (Сиреневый)",
+    "itemId": "2888:2"
+  },
+  "ExtraUtilities:colorWoodPlanks:3": {
+    "itemName": "Окрашенный Дубовые доски (Светло-синий)",
+    "itemId": "2888:3"
+  },
+  "ExtraUtilities:colorWoodPlanks:4": {
+    "itemName": "Окрашенный Дубовые доски (Жёлтый)",
+    "itemId": "2888:4"
+  },
+  "ExtraUtilities:colorWoodPlanks:5": {
+    "itemName": "Окрашенный Дубовые доски (Лаймовый)",
+    "itemId": "2888:5"
+  },
+  "ExtraUtilities:colorWoodPlanks:6": {
+    "itemName": "Окрашенный Дубовые доски (Розовый)",
+    "itemId": "2888:6"
+  },
+  "ExtraUtilities:colorWoodPlanks:7": {
+    "itemName": "Окрашенный Дубовые доски (Серый)",
+    "itemId": "2888:7"
+  },
+  "ExtraUtilities:colorWoodPlanks:8": {
+    "itemName": "Окрашенный Дубовые доски (Светло-серый)",
+    "itemId": "2888:8"
+  },
+  "ExtraUtilities:colorWoodPlanks:9": {
+    "itemName": "Окрашенный Дубовые доски (Бирюзовый)",
+    "itemId": "2888:9"
+  },
+  "ExtraUtilities:colorWoodPlanks:10": {
+    "itemName": "Окрашенный Дубовые доски (Фиолетовый)",
+    "itemId": "2888:10"
+  },
+  "ExtraUtilities:colorWoodPlanks:11": {
+    "itemName": "Окрашенный Дубовые доски (Синий)",
+    "itemId": "2888:11"
+  },
+  "ExtraUtilities:colorWoodPlanks:12": {
+    "itemName": "Окрашенный Дубовые доски (Коричневый)",
+    "itemId": "2888:12"
+  },
+  "ExtraUtilities:colorWoodPlanks:13": {
+    "itemName": "Окрашенный Дубовые доски (Зелёный)",
+    "itemId": "2888:13"
+  },
+  "ExtraUtilities:colorWoodPlanks:14": {
+    "itemName": "Окрашенный Дубовые доски (Красный)",
+    "itemId": "2888:14"
+  },
+  "ExtraUtilities:colorWoodPlanks:15": {
+    "itemName": "Окрашенный Дубовые доски (Чёрный)",
+    "itemId": "2888:15"
+  },
+  "ExtraUtilities:generator.8": {
+    "itemName": "Генератор выжившего",
+    "itemId": "2889"
+  },
+  "ExtraUtilities:generator.8:1": {
+    "itemName": "Печной генератор",
+    "itemId": "2889:1"
+  },
+  "ExtraUtilities:generator.8:2": {
+    "itemName": "Лавовый генератор",
+    "itemId": "2889:2"
+  },
+  "ExtraUtilities:generator.8:3": {
+    "itemName": "Генератор Края",
+    "itemId": "2889:3"
+  },
+  "ExtraUtilities:generator.8:4": {
+    "itemName": "Генератор на расплавленном красном камне",
+    "itemId": "2889:4"
+  },
+  "ExtraUtilities:generator.8:5": {
+    "itemName": "Кухонный генератор",
+    "itemId": "2889:5"
+  },
+  "ExtraUtilities:generator.8:6": {
+    "itemName": "Генератор на зельях",
+    "itemId": "2889:6"
+  },
+  "ExtraUtilities:generator.8:7": {
+    "itemName": "Солнечный генератор",
+    "itemId": "2889:7"
+  },
+  "ExtraUtilities:generator.8:8": {
+    "itemName": "ТНТ генератор",
+    "itemId": "2889:8"
+  },
+  "ExtraUtilities:generator.8:9": {
+    "itemName": "Розовый генератор",
+    "itemId": "2889:9"
+  },
+  "ExtraUtilities:generator.8:10": {
+    "itemName": "Высокотемпературный печной генератор",
+    "itemId": "2889:10"
+  },
+  "ExtraUtilities:generator.8:11": {
+    "itemName": "Генератор на звезде Нижнего мира",
+    "itemId": "2889:11"
+  },
+  "ExtraUtilities:generator.64": {
+    "itemName": "Генератор выжившего",
+    "itemId": "2890"
+  },
+  "ExtraUtilities:generator.64:1": {
+    "itemName": "Печной генератор",
+    "itemId": "2890:1"
+  },
+  "ExtraUtilities:generator.64:2": {
+    "itemName": "Лавовый генератор",
+    "itemId": "2890:2"
+  },
+  "ExtraUtilities:generator.64:3": {
+    "itemName": "Генератор Края",
+    "itemId": "2890:3"
+  },
+  "ExtraUtilities:generator.64:4": {
+    "itemName": "Генератор на расплавленном красном камне",
+    "itemId": "2890:4"
+  },
+  "ExtraUtilities:generator.64:5": {
+    "itemName": "Кухонный генератор",
+    "itemId": "2890:5"
+  },
+  "ExtraUtilities:generator.64:6": {
+    "itemName": "Генератор на зельях",
+    "itemId": "2890:6"
+  },
+  "ExtraUtilities:generator.64:7": {
+    "itemName": "Солнечный генератор",
+    "itemId": "2890:7"
+  },
+  "ExtraUtilities:generator.64:8": {
+    "itemName": "ТНТ генератор",
+    "itemId": "2890:8"
+  },
+  "ExtraUtilities:generator.64:9": {
+    "itemName": "Розовый генератор",
+    "itemId": "2890:9"
+  },
+  "ExtraUtilities:generator.64:10": {
+    "itemName": "Высокотемпературный печной генератор",
+    "itemId": "2890:10"
+  },
+  "ExtraUtilities:generator.64:11": {
+    "itemName": "Генератор на звезде Нижнего мира",
+    "itemId": "2890:11"
+  },
+  "ExtraUtilities:chestMini": {
+    "itemName": "Маленький сундук",
+    "itemId": "2891"
+  },
+  "ExtraUtilities:chandelier": {
+    "itemName": "Люстра",
+    "itemId": "2892"
+  },
+  "ExtraUtilities:spike_base_wood": {
+    "itemName": "Деревянный шип",
+    "itemId": "2893"
+  },
+  "ExtraUtilities:generator": {
+    "itemName": "Генератор выжившего",
+    "itemId": "2894"
+  },
+  "ExtraUtilities:generator:1": {
+    "itemName": "Печной генератор",
+    "itemId": "2894:1"
+  },
+  "ExtraUtilities:generator:2": {
+    "itemName": "Лавовый генератор",
+    "itemId": "2894:2"
+  },
+  "ExtraUtilities:generator:3": {
+    "itemName": "Генератор Края",
+    "itemId": "2894:3"
+  },
+  "ExtraUtilities:generator:4": {
+    "itemName": "Генератор на расплавленном красном камне",
+    "itemId": "2894:4"
+  },
+  "ExtraUtilities:generator:5": {
+    "itemName": "Кухонный генератор",
+    "itemId": "2894:5"
+  },
+  "ExtraUtilities:generator:6": {
+    "itemName": "Генератор на зельях",
+    "itemId": "2894:6"
+  },
+  "ExtraUtilities:generator:7": {
+    "itemName": "Солнечный генератор",
+    "itemId": "2894:7"
+  },
+  "ExtraUtilities:generator:8": {
+    "itemName": "ТНТ генератор",
+    "itemId": "2894:8"
+  },
+  "ExtraUtilities:generator:9": {
+    "itemName": "Розовый генератор",
+    "itemId": "2894:9"
+  },
+  "ExtraUtilities:generator:10": {
+    "itemName": "Высокотемпературный печной генератор",
+    "itemId": "2894:10"
+  },
+  "ExtraUtilities:generator:11": {
+    "itemName": "Генератор на звезде Нижнего мира",
+    "itemId": "2894:11"
+  },
+  "metadrive:block_greenhouse": {
+    "itemName": "§bИндустриальная теплица",
+    "itemId": "2895"
+  },
+  "ExtraUtilities:extractor_base": {
+    "itemName": "Узел передачи (Предметы)",
+    "itemId": "2896"
+  },
+  "ExtraUtilities:extractor_base:6": {
+    "itemName": "Узел передачи (Жидкости)",
+    "itemId": "2896:6"
+  },
+  "ExtraUtilities:extractor_base:12": {
+    "itemName": "Узел передачи (Энергия)",
+    "itemId": "2896:12"
+  },
+  "ExtraUtilities:extractor_base:13": {
+    "itemName": "Узел передачи (Гипер энергия)",
+    "itemId": "2896:13"
+  },
+  "ExtraUtilities:peaceful_table_top": {
+    "itemName": "Мирный стол",
+    "itemId": "2897"
+  },
+  "ExtraUtilities:pureLove": {
+    "itemName": "Любовный блок",
+    "itemId": "2898"
+  },
+  "ExtraUtilities:curtains": {
+    "itemName": "Занавесы",
+    "itemId": "2899"
+  },
+  "ExtraUtilities:sound_muffler": {
+    "itemName": "Глушитель звука",
+    "itemId": "2900"
+  },
+  "ExtraUtilities:sound_muffler:1": {
+    "itemName": "Глушитель дождя",
+    "itemId": "2900:1"
+  },
+  "ExtraUtilities:color_brick": {
+    "itemName": "Окрашенный Кирпичи (Белый)",
+    "itemId": "2901"
+  },
+  "ExtraUtilities:color_brick:1": {
+    "itemName": "Окрашенный Кирпичи (Оранжевый)",
+    "itemId": "2901:1"
+  },
+  "ExtraUtilities:color_brick:2": {
+    "itemName": "Окрашенный Кирпичи (Сиреневый)",
+    "itemId": "2901:2"
+  },
+  "ExtraUtilities:color_brick:3": {
+    "itemName": "Окрашенный Кирпичи (Светло-синий)",
+    "itemId": "2901:3"
+  },
+  "ExtraUtilities:color_brick:4": {
+    "itemName": "Окрашенный Кирпичи (Жёлтый)",
+    "itemId": "2901:4"
+  },
+  "ExtraUtilities:color_brick:5": {
+    "itemName": "Окрашенный Кирпичи (Лаймовый)",
+    "itemId": "2901:5"
+  },
+  "ExtraUtilities:color_brick:6": {
+    "itemName": "Окрашенный Кирпичи (Розовый)",
+    "itemId": "2901:6"
+  },
+  "ExtraUtilities:color_brick:7": {
+    "itemName": "Окрашенный Кирпичи (Серый)",
+    "itemId": "2901:7"
+  },
+  "ExtraUtilities:color_brick:8": {
+    "itemName": "Окрашенный Кирпичи (Светло-серый)",
+    "itemId": "2901:8"
+  },
+  "ExtraUtilities:color_brick:9": {
+    "itemName": "Окрашенный Кирпичи (Бирюзовый)",
+    "itemId": "2901:9"
+  },
+  "ExtraUtilities:color_brick:10": {
+    "itemName": "Окрашенный Кирпичи (Фиолетовый)",
+    "itemId": "2901:10"
+  },
+  "ExtraUtilities:color_brick:11": {
+    "itemName": "Окрашенный Кирпичи (Синий)",
+    "itemId": "2901:11"
+  },
+  "ExtraUtilities:color_brick:12": {
+    "itemName": "Окрашенный Кирпичи (Коричневый)",
+    "itemId": "2901:12"
+  },
+  "ExtraUtilities:color_brick:13": {
+    "itemName": "Окрашенный Кирпичи (Зелёный)",
+    "itemId": "2901:13"
+  },
+  "ExtraUtilities:color_brick:14": {
+    "itemName": "Окрашенный Кирпичи (Красный)",
+    "itemId": "2901:14"
+  },
+  "ExtraUtilities:color_brick:15": {
+    "itemName": "Окрашенный Кирпичи (Чёрный)",
+    "itemId": "2901:15"
+  },
+  "ExtraUtilities:timer": {
+    "itemName": "Красные часы",
+    "itemId": "2902"
+  },
+  "ExtraUtilities:pipes.1": {
+    "itemName": "Труба гипер-рационирования",
+    "itemId": "2903"
+  },
+  "ExtraUtilities:color_blockLapis": {
+    "itemName": "Окрашенный Блок лазурита (Белый)",
+    "itemId": "2904"
+  },
+  "ExtraUtilities:color_blockLapis:1": {
+    "itemName": "Окрашенный Блок лазурита (Оранжевый)",
+    "itemId": "2904:1"
+  },
+  "ExtraUtilities:color_blockLapis:2": {
+    "itemName": "Окрашенный Блок лазурита (Сиреневый)",
+    "itemId": "2904:2"
+  },
+  "ExtraUtilities:color_blockLapis:3": {
+    "itemName": "Окрашенный Блок лазурита (Светло-синий)",
+    "itemId": "2904:3"
+  },
+  "ExtraUtilities:color_blockLapis:4": {
+    "itemName": "Окрашенный Блок лазурита (Жёлтый)",
+    "itemId": "2904:4"
+  },
+  "ExtraUtilities:color_blockLapis:5": {
+    "itemName": "Окрашенный Блок лазурита (Лаймовый)",
+    "itemId": "2904:5"
+  },
+  "ExtraUtilities:color_blockLapis:6": {
+    "itemName": "Окрашенный Блок лазурита (Розовый)",
+    "itemId": "2904:6"
+  },
+  "ExtraUtilities:color_blockLapis:7": {
+    "itemName": "Окрашенный Блок лазурита (Серый)",
+    "itemId": "2904:7"
+  },
+  "ExtraUtilities:color_blockLapis:8": {
+    "itemName": "Окрашенный Блок лазурита (Светло-серый)",
+    "itemId": "2904:8"
+  },
+  "ExtraUtilities:color_blockLapis:9": {
+    "itemName": "Окрашенный Блок лазурита (Бирюзовый)",
+    "itemId": "2904:9"
+  },
+  "ExtraUtilities:color_blockLapis:10": {
+    "itemName": "Окрашенный Блок лазурита (Фиолетовый)",
+    "itemId": "2904:10"
+  },
+  "ExtraUtilities:color_blockLapis:11": {
+    "itemName": "Окрашенный Блок лазурита (Синий)",
+    "itemId": "2904:11"
+  },
+  "ExtraUtilities:color_blockLapis:12": {
+    "itemName": "Окрашенный Блок лазурита (Коричневый)",
+    "itemId": "2904:12"
+  },
+  "ExtraUtilities:color_blockLapis:13": {
+    "itemName": "Окрашенный Блок лазурита (Зелёный)",
+    "itemId": "2904:13"
+  },
+  "ExtraUtilities:color_blockLapis:14": {
+    "itemName": "Окрашенный Блок лазурита (Красный)",
+    "itemId": "2904:14"
+  },
+  "ExtraUtilities:color_blockLapis:15": {
+    "itemName": "Окрашенный Блок лазурита (Чёрный)",
+    "itemId": "2904:15"
+  },
+  "ExtraUtilities:conveyor": {
+    "itemName": "Конвейерная лента",
+    "itemId": "2905"
+  },
+  "ExtraUtilities:color_redstoneLight": {
+    "itemName": "Окрашенный Лампа (Белый)",
+    "itemId": "2906"
+  },
+  "ExtraUtilities:color_redstoneLight:1": {
+    "itemName": "Окрашенный Лампа (Оранжевый)",
+    "itemId": "2906:1"
+  },
+  "ExtraUtilities:color_redstoneLight:2": {
+    "itemName": "Окрашенный Лампа (Сиреневый)",
+    "itemId": "2906:2"
+  },
+  "ExtraUtilities:color_redstoneLight:3": {
+    "itemName": "Окрашенный Лампа (Светло-синий)",
+    "itemId": "2906:3"
+  },
+  "ExtraUtilities:color_redstoneLight:4": {
+    "itemName": "Окрашенный Лампа (Жёлтый)",
+    "itemId": "2906:4"
+  },
+  "ExtraUtilities:color_redstoneLight:5": {
+    "itemName": "Окрашенный Лампа (Лаймовый)",
+    "itemId": "2906:5"
+  },
+  "ExtraUtilities:color_redstoneLight:6": {
+    "itemName": "Окрашенный Лампа (Розовый)",
+    "itemId": "2906:6"
+  },
+  "ExtraUtilities:color_redstoneLight:7": {
+    "itemName": "Окрашенный Лампа (Серый)",
+    "itemId": "2906:7"
+  },
+  "ExtraUtilities:color_redstoneLight:8": {
+    "itemName": "Окрашенный Лампа (Светло-серый)",
+    "itemId": "2906:8"
+  },
+  "ExtraUtilities:color_redstoneLight:9": {
+    "itemName": "Окрашенный Лампа (Бирюзовый)",
+    "itemId": "2906:9"
+  },
+  "ExtraUtilities:color_redstoneLight:10": {
+    "itemName": "Окрашенный Лампа (Фиолетовый)",
+    "itemId": "2906:10"
+  },
+  "ExtraUtilities:color_redstoneLight:11": {
+    "itemName": "Окрашенный Лампа (Синий)",
+    "itemId": "2906:11"
+  },
+  "ExtraUtilities:color_redstoneLight:12": {
+    "itemName": "Окрашенный Лампа (Коричневый)",
+    "itemId": "2906:12"
+  },
+  "ExtraUtilities:color_redstoneLight:13": {
+    "itemName": "Окрашенный Лампа (Зелёный)",
+    "itemId": "2906:13"
+  },
+  "ExtraUtilities:color_redstoneLight:14": {
+    "itemName": "Окрашенный Лампа (Красный)",
+    "itemId": "2906:14"
+  },
+  "ExtraUtilities:color_redstoneLight:15": {
+    "itemName": "Окрашенный Лампа (Чёрный)",
+    "itemId": "2906:15"
+  },
+  "ExtraUtilities:cursedearthside": {
+    "itemName": "Проклятая земля",
+    "itemId": "2907"
+  },
+  "ExtraUtilities:trashcan": {
+    "itemName": "Мусорная корзина",
+    "itemId": "2908"
+  },
+  "ExtraUtilities:trashcan:1": {
+    "itemName": "Мусорная корзина (Жидкости)",
+    "itemId": "2908:1"
+  },
+  "ExtraUtilities:trashcan:2": {
+    "itemName": "Мусорная корзина (Энергия)",
+    "itemId": "2908:2"
+  },
+  "ExtraUtilities:color_quartzBlock": {
+    "itemName": "Окрашенный Кварцевый блок (Белый)",
+    "itemId": "2909"
+  },
+  "ExtraUtilities:color_quartzBlock:1": {
+    "itemName": "Окрашенный Кварцевый блок (Оранжевый)",
+    "itemId": "2909:1"
+  },
+  "ExtraUtilities:color_quartzBlock:2": {
+    "itemName": "Окрашенный Кварцевый блок (Сиреневый)",
+    "itemId": "2909:2"
+  },
+  "ExtraUtilities:color_quartzBlock:3": {
+    "itemName": "Окрашенный Кварцевый блок (Светло-синий)",
+    "itemId": "2909:3"
+  },
+  "ExtraUtilities:color_quartzBlock:4": {
+    "itemName": "Окрашенный Кварцевый блок (Жёлтый)",
+    "itemId": "2909:4"
+  },
+  "ExtraUtilities:color_quartzBlock:5": {
+    "itemName": "Окрашенный Кварцевый блок (Лаймовый)",
+    "itemId": "2909:5"
+  },
+  "ExtraUtilities:color_quartzBlock:6": {
+    "itemName": "Окрашенный Кварцевый блок (Розовый)",
+    "itemId": "2909:6"
+  },
+  "ExtraUtilities:color_quartzBlock:7": {
+    "itemName": "Окрашенный Кварцевый блок (Серый)",
+    "itemId": "2909:7"
+  },
+  "ExtraUtilities:color_quartzBlock:8": {
+    "itemName": "Окрашенный Кварцевый блок (Светло-серый)",
+    "itemId": "2909:8"
+  },
+  "ExtraUtilities:color_quartzBlock:9": {
+    "itemName": "Окрашенный Кварцевый блок (Бирюзовый)",
+    "itemId": "2909:9"
+  },
+  "ExtraUtilities:color_quartzBlock:10": {
+    "itemName": "Окрашенный Кварцевый блок (Фиолетовый)",
+    "itemId": "2909:10"
+  },
+  "ExtraUtilities:color_quartzBlock:11": {
+    "itemName": "Окрашенный Кварцевый блок (Синий)",
+    "itemId": "2909:11"
+  },
+  "ExtraUtilities:color_quartzBlock:12": {
+    "itemName": "Окрашенный Кварцевый блок (Коричневый)",
+    "itemId": "2909:12"
+  },
+  "ExtraUtilities:color_quartzBlock:13": {
+    "itemName": "Окрашенный Кварцевый блок (Зелёный)",
+    "itemId": "2909:13"
+  },
+  "ExtraUtilities:color_quartzBlock:14": {
+    "itemName": "Окрашенный Кварцевый блок (Красный)",
+    "itemId": "2909:14"
+  },
+  "ExtraUtilities:color_quartzBlock:15": {
+    "itemName": "Окрашенный Кварцевый блок (Чёрный)",
+    "itemId": "2909:15"
+  },
+  "ExtraUtilities:pipes": {
+    "itemName": "Труба для передачи",
+    "itemId": "2910"
+  },
+  "ExtraUtilities:pipes:8": {
+    "itemName": "Сортирующая труба",
+    "itemId": "2910:8"
+  },
+  "ExtraUtilities:pipes:9": {
+    "itemName": "Фильтрующая труба",
+    "itemId": "2910:9"
+  },
+  "ExtraUtilities:pipes:10": {
+    "itemName": "Труба рационирования",
+    "itemId": "2910:10"
+  },
+  "ExtraUtilities:pipes:11": {
+    "itemName": "Энергетическая труба",
+    "itemId": "2910:11"
+  },
+  "ExtraUtilities:pipes:12": {
+    "itemName": "Перекрёстная труба",
+    "itemId": "2910:12"
+  },
+  "ExtraUtilities:pipes:13": {
+    "itemName": "Труба для сортировки по модам",
+    "itemId": "2910:13"
+  },
+  "ExtraUtilities:pipes:14": {
+    "itemName": "Труба для извлечения энергии",
+    "itemId": "2910:14"
+  },
+  "ExtraUtilities:magnumTorch": {
+    "itemName": "Большой факел",
+    "itemId": "2911"
+  },
+  "ExtraUtilities:endConstructor": {
+    "itemName": "QED (Quite Elegant Device)",
+    "itemId": "2912"
+  },
+  "ExtraUtilities:endConstructor:2": {
+    "itemName": "Флаксовый кристалл Края",
+    "itemId": "2912:2"
+  },
+  "ExtraUtilities:greenscreen": {
+    "itemName": "Небесный камень (Белый)",
+    "itemId": "2913"
+  },
+  "ExtraUtilities:greenscreen:1": {
+    "itemName": "Небесный камень (Оранжевый)",
+    "itemId": "2913:1"
+  },
+  "ExtraUtilities:greenscreen:2": {
+    "itemName": "Небесный камень (Сиреневый)",
+    "itemId": "2913:2"
+  },
+  "ExtraUtilities:greenscreen:3": {
+    "itemName": "Небесный камень (Светло-синий)",
+    "itemId": "2913:3"
+  },
+  "ExtraUtilities:greenscreen:4": {
+    "itemName": "Небесный камень (Жёлтый)",
+    "itemId": "2913:4"
+  },
+  "ExtraUtilities:greenscreen:5": {
+    "itemName": "Небесный камень (Лаймовый)",
+    "itemId": "2913:5"
+  },
+  "ExtraUtilities:greenscreen:6": {
+    "itemName": "Небесный камень (Розовый)",
+    "itemId": "2913:6"
+  },
+  "ExtraUtilities:greenscreen:7": {
+    "itemName": "Небесный камень (Серый)",
+    "itemId": "2913:7"
+  },
+  "ExtraUtilities:greenscreen:8": {
+    "itemName": "Небесный камень (Светло-серый)",
+    "itemId": "2913:8"
+  },
+  "ExtraUtilities:greenscreen:9": {
+    "itemName": "Небесный камень (Бирюзовый)",
+    "itemId": "2913:9"
+  },
+  "ExtraUtilities:greenscreen:10": {
+    "itemName": "Небесный камень (Фиолетовый)",
+    "itemId": "2913:10"
+  },
+  "ExtraUtilities:greenscreen:11": {
+    "itemName": "Небесный камень (Синий)",
+    "itemId": "2913:11"
+  },
+  "ExtraUtilities:greenscreen:12": {
+    "itemName": "Небесный камень (Коричневый)",
+    "itemId": "2913:12"
+  },
+  "ExtraUtilities:greenscreen:13": {
+    "itemName": "Небесный камень (Зелёный)",
+    "itemId": "2913:13"
+  },
+  "ExtraUtilities:greenscreen:14": {
+    "itemName": "Небесный камень (Красный)",
+    "itemId": "2913:14"
+  },
+  "ExtraUtilities:greenscreen:15": {
+    "itemName": "Небесный камень (Чёрный)",
+    "itemId": "2913:15"
+  },
+  "ExtraUtilities:decorativeBlock2": {
+    "itemName": "Утолщённое стекло",
+    "itemId": "2914"
+  },
+  "ExtraUtilities:decorativeBlock2:1": {
+    "itemName": "Заострённое стекло",
+    "itemId": "2914:1"
+  },
+  "ExtraUtilities:decorativeBlock2:2": {
+    "itemName": "Стеклянный кирпич",
+    "itemId": "2914:2"
+  },
+  "ExtraUtilities:decorativeBlock2:3": {
+    "itemName": "Резное стекло",
+    "itemId": "2914:3"
+  },
+  "ExtraUtilities:decorativeBlock2:4": {
+    "itemName": "Золотое заострённое стекло",
+    "itemId": "2914:4"
+  },
+  "ExtraUtilities:decorativeBlock2:5": {
+    "itemName": "Обсидиановое стекло",
+    "itemId": "2914:5"
+  },
+  "ExtraUtilities:decorativeBlock2:6": {
+    "itemName": "Вихревое стекло",
+    "itemId": "2914:6"
+  },
+  "ExtraUtilities:decorativeBlock2:7": {
+    "itemName": "Светящееся стекло",
+    "itemId": "2914:7"
+  },
+  "ExtraUtilities:decorativeBlock2:8": {
+    "itemName": "Любовное стекло",
+    "itemId": "2914:8"
+  },
+  "ExtraUtilities:decorativeBlock2:9": {
+    "itemName": "Квадратное стекло",
+    "itemId": "2914:9"
+  },
+  "ExtraUtilities:decorativeBlock2:10": {
+    "itemName": "Тёмное стекло",
+    "itemId": "2914:10"
+  },
+  "ExtraUtilities:decorativeBlock2:11": {
+    "itemName": "Усиленное тёмное стекло",
+    "itemId": "2914:11"
+  },
+  "ExtraUtilities:decorativeBlock1": {
+    "itemName": "Заострённый каменный кирпич",
+    "itemId": "2915"
+  },
+  "ExtraUtilities:decorativeBlock1:1": {
+    "itemName": "Обсидиан, заряженный Краем",
+    "itemId": "2915:1"
+  },
+  "ExtraUtilities:decorativeBlock1:2": {
+    "itemName": "Сгоревший кварц",
+    "itemId": "2915:2"
+  },
+  "ExtraUtilities:decorativeBlock1:3": {
+    "itemName": "Замороженный камень",
+    "itemId": "2915:3"
+  },
+  "ExtraUtilities:decorativeBlock1:4": {
+    "itemName": "Бордюрный камень",
+    "itemId": "2915:4"
+  },
+  "ExtraUtilities:decorativeBlock1:5": {
+    "itemName": "Блок из нестабильного слитка",
+    "itemId": "2915:5"
+  },
+  "ExtraUtilities:decorativeBlock1:6": {
+    "itemName": "Гравиевый кирпич",
+    "itemId": "2915:6"
+  },
+  "ExtraUtilities:decorativeBlock1:7": {
+    "itemName": "Бордюрный камень (Альтернативный)",
+    "itemId": "2915:7"
+  },
+  "ExtraUtilities:decorativeBlock1:8": {
+    "itemName": "Магическая древесина",
+    "itemId": "2915:8"
+  },
+  "ExtraUtilities:decorativeBlock1:9": {
+    "itemName": "Песчаное стекло",
+    "itemId": "2915:9"
+  },
+  "ExtraUtilities:decorativeBlock1:10": {
+    "itemName": "Гравиевая дорога",
+    "itemId": "2915:10"
+  },
+  "ExtraUtilities:decorativeBlock1:11": {
+    "itemName": "Ядро Края",
+    "itemId": "2915:11"
+  },
+  "ExtraUtilities:decorativeBlock1:12": {
+    "itemName": "Вычислительная матрица, выгравированная алмазом",
+    "itemId": "2915:12"
+  },
+  "ExtraUtilities:decorativeBlock1:13": {
+    "itemName": "Сплав Эндер-песка",
+    "itemId": "2915:13"
+  },
+  "ExtraUtilities:decorativeBlock1:14": {
+    "itemName": "Резной \u0027возвышенный\u0027 камень",
+    "itemId": "2915:14"
+  },
+  "ExtraUtilities:spike_base_gold": {
+    "itemName": "Золотой шип",
+    "itemId": "2916"
+  },
+  "ExtraUtilities:enderQuarryUpgrade": {
+    "itemName": "Улучшение карьера Края \"Основа\"",
+    "itemId": "2917"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:1": {
+    "itemName": "Улучшение карьера Края \"Всемирные отверстия\"",
+    "itemId": "2917:1"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:2": {
+    "itemName": "Улучшение карьера Края \"Шёлковое касание\"",
+    "itemId": "2917:2"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:3": {
+    "itemName": "Улучшение карьера Края \"Удача I\"",
+    "itemId": "2917:3"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:4": {
+    "itemName": "Улучшение карьера Края \"Удача II\"",
+    "itemId": "2917:4"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:5": {
+    "itemName": "Улучшение карьера Края \"Удача III\"",
+    "itemId": "2917:5"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:6": {
+    "itemName": "Улучшение карьера Края \"Скорость I\"",
+    "itemId": "2917:6"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:7": {
+    "itemName": "Улучшение карьера Края \"Скорость II\"",
+    "itemId": "2917:7"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:8": {
+    "itemName": "Улучшение карьера Края \"Скорость III\"",
+    "itemId": "2917:8"
+  },
+  "ExtraUtilities:enderQuarryUpgrade:9": {
+    "itemName": "Улучшение карьера Края \"Помпа\"",
+    "itemId": "2917:9"
+  },
+  "ExtraUtilities:budoff": {
+    "itemName": "Детектор обновления блока",
+    "itemId": "2918"
+  },
+  "ExtraUtilities:budoff:3": {
+    "itemName": "Детектор обновления блока (Продвинутый)",
+    "itemId": "2918:3"
+  },
+  "ExtraUtilities:colorStoneBrick": {
+    "itemName": "Окрашенный Каменные кирпичи (Белый)",
+    "itemId": "2919"
+  },
+  "ExtraUtilities:colorStoneBrick:1": {
+    "itemName": "Окрашенный Каменные кирпичи (Оранжевый)",
+    "itemId": "2919:1"
+  },
+  "ExtraUtilities:colorStoneBrick:2": {
+    "itemName": "Окрашенный Каменные кирпичи (Сиреневый)",
+    "itemId": "2919:2"
+  },
+  "ExtraUtilities:colorStoneBrick:3": {
+    "itemName": "Окрашенный Каменные кирпичи (Светло-синий)",
+    "itemId": "2919:3"
+  },
+  "ExtraUtilities:colorStoneBrick:4": {
+    "itemName": "Окрашенный Каменные кирпичи (Жёлтый)",
+    "itemId": "2919:4"
+  },
+  "ExtraUtilities:colorStoneBrick:5": {
+    "itemName": "Окрашенный Каменные кирпичи (Лаймовый)",
+    "itemId": "2919:5"
+  },
+  "ExtraUtilities:colorStoneBrick:6": {
+    "itemName": "Окрашенный Каменные кирпичи (Розовый)",
+    "itemId": "2919:6"
+  },
+  "ExtraUtilities:colorStoneBrick:7": {
+    "itemName": "Окрашенный Каменные кирпичи (Серый)",
+    "itemId": "2919:7"
+  },
+  "ExtraUtilities:colorStoneBrick:8": {
+    "itemName": "Окрашенный Каменные кирпичи (Светло-серый)",
+    "itemId": "2919:8"
+  },
+  "ExtraUtilities:colorStoneBrick:9": {
+    "itemName": "Окрашенный Каменные кирпичи (Бирюзовый)",
+    "itemId": "2919:9"
+  },
+  "ExtraUtilities:colorStoneBrick:10": {
+    "itemName": "Окрашенный Каменные кирпичи (Фиолетовый)",
+    "itemId": "2919:10"
+  },
+  "ExtraUtilities:colorStoneBrick:11": {
+    "itemName": "Окрашенный Каменные кирпичи (Синий)",
+    "itemId": "2919:11"
+  },
+  "ExtraUtilities:colorStoneBrick:12": {
+    "itemName": "Окрашенный Каменные кирпичи (Коричневый)",
+    "itemId": "2919:12"
+  },
+  "ExtraUtilities:colorStoneBrick:13": {
+    "itemName": "Окрашенный Каменные кирпичи (Зелёный)",
+    "itemId": "2919:13"
+  },
+  "ExtraUtilities:colorStoneBrick:14": {
+    "itemName": "Окрашенный Каменные кирпичи (Красный)",
+    "itemId": "2919:14"
+  },
+  "ExtraUtilities:colorStoneBrick:15": {
+    "itemName": "Окрашенный Каменные кирпичи (Чёрный)",
+    "itemId": "2919:15"
+  },
+  "metadrive:block_furnace": {
+    "itemName": "§bКвантовая печь",
+    "itemId": "2920"
+  },
+  "metadrive:block_chunk_loader": {
+    "itemName": "§bПрогрузчик чанков",
+    "itemId": "2921"
+  },
+  "ExtraUtilities:enderThermicPump": {
+    "itemName": "Термическая помпа Края",
+    "itemId": "2923"
+  },
+  "ExtraUtilities:dark_portal": {
+    "itemName": "Портал в \u0027Глубокую темноту\u0027",
+    "itemId": "2924"
+  },
+  "ExtraUtilities:dark_portal:2": {
+    "itemName": "Портал в \u0027Последнее тысячелетие\u0027",
+    "itemId": "2924:2"
+  },
+  "ExtraUtilities:angelBlock": {
+    "itemName": "Ангельский блок",
+    "itemId": "2925"
+  },
+  "metadrive:block_thermal_smelter": {
+    "itemName": "§bКвантовая индукционная плавильня",
+    "itemId": "2926"
+  },
+  "metadrive:block_energy_wind_generator": {
+    "itemName": "§bВетрогенератор I уровня",
+    "itemId": "2927"
+  },
+  "metadrive:block_energy_wind_generator:1": {
+    "itemName": "§bВетрогенератор II уровня",
+    "itemId": "2927:1"
+  },
+  "metadrive:block_energy_wind_generator:2": {
+    "itemName": "§bВетрогенератор III уровня",
+    "itemId": "2927:2"
+  },
+  "metadrive:block_energy_wind_generator:3": {
+    "itemName": "§bВетрогенератор IV уровня",
+    "itemId": "2927:3"
+  },
+  "ExtraUtilities:spike_base_diamond": {
+    "itemName": "Алмазный шип",
+    "itemId": "2928"
+  },
+  "ExtraUtilities:color_hellsand": {
+    "itemName": "Окрашенный Песок душ (Белый)",
+    "itemId": "2929"
+  },
+  "ExtraUtilities:color_hellsand:1": {
+    "itemName": "Окрашенный Песок душ (Оранжевый)",
+    "itemId": "2929:1"
+  },
+  "ExtraUtilities:color_hellsand:2": {
+    "itemName": "Окрашенный Песок душ (Сиреневый)",
+    "itemId": "2929:2"
+  },
+  "ExtraUtilities:color_hellsand:3": {
+    "itemName": "Окрашенный Песок душ (Светло-синий)",
+    "itemId": "2929:3"
+  },
+  "ExtraUtilities:color_hellsand:4": {
+    "itemName": "Окрашенный Песок душ (Жёлтый)",
+    "itemId": "2929:4"
+  },
+  "ExtraUtilities:color_hellsand:5": {
+    "itemName": "Окрашенный Песок душ (Лаймовый)",
+    "itemId": "2929:5"
+  },
+  "ExtraUtilities:color_hellsand:6": {
+    "itemName": "Окрашенный Песок душ (Розовый)",
+    "itemId": "2929:6"
+  },
+  "ExtraUtilities:color_hellsand:7": {
+    "itemName": "Окрашенный Песок душ (Серый)",
+    "itemId": "2929:7"
+  },
+  "ExtraUtilities:color_hellsand:8": {
+    "itemName": "Окрашенный Песок душ (Светло-серый)",
+    "itemId": "2929:8"
+  },
+  "ExtraUtilities:color_hellsand:9": {
+    "itemName": "Окрашенный Песок душ (Бирюзовый)",
+    "itemId": "2929:9"
+  },
+  "ExtraUtilities:color_hellsand:10": {
+    "itemName": "Окрашенный Песок душ (Фиолетовый)",
+    "itemId": "2929:10"
+  },
+  "ExtraUtilities:color_hellsand:11": {
+    "itemName": "Окрашенный Песок душ (Синий)",
+    "itemId": "2929:11"
+  },
+  "ExtraUtilities:color_hellsand:12": {
+    "itemName": "Окрашенный Песок душ (Коричневый)",
+    "itemId": "2929:12"
+  },
+  "ExtraUtilities:color_hellsand:13": {
+    "itemName": "Окрашенный Песок душ (Зелёный)",
+    "itemId": "2929:13"
+  },
+  "ExtraUtilities:color_hellsand:14": {
+    "itemName": "Окрашенный Песок душ (Красный)",
+    "itemId": "2929:14"
+  },
+  "ExtraUtilities:color_hellsand:15": {
+    "itemName": "Окрашенный Песок душ (Чёрный)",
+    "itemId": "2929:15"
+  },
+  "ExtraUtilities:cobblestone_compressed": {
+    "itemName": "Сжатый булыжник",
+    "itemId": "2930"
+  },
+  "ExtraUtilities:cobblestone_compressed:1": {
+    "itemName": "Двойной сжатый булыжник",
+    "itemId": "2930:1"
+  },
+  "ExtraUtilities:cobblestone_compressed:2": {
+    "itemName": "Тройной сжатый булыжник",
+    "itemId": "2930:2"
+  },
+  "ExtraUtilities:cobblestone_compressed:3": {
+    "itemName": "Четверной сжатый булыжник",
+    "itemId": "2930:3"
+  },
+  "ExtraUtilities:cobblestone_compressed:4": {
+    "itemName": "Пятикратносжатый булыжник",
+    "itemId": "2930:4"
+  },
+  "ExtraUtilities:cobblestone_compressed:5": {
+    "itemName": "Шестикратносжатый булыжник",
+    "itemId": "2930:5"
+  },
+  "ExtraUtilities:cobblestone_compressed:6": {
+    "itemName": "Семикратносжатый булыжник",
+    "itemId": "2930:6"
+  },
+  "ExtraUtilities:cobblestone_compressed:7": {
+    "itemName": "Восьмикратносжатый булыжник",
+    "itemId": "2930:7"
+  },
+  "ExtraUtilities:cobblestone_compressed:8": {
+    "itemName": "Сжатая земля",
+    "itemId": "2930:8"
+  },
+  "ExtraUtilities:cobblestone_compressed:9": {
+    "itemName": "Двойная сжатая земля",
+    "itemId": "2930:9"
+  },
+  "ExtraUtilities:cobblestone_compressed:10": {
+    "itemName": "Тройная сжатая земля",
+    "itemId": "2930:10"
+  },
+  "ExtraUtilities:cobblestone_compressed:11": {
+    "itemName": "Четверная сжатая земля",
+    "itemId": "2930:11"
+  },
+  "ExtraUtilities:cobblestone_compressed:12": {
+    "itemName": "Сжатый гравий",
+    "itemId": "2930:12"
+  },
+  "ExtraUtilities:cobblestone_compressed:13": {
+    "itemName": "Двойной сжатый гравий",
+    "itemId": "2930:13"
+  },
+  "ExtraUtilities:cobblestone_compressed:14": {
+    "itemName": "Сжатый песок",
+    "itemId": "2930:14"
+  },
+  "ExtraUtilities:cobblestone_compressed:15": {
+    "itemName": "Двойной сжатый песок",
+    "itemId": "2930:15"
+  },
+  "ExtraUtilities:etherealglass": {
+    "itemName": "Эфирное стекло",
+    "itemId": "2931"
+  },
+  "ExtraUtilities:etherealglass:1": {
+    "itemName": "Невыразимое стекло",
+    "itemId": "2931:1"
+  },
+  "ExtraUtilities:etherealglass:2": {
+    "itemName": "Тёмное эфирное стекло",
+    "itemId": "2931:2"
+  },
+  "ExtraUtilities:etherealglass:3": {
+    "itemName": "Эфирное стекло (Инвертированное)",
+    "itemId": "2931:3"
+  },
+  "ExtraUtilities:etherealglass:4": {
+    "itemName": "Невыразимое стекло (Инвертированное)",
+    "itemId": "2931:4"
+  },
+  "ExtraUtilities:etherealglass:5": {
+    "itemName": "Тёмное эфирное стекло (Инвертированное)",
+    "itemId": "2931:5"
+  },
+  "metadrive:block_limiter_transformer": {
+    "itemName": "§bНастраиваемый трансформатор",
+    "itemId": "2932"
+  },
+  "metatweaker:GHCropsFrame": {
+    "itemName": "Каркас индустриальной теплицы",
+    "itemId": "2933"
+  },
+  "ExtraUtilities:chestFull": {
+    "itemName": "Слегка большой сундук",
+    "itemId": "2934"
+  },
+  "metatweaker:GHCropsPlating": {
+    "itemName": "Обшивка индустриальной теплицы",
+    "itemId": "2935"
+  },
+  "metadrive:block_forestry_2_solar_panel": {
+    "itemName": "Пчелиная солнечная панель II уровня",
+    "itemId": "2968"
+  },
+  "metadrive:block_forestry_3_solar_panel": {
+    "itemName": "Пчелиная солнечная панель III уровня",
+    "itemId": "2969"
+  },
+  "metadrive:block_forestry_1_solar_panel": {
+    "itemName": "Пчелиная солнечная панель I уровня",
+    "itemId": "2970"
+  },
+  "metadrive:block_forestry_5_solar_panel": {
+    "itemName": "Пчелиная солнечная панель V уровня",
+    "itemId": "2971"
+  },
+  "metadrive:block_solar_panel_combiner": {
+    "itemName": "Объединитель солнечных панелей",
+    "itemId": "2972"
+  },
+  "metadrive:block_solar_panel_combiner:1": {
+    "itemName": "Продвинутый объединитель солнечных панелей",
+    "itemId": "2972:1"
+  },
+  "metadrive:block_forestry_4_solar_panel": {
+    "itemName": "Пчелиная солнечная панель IV уровня",
+    "itemId": "2973"
+  },
+  "metadrive:block_ic2_4_solar_panel": {
+    "itemName": "Индустриальная солнечная панель V уровня",
+    "itemId": "2974"
+  },
+  "metadrive:block_ic2_5_solar_panel": {
+    "itemName": "Индустриальная солнечная панель VI уровня",
+    "itemId": "2975"
+  },
+  "EnderIO:blockIngotStorageEndergy": {
+    "itemName": "Блок глинистого состава",
+    "itemId": "2976"
+  },
+  "EnderIO:blockIngotStorageEndergy:1": {
+    "itemName": "Блок кристаллического сплава",
+    "itemId": "2976:1"
+  },
+  "EnderIO:blockIngotStorageEndergy:2": {
+    "itemName": "Блок из мелодичного сплава",
+    "itemId": "2976:2"
+  },
+  "EnderIO:blockIngotStorageEndergy:3": {
+    "itemName": "Блок звёздного сплава",
+    "itemId": "2976:3"
+  },
+  "EnderIO:blockIngotStorageEndergy:4": {
+    "itemName": "Блок из кристаллической розовой слизи",
+    "itemId": "2976:4"
+  },
+  "EnderIO:blockIngotStorageEndergy:5": {
+    "itemName": "Блок энергетического серебра",
+    "itemId": "2976:5"
+  },
+  "EnderIO:blockIngotStorageEndergy:6": {
+    "itemName": "Блок яркого сплава",
+    "itemId": "2976:6"
+  },
+  "EnderIO:blockEndSteelBars": {
+    "itemName": "Решётка из стали Края",
+    "itemId": "2977"
+  },
+  "metadrive:block_ic2_3_solar_panel": {
+    "itemName": "Индустриальная солнечная панель IV уровня",
+    "itemId": "2978"
+  },
+  "EnderIO:blockEnder_distillation": {
+    "itemName": "Роса пустоты",
+    "itemId": "2979"
+  },
+  "metadrive:block_ic2_1_solar_panel": {
+    "itemName": "Индустриальная солнечная панель II уровня",
+    "itemId": "2980"
+  },
+  "metadrive:block_forestry_6_solar_panel": {
+    "itemName": "Пчелиная солнечная панель VI уровня",
+    "itemId": "2981"
+  },
+  "metadrive:block_ic2_2_solar_panel": {
+    "itemName": "Индустриальная солнечная панель III уровня",
+    "itemId": "2982"
+  },
+  "EnderIO:blockEnderGenerator": {
+    "itemName": "Генератор Края",
+    "itemId": "2983"
+  },
+  "metadrive:block_te_3_solar_panel": {
+    "itemName": "Флаксовая солнечная панель III уровня",
+    "itemId": "2984"
+  },
+  "metadrive:block_te_5_solar_panel": {
+    "itemName": "Флаксовая солнечная панель V уровня",
+    "itemId": "2985"
+  },
+  "metadrive:block_te_4_solar_panel": {
+    "itemName": "Флаксовая солнечная панель IV уровня",
+    "itemId": "2986"
+  },
+  "metadrive:block_te_8_solar_panel": {
+    "itemName": "Флаксовая солнечная панель VIII уровня",
+    "itemId": "2987"
+  },
+  "metadrive:block_te_7_solar_panel": {
+    "itemName": "Флаксовая солнечная панель VII уровня",
+    "itemId": "2988"
+  },
+  "metadrive:block_ic2_6_solar_panel": {
+    "itemName": "Индустриальная солнечная панель VII уровня",
+    "itemId": "2989"
+  },
+  "EnderIO:blockSoulariumBars": {
+    "itemName": "Решётка из призрачного сплава",
+    "itemId": "2990"
+  },
+  "metadrive:block_te_6_solar_panel": {
+    "itemName": "Флаксовая солнечная панель VI уровня",
+    "itemId": "2991"
+  },
+  "EnderIO:blockFrankenzombieGenerator": {
+    "itemName": "Генератор Frank\u0027N\u0027Zombie",
+    "itemId": "2992"
+  },
+  "metadrive:block_ic2_7_solar_panel": {
+    "itemName": "Индустриальная солнечная панель VIII уровня",
+    "itemId": "2993"
+  },
+  "EnderIO:blockVapor_of_levity": {
+    "itemName": "Пар лёгкости",
+    "itemId": "2994"
+  },
+  "metadrive:block_te_1_solar_panel": {
+    "itemName": "Флаксовая солнечная панель I уровня",
+    "itemId": "2995"
+  },
+  "metadrive:block_te_2_solar_panel": {
+    "itemName": "Флаксовая солнечная панель II уровня",
+    "itemId": "2996"
+  },
   "IC2:itemHarz": {
     "itemName": "Латекс",
     "itemId": "4098"
@@ -24060,7 +25756,7 @@
     "itemId": "4132"
   },
   "IC2:itemShardIridium": {
-    "itemName": "Осколок ирридия",
+    "itemName": "Осколок иридия",
     "itemId": "4133"
   },
   "IC2:itemTreetap": {
@@ -26130,6 +27826,10 @@
   "Forestry:thermionicTubes:11": {
     "itemName": "Лазуритовая электронная лампа",
     "itemId": "4366:11"
+  },
+  "Forestry:thermionicTubes:12": {
+    "itemName": "Электронная лампа Края",
+    "itemId": "4366:12"
   },
   "Forestry:carton": {
     "itemName": "Картон",
@@ -34068,7 +35768,7 @@
     "itemId": "6341"
   },
   "dwcity:Hard_glass": {
-    "itemName": "Укреплённый пластик",
+    "itemName": "Укреплённая излучающая панель",
     "itemId": "6342"
   },
   "dwcity:Sword3": {
@@ -36724,15 +38424,15 @@
     "itemId": "7079"
   },
   "EnderIO:itemPowerConduit": {
-    "itemName": "Энергетическая труба",
+    "itemName": "Энергопровод из проводящего железа",
     "itemId": "7085"
   },
   "EnderIO:itemPowerConduit:1": {
-    "itemName": "Улучшенная энергетическая труба",
+    "itemName": "Энергопровод из энергетического сплава",
     "itemId": "7085:1"
   },
   "EnderIO:itemPowerConduit:2": {
-    "itemName": "Энергетическая труба Края",
+    "itemName": "Энергопровод из вибрирующего сплава",
     "itemId": "7085:2"
   },
   "EnderIO:itemFusedQuartzFrame": {
@@ -36752,7 +38452,7 @@
     "itemId": "7093"
   },
   "EnderIO:item.darkSteel_sword": {
-    "itemName": "Край",
+    "itemName": "Тёмный меч",
     "itemId": "7101"
   },
   "EnderIO:itemYetaWrench": {
@@ -36766,6 +38466,14 @@
   "EnderIO:itemMachinePart:1": {
     "itemName": "Основная шестерня",
     "itemId": "7105:1"
+  },
+  "EnderIO:itemMachinePart:2": {
+    "itemName": "Корпус механизма из призрачного сплава",
+    "itemId": "7105:2"
+  },
+  "EnderIO:itemMachinePart:3": {
+    "itemName": "Корпус механизма из стали Края",
+    "itemId": "7105:3"
   },
   "EnderIO:itemExistingItemFilter": {
     "itemName": "Существующий предметный фильтр",
@@ -36812,27 +38520,39 @@
     "itemId": "7118:2"
   },
   "EnderIO:itemBasicCapacitor:3": {
-    "itemName": "Шестнадцатислойный конденсатор",
+    "itemName": "Кристаллический конденсатор",
     "itemId": "7118:3"
   },
   "EnderIO:itemBasicCapacitor:4": {
-    "itemName": "Тридцати двухслойный конденсатор",
+    "itemName": "Мелодичный конденсатор",
     "itemId": "7118:4"
   },
   "EnderIO:itemBasicCapacitor:5": {
-    "itemName": "Шестидесяти четырёхслойный конденсатор",
+    "itemName": "Звёздный конденсатор",
     "itemId": "7118:5"
   },
   "EnderIO:itemBasicCapacitor:6": {
-    "itemName": "Сто двадцати восьмислойный конденсатор",
+    "itemName": "Тотемный конденсатор",
     "itemId": "7118:6"
+  },
+  "EnderIO:itemBasicCapacitor:7": {
+    "itemName": "Серебряный конденсатор",
+    "itemId": "7118:7"
+  },
+  "EnderIO:itemBasicCapacitor:8": {
+    "itemName": "Эндергетический конденсатор",
+    "itemId": "7118:8"
+  },
+  "EnderIO:itemBasicCapacitor:9": {
+    "itemName": "Сияющий конденсатор",
+    "itemId": "7118:9"
   },
   "EnderIO:item.darkSteel_shears": {
     "itemName": "Тёмные ножницы",
     "itemId": "7119"
   },
   "EnderIO:bucketCloud_seed_concentrated": {
-    "itemName": "Ведро концентрированного облака",
+    "itemName": "Ведро c концентрированным облаком семян",
     "itemId": "7122"
   },
   "EnderIO:itemCoordSelector": {
@@ -36876,7 +38596,7 @@
     "itemId": "7139:16"
   },
   "EnderIO:bucketCloud_seed": {
-    "itemName": "Ведро облака",
+    "itemName": "Ведро c облаком семян",
     "itemId": "7142"
   },
   "EnderIO:itemMEConduit": {
@@ -36943,6 +38663,34 @@
     "itemName": "Погодный кристалл",
     "itemId": "7151:10"
   },
+  "EnderIO:itemMaterial:11": {
+    "itemName": "Самородок стали Края",
+    "itemId": "7151:11"
+  },
+  "EnderIO:itemMaterial:12": {
+    "itemName": "Стержень из тёмной стали",
+    "itemId": "7151:12"
+  },
+  "EnderIO:itemMaterial:13": {
+    "itemName": "Древний кристалл",
+    "itemId": "7151:13"
+  },
+  "EnderIO:itemMaterial:14": {
+    "itemName": "Пыль пульсирующего сплава",
+    "itemId": "7151:14"
+  },
+  "EnderIO:itemMaterial:15": {
+    "itemName": "Пыль вибрирующего сплава",
+    "itemId": "7151:15"
+  },
+  "EnderIO:itemMaterial:16": {
+    "itemName": "Пыль кристалла Края",
+    "itemId": "7151:16"
+  },
+  "EnderIO:itemMaterial:17": {
+    "itemName": "Пыль древнего кристалла",
+    "itemId": "7151:17"
+  },
   "EnderIO:itemBasicFilterUpgrade": {
     "itemName": "Основной предметный фильтр",
     "itemId": "7154"
@@ -36970,6 +38718,14 @@
   "EnderIO:itemFrankenSkull:4": {
     "itemName": "Разумный Край",
     "itemId": "7156:4"
+  },
+  "EnderIO:itemFrankenSkull:5": {
+    "itemName": "Скелетный подрядчик",
+    "itemId": "7156:5"
+  },
+  "EnderIO:itemFrankenSkull:6": {
+    "itemName": "Диод охраны",
+    "itemId": "7156:6"
   },
   "EnderIO:itemEnderface": {
     "itemName": "Лицо Края",
@@ -37006,6 +38762,22 @@
   "EnderIO:itemLiquidConduit:2": {
     "itemName": "Жидкостная труба Края",
     "itemId": "7172:2"
+  },
+  "EnderIO:itemLiquidConduit:3": {
+    "itemName": "Жидкостная труба из кристалического сплава",
+    "itemId": "7172:3"
+  },
+  "EnderIO:itemLiquidConduit:4": {
+    "itemName": "Жидкостная труба из кристаллической розовой слизи",
+    "itemId": "7172:4"
+  },
+  "EnderIO:itemLiquidConduit:5": {
+    "itemName": "Жидкостная труба из мелодичного сплава",
+    "itemId": "7172:5"
+  },
+  "EnderIO:itemLiquidConduit:6": {
+    "itemName": "Жидкостная труба из звёздного сплава",
+    "itemId": "7172:6"
   },
   "EnderIO:itemPowderIngot": {
     "itemName": "Угольный порошок",
@@ -37080,8 +38852,12 @@
     "itemId": "7186:6"
   },
   "EnderIO:itemAlloy:7": {
-    "itemName": "Соуларий",
+    "itemName": "Призрачный сплав",
     "itemId": "7186:7"
+  },
+  "EnderIO:itemAlloy:8": {
+    "itemName": "Сталь Края",
+    "itemId": "7186:8"
   },
   "EnderIO:itemRedstoneConduit": {
     "itemName": "Красная труба",
@@ -37510,10 +39286,6 @@
   "ProjRed|Transportation:projectred.transportation.routerutil": {
     "itemName": "Устройство маршрутизации",
     "itemId": "7322"
-  },
-  "LFEnderAdditions:itemItemConduit": {
-    "itemName": "Улучшенная предметная труба",
-    "itemId": "7323"
   },
   "ae2wct:infinityBoosterCard": {
     "itemName": "Бесконечная карта усиления",
@@ -38208,7 +39980,7 @@
     "itemId": "7362"
   },
   "luxinfineitems:AECustomInterfacePart:1": {
-    "itemName": "Расширенный МЭ интерфейс",
+    "itemName": "Гибридный МЭ интерфейс",
     "itemId": "7362:1"
   },
   "luxinfineitems:AECustomInterfacePart:2": {
@@ -38646,14 +40418,6 @@
   "ae2stuff:Cable:84": {
     "itemName": "МЭ квантовый кабель - Изменчивый",
     "itemId": "7375:84"
-  },
-  "LFEnderAdditions:itemAdvLiquidConduit": {
-    "itemName": "Мелодичная жидкостная труба",
-    "itemId": "7376"
-  },
-  "LFEnderAdditions:itemAdvLiquidConduit:1": {
-    "itemName": "Звёздная жидкостная труба",
-    "itemId": "7376:1"
   },
   "Avaritia:Matter_Cluster": {
     "itemName": "Кластер материи",
@@ -39102,5 +40866,613 @@
   "metatweaker:SpawnerModuleBase": {
     "itemName": "Основа модуля для спаунера",
     "itemId": "7489"
+  },
+  "metadrive:item_ticket_5": {
+    "itemName": "§6Билет автономности",
+    "itemId": "7490"
+  },
+  "metadrive:item_ticket_4": {
+    "itemName": "§6Билет автономности",
+    "itemId": "7491"
+  },
+  "metadrive:item_ticket_3": {
+    "itemName": "§6Билет автономности",
+    "itemId": "7492"
+  },
+  "metadrive:item_ticket_2": {
+    "itemName": "§6Билет автономности",
+    "itemId": "7493"
+  },
+  "metadrive:item_ticket_1": {
+    "itemName": "§6Билет автономности",
+    "itemId": "7494"
+  },
+  "metadrive:item_ticket_0": {
+    "itemName": "§6Билет автономности",
+    "itemId": "7495"
+  },
+  "ExtraUtilities:creativebuilderswand": {
+    "itemName": "Творческий жезл строителя",
+    "itemId": "7496"
+  },
+  "ExtraUtilities:glove": {
+    "itemName": "Перчатка",
+    "itemId": "7497"
+  },
+  "ExtraUtilities:watering_can": {
+    "itemName": "Лейка",
+    "itemId": "7498"
+  },
+  "ExtraUtilities:watering_can:1": {
+    "itemName": "Лейка (Пустая)",
+    "itemId": "7498:1"
+  },
+  "ExtraUtilities:watering_can:2": {
+    "itemName": "Лейка (Сломанная)",
+    "itemId": "7498:2"
+  },
+  "ExtraUtilities:watering_can:3": {
+    "itemName": "Лейка (Укреплённая)",
+    "itemId": "7498:3"
+  },
+  "ExtraUtilities:defoliageAxe": {
+    "itemName": "Исцеляющий топор",
+    "itemId": "7499"
+  },
+  "metadrive:item_wind_iridium_rotor": {
+    "itemName": "§bИридиевый ротор",
+    "itemId": "7500"
+  },
+  "ExtraUtilities:erosionShovel": {
+    "itemName": "Эрозийная лопата",
+    "itemId": "7501"
+  },
+  "ExtraUtilities:lawSword": {
+    "itemName": "Кикоку",
+    "itemId": "7502"
+  },
+  "ExtraUtilities:sonar_goggles": {
+    "itemName": "Сонарные очки",
+    "itemId": "7503"
+  },
+  "ExtraUtilities:golden_bag": {
+    "itemName": "Золотой мешочек удержания",
+    "itemId": "7504"
+  },
+  "ExtraUtilities:builderswand": {
+    "itemName": "Жезл строителя",
+    "itemId": "7505"
+  },
+  "ExtraUtilities:angelRing": {
+    "itemName": "Ангельское кольцо",
+    "itemId": "7506"
+  },
+  "ExtraUtilities:angelRing:1": {
+    "itemName": "Ангельское кольцо",
+    "itemId": "7506:1"
+  },
+  "ExtraUtilities:angelRing:2": {
+    "itemName": "Ангельское кольцо",
+    "itemId": "7506:2"
+  },
+  "ExtraUtilities:angelRing:3": {
+    "itemName": "Ангельское кольцо",
+    "itemId": "7506:3"
+  },
+  "ExtraUtilities:angelRing:4": {
+    "itemName": "Ангельское кольцо",
+    "itemId": "7506:4"
+  },
+  "ExtraUtilities:destructionpickaxe": {
+    "itemName": "Разрушающая кирка",
+    "itemId": "7507"
+  },
+  "ExtraUtilities:divisionSigil": {
+    "itemName": "Сигил деления (Стабильный)",
+    "itemId": "7508"
+  },
+  "ExtraUtilities:heatingElement": {
+    "itemName": "Нагревательная катушка",
+    "itemId": "7509"
+  },
+  "ExtraUtilities:nodeUpgrade": {
+    "itemName": "Улучшение скорости",
+    "itemId": "7510"
+  },
+  "ExtraUtilities:nodeUpgrade:1": {
+    "itemName": "Предметный фильтр",
+    "itemId": "7510:1"
+  },
+  "ExtraUtilities:nodeUpgrade:2": {
+    "itemName": "Улучшение \"Взаимодействие с миром\"",
+    "itemId": "7510:2"
+  },
+  "ExtraUtilities:nodeUpgrade:3": {
+    "itemName": "Улучшение \"Стак\"",
+    "itemId": "7510:3"
+  },
+  "ExtraUtilities:nodeUpgrade:4": {
+    "itemName": "Творческое улучшение",
+    "itemId": "7510:4"
+  },
+  "ExtraUtilities:nodeUpgrade:5": {
+    "itemName": "Передатчик Края",
+    "itemId": "7510:5"
+  },
+  "ExtraUtilities:nodeUpgrade:6": {
+    "itemName": "Приёмник Края",
+    "itemId": "7510:6"
+  },
+  "ExtraUtilities:nodeUpgrade:7": {
+    "itemName": "Улучшение \"Поиск в глубину\"",
+    "itemId": "7510:7"
+  },
+  "ExtraUtilities:nodeUpgrade:8": {
+    "itemName": "Улучшение \"Поиск в ширину\"",
+    "itemId": "7510:8"
+  },
+  "ExtraUtilities:nodeUpgrade:9": {
+    "itemName": "Улучшение \"Круговая система\"",
+    "itemId": "7510:9"
+  },
+  "ExtraUtilities:nodeUpgrade:10": {
+    "itemName": "Предметный фильтр (Продвинутый)",
+    "itemId": "7510:10"
+  },
+  "ExtraUtilities:paintbrush": {
+    "itemName": "Кисточка",
+    "itemId": "7511"
+  },
+  "ExtraUtilities:scanner": {
+    "itemName": "Переносной сканер",
+    "itemId": "7512"
+  },
+  "ExtraUtilities:ethericsword": {
+    "itemName": "Эфирный меч",
+    "itemId": "7513"
+  },
+  "metadrive:item_wind_draconium_rotor": {
+    "itemName": "§bДракониевый ротор",
+    "itemId": "7514"
+  },
+  "metadrive:item_wind_awakened_rotor": {
+    "itemName": "§bПробуждённый дракониевый ротор",
+    "itemId": "7515"
+  },
+  "ExtraUtilities:bedrockiumIngot": {
+    "itemName": "Слиток бедрокия",
+    "itemId": "7516"
+  },
+  "ExtraUtilities:golden_lasso": {
+    "itemName": "Золотое лассо",
+    "itemId": "7517"
+  },
+  "ExtraUtilities:mini-soul": {
+    "itemName": "Фрагмент души",
+    "itemId": "7518"
+  },
+  "ExtraUtilities:mini-soul:3": {
+    "itemName": "Фрагмент души",
+    "itemId": "7518:3"
+  },
+  "ExtraUtilities:microblocks": {
+    "itemName": "Камень Обшивка трубы",
+    "itemId": "7519"
+  },
+  "ExtraUtilities:microblocks:1": {
+    "itemName": "Камень Забор",
+    "itemId": "7519:1"
+  },
+  "ExtraUtilities:microblocks:2": {
+    "itemName": "Камень Стена",
+    "itemId": "7519:2"
+  },
+  "ExtraUtilities:microblocks:3": {
+    "itemName": "Камень Невозможный объект",
+    "itemId": "7519:3"
+  },
+  "ExtraUtilities:unstableingot": {
+    "itemName": "Нестабильный слиток",
+    "itemId": "7520"
+  },
+  "ExtraUtilities:unstableingot:1": {
+    "itemName": "Полустабильный самородок",
+    "itemId": "7520:1"
+  },
+  "ExtraUtilities:unstableingot:2": {
+    "itemName": "Мобиус \"Нестабильный/Cтабильный\" слиток",
+    "itemId": "7520:2"
+  },
+  "metadrive:item_wind_enderium_rotor": {
+    "itemName": "§bЭндериумовый ротор",
+    "itemId": "7521"
+  },
+  "ExtraUtilities:shears": {
+    "itemName": "Острые ножницы",
+    "itemId": "7522"
+  },
+  "ExtraUtilities:temporalHoe": {
+    "itemName": "Реверсивная мотыга",
+    "itemId": "7523"
+  },
+  "metadrive:module_mob_spawner_pink_slime": {
+    "itemName": "Модуль «Розовый слизень»",
+    "itemId": "7590"
+  },
+  "EnderIO:itemGrindingBallEndergy": {
+    "itemName": "Шлифовальный шар из глинистого состава",
+    "itemId": "7591"
+  },
+  "EnderIO:itemGrindingBallEndergy:1": {
+    "itemName": "Шлифовальный шар из кристаллического сплава",
+    "itemId": "7591:1"
+  },
+  "EnderIO:itemGrindingBallEndergy:2": {
+    "itemName": "Шлифовальный шар из мелодичного сплава",
+    "itemId": "7591:2"
+  },
+  "EnderIO:itemGrindingBallEndergy:3": {
+    "itemName": "Шлифовальный шар из звёздного сплава",
+    "itemId": "7591:3"
+  },
+  "EnderIO:itemGrindingBallEndergy:4": {
+    "itemName": "Шлифовальный шар из кристаллической розовой слизи",
+    "itemId": "7591:4"
+  },
+  "EnderIO:itemGrindingBallEndergy:5": {
+    "itemName": "Энергетический серебряный шлифовальный шар",
+    "itemId": "7591:5"
+  },
+  "EnderIO:itemGrindingBallEndergy:6": {
+    "itemName": "Шлифовальный шар из яркого сплава",
+    "itemId": "7591:6"
+  },
+  "EnderIO:item.stellar_pickaxe": {
+    "itemName": "Кирка из звёздного сплава",
+    "itemId": "7592"
+  },
+  "metatweaker:denseBeeComb": {
+    "itemName": "Сжатые спиртовые соты",
+    "itemId": "7593"
+  },
+  "metatweaker:denseBeeComb:1": {
+    "itemName": "Сжатые янтарные соты",
+    "itemId": "7593:1"
+  },
+  "metatweaker:denseBeeComb:2": {
+    "itemName": "Сжатые серные соты",
+    "itemId": "7593:2"
+  },
+  "metatweaker:denseBeeComb:3": {
+    "itemName": "Сжатые кофейные соты",
+    "itemId": "7593:3"
+  },
+  "metatweaker:denseBeeComb:4": {
+    "itemName": "Сжатые уверенные соты",
+    "itemId": "7593:4"
+  },
+  "metatweaker:denseBeeComb:5": {
+    "itemName": "Сжатые медные соты",
+    "itemId": "7593:5"
+  },
+  "metatweaker:denseBeeComb:6": {
+    "itemName": "Сжатые разлагающиеся соты",
+    "itemId": "7593:6"
+  },
+  "metatweaker:denseBeeComb:7": {
+    "itemName": "Сжатые алмазные соты",
+    "itemId": "7593:7"
+  },
+  "metatweaker:denseBeeComb:8": {
+    "itemName": "Сжатые капающие соты",
+    "itemId": "7593:8"
+  },
+  "metatweaker:denseBeeComb:9": {
+    "itemName": "Сжатые изумрудные соты",
+    "itemId": "7593:9"
+  },
+  "metatweaker:denseBeeComb:10": {
+    "itemName": "Сжатые окаменевшие соты",
+    "itemId": "7593:10"
+  },
+  "metatweaker:denseBeeComb:11": {
+    "itemName": "Сжатые морозные соты",
+    "itemId": "7593:11"
+  },
+  "metatweaker:denseBeeComb:12": {
+    "itemName": "Сжатые фруктовые соты",
+    "itemId": "7593:12"
+  },
+  "metatweaker:denseBeeComb:13": {
+    "itemName": "Сжатые ледяные соты",
+    "itemId": "7593:13"
+  },
+  "metatweaker:denseBeeComb:14": {
+    "itemName": "Сжатые золотые соты",
+    "itemId": "7593:14"
+  },
+  "metatweaker:denseBeeComb:15": {
+    "itemName": "Сжатые медовые соты",
+    "itemId": "7593:15"
+  },
+  "metatweaker:denseBeeComb:16": {
+    "itemName": "Сжатые железные соты",
+    "itemId": "7593:16"
+  },
+  "metatweaker:denseBeeComb:17": {
+    "itemName": "Сжатые каучуковые соты",
+    "itemId": "7593:17"
+  },
+  "metatweaker:denseBeeComb:18": {
+    "itemName": "Сжатые свинцовые соты",
+    "itemId": "7593:18"
+  },
+  "metatweaker:denseBeeComb:19": {
+    "itemName": "Сжатые спелые соты",
+    "itemId": "7593:19"
+  },
+  "metatweaker:denseBeeComb:20": {
+    "itemName": "Сжатые молочные соты",
+    "itemId": "7593:20"
+  },
+  "metatweaker:denseBeeComb:21": {
+    "itemName": "Сжатые замшелые соты",
+    "itemId": "7593:21"
+  },
+  "metatweaker:denseBeeComb:22": {
+    "itemName": "Сжатые никелевые соты",
+    "itemId": "7593:22"
+  },
+  "metatweaker:denseBeeComb:23": {
+    "itemName": "Сжатые масляные соты",
+    "itemId": "7593:23"
+  },
+  "metatweaker:denseBeeComb:24": {
+    "itemName": "Сжатые пересохшие соты",
+    "itemId": "7593:24"
+  },
+  "metatweaker:denseBeeComb:25": {
+    "itemName": "Сжатые нефтяные соты",
+    "itemId": "7593:25"
+  },
+  "metatweaker:denseBeeComb:26": {
+    "itemName": "Сжатые платиновые соты",
+    "itemId": "7593:26"
+  },
+  "metatweaker:denseBeeComb:27": {
+    "itemName": "Сжатые урановые соты",
+    "itemId": "7593:27"
+  },
+  "metatweaker:denseBeeComb:28": {
+    "itemName": "Сжатые рубиновые соты",
+    "itemId": "7593:28"
+  },
+  "metatweaker:denseBeeComb:29": {
+    "itemName": "Сжатые семяные соты",
+    "itemId": "7593:29"
+  },
+  "metatweaker:denseBeeComb:30": {
+    "itemName": "Сжатые теневые соты",
+    "itemId": "7593:30"
+  },
+  "metatweaker:denseBeeComb:31": {
+    "itemName": "Сжатые мерцающие соты",
+    "itemId": "7593:31"
+  },
+  "metatweaker:denseBeeComb:32": {
+    "itemName": "Сжатые шелковистые соты",
+    "itemId": "7593:32"
+  },
+  "metatweaker:denseBeeComb:33": {
+    "itemName": "Сжатые серебряные соты",
+    "itemId": "7593:33"
+  },
+  "metatweaker:denseBeeComb:34": {
+    "itemName": "Сжатые кипящие соты",
+    "itemId": "7593:34"
+  },
+  "metatweaker:denseBeeComb:35": {
+    "itemName": "Сжатые вязкие соты",
+    "itemId": "7593:35"
+  },
+  "metatweaker:denseBeeComb:36": {
+    "itemName": "Сжатые оловянные соты",
+    "itemId": "7593:36"
+  },
+  "metatweaker:denseBeeComb:37": {
+    "itemName": "Сжатые нестабильные соты",
+    "itemId": "7593:37"
+  },
+  "metatweaker:denseBeeComb:38": {
+    "itemName": "Сжатые ядовитые соты",
+    "itemId": "7593:38"
+  },
+  "EnderIO:itemBigFilterUpgrade": {
+    "itemName": "Большой предметный фильтр",
+    "itemId": "7594"
+  },
+  "EnderIO:itemBigFilterUpgrade:1": {
+    "itemName": "Большой и расширенный предметный фильтр",
+    "itemId": "7594:1"
+  },
+  "EnderIO:item.endSteel_boots": {
+    "itemName": "Ботинки из стали Края",
+    "itemId": "7595"
+  },
+  "EnderIO:item.endSteel_sword": {
+    "itemName": "Меч из стали Края",
+    "itemId": "7596"
+  },
+  "EnderIO:bucketEnder_distillation": {
+    "itemName": "Ведро росы пустоты",
+    "itemId": "7597"
+  },
+  "EnderIO:itemTeleportStaff": {
+    "itemName": "Staff of Teleportation",
+    "itemId": "7598"
+  },
+  "EnderIO:item.stellar_chestplate": {
+    "itemName": "Кираса из звёздного сплава",
+    "itemId": "7599"
+  },
+  "EnderIO:item.stellar_boots": {
+    "itemName": "Ботинки из звёздного сплава",
+    "itemId": "7600"
+  },
+  "EnderIO:itemGrindingBall": {
+    "itemName": "Шарик наэлектризованной стали",
+    "itemId": "7601"
+  },
+  "EnderIO:itemGrindingBall:1": {
+    "itemName": "Шарик энергетического сплава",
+    "itemId": "7601:1"
+  },
+  "EnderIO:itemGrindingBall:2": {
+    "itemName": "Шарик вибрирующего сплава",
+    "itemId": "7601:2"
+  },
+  "EnderIO:itemGrindingBall:3": {
+    "itemName": "Шарик сплава красного камня",
+    "itemId": "7601:3"
+  },
+  "EnderIO:itemGrindingBall:4": {
+    "itemName": "Шарик проводящего железа",
+    "itemId": "7601:4"
+  },
+  "EnderIO:itemGrindingBall:5": {
+    "itemName": "Шарик пульсирующего железа",
+    "itemId": "7601:5"
+  },
+  "EnderIO:itemGrindingBall:6": {
+    "itemName": "Шарик тёмной стали",
+    "itemId": "7601:6"
+  },
+  "EnderIO:itemGrindingBall:7": {
+    "itemName": "Шарик призрачного сплава",
+    "itemId": "7601:7"
+  },
+  "EnderIO:itemGrindingBall:8": {
+    "itemName": "Шарик стали Края",
+    "itemId": "7601:8"
+  },
+  "EnderIO:bucketVapor_of_levity": {
+    "itemName": "Ведро пара лёгкости",
+    "itemId": "7602"
+  },
+  "EnderIO:itemLimitedItemFilter": {
+    "itemName": "Limited Item Filter",
+    "itemId": "7603"
+  },
+  "EnderIO:item.endSteel_pickaxe": {
+    "itemName": "Кирка из стали Края",
+    "itemId": "7604"
+  },
+  "EnderIO:item.endSteel_axe": {
+    "itemName": "Топор из стали Края",
+    "itemId": "7605"
+  },
+  "EnderIO:item.endSteel_helmet": {
+    "itemName": "Шлем из стали Края",
+    "itemId": "7606"
+  },
+  "EnderIO:item.stellar_helmet": {
+    "itemName": "Шлем из звёздного сплава",
+    "itemId": "7607"
+  },
+  "EnderIO:itemAlloyEndergy": {
+    "itemName": "Состав глины",
+    "itemId": "7608"
+  },
+  "EnderIO:itemAlloyEndergy:1": {
+    "itemName": "Кристаллический сплав",
+    "itemId": "7608:1"
+  },
+  "EnderIO:itemAlloyEndergy:2": {
+    "itemName": "Мелодичный сплав",
+    "itemId": "7608:2"
+  },
+  "EnderIO:itemAlloyEndergy:3": {
+    "itemName": "Звёздный сплав",
+    "itemId": "7608:3"
+  },
+  "EnderIO:itemAlloyEndergy:4": {
+    "itemName": "Кристаллическая розовая слизь",
+    "itemId": "7608:4"
+  },
+  "EnderIO:itemAlloyEndergy:5": {
+    "itemName": "Энергетическое серебро",
+    "itemId": "7608:5"
+  },
+  "EnderIO:itemAlloyEndergy:6": {
+    "itemName": "Яркий сплав",
+    "itemId": "7608:6"
+  },
+  "EnderIO:item.stellar_sword": {
+    "itemName": "Меч из звёздного сплава",
+    "itemId": "7609"
+  },
+  "EnderIO:item.endSteel_leggings": {
+    "itemName": "Поножи из стали Края",
+    "itemId": "7610"
+  },
+  "EnderIO:item.stellar_axe": {
+    "itemName": "Топор из звёздного сплава",
+    "itemId": "7611"
+  },
+  "EnderIO:item.stellar_leggings": {
+    "itemName": "Поножи из звёздного сплава",
+    "itemId": "7612"
+  },
+  "EnderIO:itemPowerConduitEndergy": {
+    "itemName": "Энергопровод из глинистого состава",
+    "itemId": "7613"
+  },
+  "EnderIO:itemPowerConduitEndergy:1": {
+    "itemName": "Энергопровод из железа",
+    "itemId": "7613:1"
+  },
+  "EnderIO:itemPowerConduitEndergy:2": {
+    "itemName": "Энергопровод из алюминия",
+    "itemId": "7613:2"
+  },
+  "EnderIO:itemPowerConduitEndergy:3": {
+    "itemName": "Энергопровод из золота",
+    "itemId": "7613:3"
+  },
+  "EnderIO:itemPowerConduitEndergy:4": {
+    "itemName": "Энергопровод из меди",
+    "itemId": "7613:4"
+  },
+  "EnderIO:itemPowerConduitEndergy:5": {
+    "itemName": "Энергопровод из серебра",
+    "itemId": "7613:5"
+  },
+  "EnderIO:itemPowerConduitEndergy:6": {
+    "itemName": "Энергопровод из электрума",
+    "itemId": "7613:6"
+  },
+  "EnderIO:itemPowerConduitEndergy:7": {
+    "itemName": "Энергопровод из энергетического серебра",
+    "itemId": "7613:7"
+  },
+  "EnderIO:itemPowerConduitEndergy:8": {
+    "itemName": "Энергопровод из кристалического сплава",
+    "itemId": "7613:8"
+  },
+  "EnderIO:itemPowerConduitEndergy:9": {
+    "itemName": "Энергопровод из кристаллической розовой слизи",
+    "itemId": "7613:9"
+  },
+  "EnderIO:itemPowerConduitEndergy:10": {
+    "itemName": "Энергопровод из мелодичного сплава",
+    "itemId": "7613:10"
+  },
+  "EnderIO:itemPowerConduitEndergy:11": {
+    "itemName": "Энергопровод из звёздного сплава",
+    "itemId": "7613:11"
+  },
+  "EnderIO:item.endSteel_chestplate": {
+    "itemName": "Кираса из стали Края",
+    "itemId": "7614"
   }
 }

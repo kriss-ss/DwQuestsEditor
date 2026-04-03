@@ -17,14 +17,15 @@ export const iconById = (id) => {
         meta = id[2]
     }
 
-    let idIcon = mod + "/" + name + (meta ? "_" + meta : "");
+    let idIcon = mod + "/" + name + (meta ? "_" + meta : "") + ".png";
+    console.log(idIcon)
     if (itemsIcons.includes(idIcon)) {
-        return new URL('/icons/' + idIcon + ".png", import.meta.url).href;
+        return new URL('/icons/' + idIcon, import.meta.url).href;
     }
 
-    let idIconNoMeta = mod + "/" + name;
+    let idIconNoMeta = mod + "/" + name + ".png";
     if (itemsIcons.includes(idIconNoMeta)) {
-        return new URL('/icons/' + idIconNoMeta + ".png", import.meta.url).href;
+        return new URL('/icons/' + idIconNoMeta, import.meta.url).href;
     }
 
     return new URL('/icons/' + defaultIcon, import.meta.url).href;
