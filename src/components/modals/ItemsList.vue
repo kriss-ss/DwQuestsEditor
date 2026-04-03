@@ -44,7 +44,7 @@
             @click="handleItemClick(key)"
         >
           <img loading="lazy" class="item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
-          <p class="item-name">{{ value.name ?? key }}</p>
+          <p class="item-name">{{ value.name || key }}</p>
         </div>
 
 

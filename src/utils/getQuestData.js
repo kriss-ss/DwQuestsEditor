@@ -28,11 +28,11 @@ export const getPosQuest = (quest) => {
 }
 
 export const getQuestSize = (quest) => {
-    return specialIconSizes[quest.iconSize ?? "DEFAULT"];
+    return specialIconSizes[quest.iconSize || "DEFAULT"];
 }
 
 export const getQuestColor = (quest) => {
-    return questRarities[quest.rarity ?? "UNCOMMON"];
+    return questRarities[quest.rarity || "UNCOMMON"];
 }
 
 export const getQuestDescription = (quest) => {
