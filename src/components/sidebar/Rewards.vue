@@ -15,7 +15,7 @@
                           }]"
                   @contextmenu.prevent
                   @click.right.exact.stop="showContextMenu($event, reward)"
-                  @click.right.shift="sidebarDeleteReward(reward.num_id)"
+                  @click.right.shift="sidebarDeleteReward(reward)"
             >
               <span
                   class="reward-item-data"
@@ -95,8 +95,8 @@ const sidebarAddReward = () => {
   props.quest.rewards.push("minecraft:dirt")
   saveSnapshot()
 }
-const sidebarDeleteReward = (id) => {
-  props.quest.rewards.splice(id, 1)
+const sidebarDeleteReward = (reward) => {
+  props.quest.rewards.splice(reward.num_id, 1)
   saveSnapshot()
 }
 
@@ -110,8 +110,10 @@ const showContextMenu = (event, item) => {
   const options = {
     "Копировать": item != null ? copy : null,
     "Вставить": buffer.value['Награды'].length !== 0 ? paste : null,
+    "Удалить": item != null ? sidebarDeleteReward : null,
   }
   const title = buffer.value['Награды'][0]?.name
+  // console.log(item)
   contextMenu.value.openContextMenu(event, item, options, title)
 }
 

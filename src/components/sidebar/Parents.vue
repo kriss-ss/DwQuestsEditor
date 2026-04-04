@@ -22,7 +22,7 @@
                   :class="'parent-item-' + parent.num_id"
                   @contextmenu.prevent
                   @click.right.exact.stop="showContextMenu($event, parent)"
-                  @click.right.shift="sidebarDeleteParent(parent.num_id)"
+                  @click.right.shift="sidebarDeleteParent(parent)"
             >
               <span
                   class="parent-item-data"
@@ -94,6 +94,7 @@ const showContextMenu = (event, item) => {
   const options = {
     "Копировать": item != null ? copy : null,
     "Вставить": buffer.value['Зависимости'].length !== 0 ? paste : null,
+    "Удалить": item != null ? sidebarDeleteParent : null,
   }
   const title = buffer.value['Зависимости'][0]?.name
   contextMenu.value.openContextMenu(event, item, options, title)
@@ -121,8 +122,8 @@ const sidebarAddParent = () => {
   saveSnapshot()
 }
 
-const sidebarDeleteParent = (id) => {
-  props.quest.parents.splice(id, 1)
+const sidebarDeleteParent = (parent) => {
+  props.quest.parents.splice(parent.num_id, 1)
   saveSnapshot()
 }
 

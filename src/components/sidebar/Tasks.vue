@@ -13,7 +13,7 @@
                   v-for="task in getQuestTasks(quest)"
                   @contextmenu.prevent
                   @click.right.exact.stop="showContextMenu($event, task)"
-                  @click.right.shift="sidebarDeleteTask(task.num_id)"
+                  @click.right.shift="sidebarDeleteTask(task)"
             >
               <span
                   class="task-item-data"
@@ -86,6 +86,7 @@ const showContextMenu = (event, item) => {
   const options = {
     "Копировать": item != null ? copy : null,
     "Вставить": buffer.value['Задачи'].length !== 0 ? paste : null,
+    "Удалить": item != null ? sidebarDeleteTask : null,
   }
   const title = buffer.value['Задачи'][0]?.name
   contextMenu.value.openContextMenu(event, item, options, title)
@@ -118,8 +119,8 @@ const paste = (item) => {
   saveSnapshot()
 }
 
-const sidebarDeleteTask = (id) => {
-  delete props.quest.tasks[id];
+const sidebarDeleteTask = (task) => {
+  delete props.quest.tasks[task.num_id];
 
   const newTasks = {};
   let newId = 0;

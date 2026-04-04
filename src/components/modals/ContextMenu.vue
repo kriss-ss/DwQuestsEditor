@@ -5,7 +5,7 @@
        :style="{ top: position.top + 'px', left: position.left + 'px' }"
   >
     <div class="menu-item">
-      <p class="item-title">Буфер</p>
+      <p class="item-title">Меню</p>
       <p class="item-title title-name">{{title}}</p>
     </div>
     <hr>
