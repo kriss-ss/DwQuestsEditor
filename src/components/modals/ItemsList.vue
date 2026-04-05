@@ -35,7 +35,7 @@
             @click="handleItemClick(key)"
             :title="key"
         >
-          <img loading="lazy" class="item-icon" :src="iconById(key)" alt="">
+          <img :key="key" loading="lazy" class="item-icon" :src="iconById(key)" alt="">
           <p class="item-name">{{ getRusNameFromId(key) }} ({{ value.itemId }})</p>
         </div>
         <div
