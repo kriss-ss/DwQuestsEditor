@@ -5,6 +5,11 @@
       class="index-page">
     <img src="/src/assets/img/bg.png" class="index-bg" alt="" loading="lazy">
     <div class="index-container">
+      <p class="index-title">
+        <span>Р</span><span>е</span><span>д</span><span>а</span><span>к</span><span>т</span><span>о</span><span>р</span>
+        <span style="margin-right: 8px;"></span>
+        <span>D</span><span>w</span><span>Q</span><span>u</span><span>e</span><span>s</span><span>t</span><span>s</span>
+      </p>
       <div class="index-menu">
 
         <div
@@ -166,6 +171,61 @@ const FromClipboardTab = async () => {
   pointer-events: none;
 }
 
+.index-container {
+  display: flex;
+}
+
+.index-title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: Inter, sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 0 24px #42AAFF);
+  padding: 1rem;
+
+  border-radius: 1rem;
+  display: flex;
+  gap: 2px;
+}
+
+
+.index-title span {
+  animation: letterSway 10s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.2s);
+  color: #42AAFF;
+}
+
+.index-title span:nth-child(1) { --i: 1; }
+.index-title span:nth-child(2) { --i: 2; }
+.index-title span:nth-child(3) { --i: 3; }
+.index-title span:nth-child(4) { --i: 4; }
+.index-title span:nth-child(5) { --i: 5; }
+.index-title span:nth-child(6) { --i: 6; }
+.index-title span:nth-child(7) { --i: 7; }
+.index-title span:nth-child(8) { --i: 8; }
+.index-title span:nth-child(10) { --i: 10; }
+.index-title span:nth-child(11) { --i: 11; }
+.index-title span:nth-child(12) { --i: 12; }
+.index-title span:nth-child(13) { --i: 13; }
+.index-title span:nth-child(14) { --i: 14; }
+.index-title span:nth-child(15) { --i: 15; }
+.index-title span:nth-child(16) { --i: 16; }
+.index-title span:nth-child(17) { --i: 17; }
+
+@keyframes letterSway {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .index-menu {
   display: flex;
   position: absolute;
@@ -190,6 +250,7 @@ const FromClipboardTab = async () => {
   font-family: Inter, sans-serif;
   font-size: 1rem;
   gap: 1rem;
+  filter: drop-shadow(0 0 8px var(--primary));
 
   box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.25);
   cursor: pointer;

@@ -18,7 +18,6 @@ export const iconById = (id) => {
     }
 
     let idIcon = mod + "/" + name + (meta ? "_" + meta : "") + ".png";
-    console.log(idIcon)
     if (itemsIcons.includes(idIcon)) {
         return new URL('/icons/' + idIcon, import.meta.url).href;
     }
