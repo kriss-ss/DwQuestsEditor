@@ -31,6 +31,7 @@
               <input class="sidebar-small-button quest-task-count center"
                      type="text" :value="quest.tasks[task.num_id].requiredCount"
                      @change="editTaskCount($event, task.num_id)"
+                     :disabled="task.type === 'TASK_CONFIRM'"
                      title="Количество предметов"
               />
 
@@ -148,6 +149,13 @@ const showItemPicker = (event, func, data) => {
 }
 
 const editTaskType = (event, n) => {
+  if (event === "TASK_CONFIRM") {
+    props.quest.tasks[n].forgeName = undefined
+    props.quest.tasks[n].requiredCount = ""
+  } else if (props.quest.tasks[n].type === "TASK_CONFIRM") {
+    props.quest.tasks[n].forgeName = "minecraft:dirt"
+    props.quest.tasks[n].requiredCount = 1
+  }
   props.quest.tasks[n].type = event;
   saveSnapshot()
 }
