@@ -41,7 +41,7 @@
     </div>
 
     <div class="p-quest-tasks">
-      <div class="p-quest-tasks-title" :style="{color: getQuestColor(quest)}">Задачи</div>
+      <div class="p-quest-tasks-title" :style="{color: getQuestColor(quest)}">{{ quest.tasksType ? "Задача на выбор" : "Задачи" }}</div>
 
       <div class="p-quest-tasks-tasks"
       >
