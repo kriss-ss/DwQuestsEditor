@@ -87,6 +87,7 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const active_quest = inject('active_quest')
 const contextMenu = inject('contextMenu')
 const buffer = inject("buffer")
 
@@ -102,6 +103,7 @@ const showContextMenu = (event, item) => {
 
 const copy = (item) => {
   buffer.value["Зависимости"][0] = item
+  saveSnapshot({type: 'copyItem', args: {itemType: 'Parent', value: JSON.stringify(item), id: item.num_id, name: active_quest.value}})
 }
 
 const paste = (item) => {
@@ -114,17 +116,17 @@ const paste = (item) => {
     'parentType': new_item.parentType,
   }
   props.quest.parents.splice(new_index, 0, new_parent)
-  saveSnapshot()
+  saveSnapshot({type: 'pasteItem', args: {itemType: 'Parent', value: JSON.stringify(new_item), id: new_index, name: active_quest.value}})
 }
 
 const sidebarAddParent = () => {
   props.quest.parents.push({"questID": "Выберите зависимость.."})
-  saveSnapshot()
+  saveSnapshot({type: 'addItem', args: {itemType: 'Parent', name: active_quest.value}})
 }
 
 const sidebarDeleteParent = (parent) => {
   props.quest.parents.splice(parent.num_id, 1)
-  saveSnapshot()
+  saveSnapshot({type: 'deleteItem', args: {itemType: 'Parent', id: parent.num_id, name: active_quest.value}})
 }
 
 const showParentPicker = (event, func, data) => {
@@ -135,17 +137,17 @@ const showParentPicker = (event, func, data) => {
 
 const editParentType = (event, n) => {
   props.quest.parents[n].parentType = event;
-  saveSnapshot()
+  saveSnapshot({type: 'editItemType', args: {itemType: 'Parent', value: event, id: n, name: active_quest.value}})
 }
 
 const editParentItem = (parent, item) => {
   props.quest.parents[parent.num_id].questID = item
-  saveSnapshot()
+  saveSnapshot({type: 'editItemItem', args: {itemType: 'Parent', value: item, id: parent.num_id, name: active_quest.value}})
 }
 
 const editLineType = (event, n) => {
   props.quest.parents[n].lineType = event;
-  saveSnapshot()
+  saveSnapshot({type: 'editLineType', args: {value: event, id: n, name: active_quest.value}})
 }
 
 </script>

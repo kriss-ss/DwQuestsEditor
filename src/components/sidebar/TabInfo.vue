@@ -32,7 +32,7 @@ const tabLength = () => {
 
 const editSortIndex = (event) => {
   props.tab.sortIndex = parseInt(event.target.value)
-  saveSnapshot()
+  saveSnapshot({type: 'editSortIndex', args: {value: event.target.value}})
 }
 
 </script>

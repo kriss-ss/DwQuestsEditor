@@ -78,10 +78,11 @@ import Sidebar from "@/components/editor/Sidebar.vue";
 import PrevertQuest from "@/components/editor/PrevertQuest.vue";
 import QuestNodes from "@/components/editor/QuestNodes.vue";
 import CanvasLines from "@/components/editor/CanvasLines.vue";
-import {editorHistory} from "@/composables/editorHistory.js";
 import ItemsList from "@/components/modals/ItemsList.vue";
 import ContextMenu from "@/components/modals/ContextMenu.vue";
+import {editorHistory} from "@/composables/editorHistory.js";
 import {dragField} from "@/composables/dragField.js";
+import {useLogger} from '@/composables/useLogger'
 import {getItems} from "@/utils/getItems.js";
 import {onBeforeUnmount, onMounted, ref, provide, nextTick, inject} from "vue";
 import {useRouter} from "vue-router";
@@ -108,12 +109,15 @@ const buffer = ref({
   "Награды": [],
   "Зависимости": []
 })
+const { sendLog } = useLogger()
 
 
-const saveSnapshot = () => {
+const saveSnapshot = (log) => {
   historyManager.value.saveSnapshot(tab.value)
   printGraph()
+  sendLog(log, tab.value)
 }
+
 
 provide('saveSnapshot', saveSnapshot)
 provide('edit', edit)
@@ -176,7 +180,7 @@ provide("tabID", tab.value.tabID)
 
 historyManager.value.initialize()
 drag.value = dragField()
-saveSnapshot()
+saveSnapshot({type: 'initializeEditor'})
 
 onBeforeUnmount(() => {
   if (updateTabInterval.value) {

@@ -103,7 +103,7 @@ const sidebarAddQuest = () => {
     },
     "rewards": []
   }
-  saveSnapshot()
+  saveSnapshot({type: 'addQuest'})
 
   if (edit.value) {
     edit.value = false

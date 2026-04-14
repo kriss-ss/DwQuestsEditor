@@ -198,7 +198,7 @@ const stopDrawing = (e) => {
     isDrawing.value = false;
     if (e.target.classList[0] === "quest" && e.target.id !== drawStartQuestID.value) {
       props.quests[e.target.id].parents.push({"questID": drawStartQuestID.value});
-      props.saveSnapshot()
+      props.saveSnapshot({type: 'handleDrawLine', args: {fromName: drawStartQuestID.value, toName: e.target.id}})
     }
     canvasLines()
   }
