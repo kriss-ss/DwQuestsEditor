@@ -89,15 +89,16 @@ const props = defineProps({
 
 const saveSnapshot = inject('saveSnapshot')
 const contextMenu = inject('contextMenu')
+const active_quest = inject('active_quest')
 const buffer = inject("buffer")
 
 const sidebarAddReward = () => {
   props.quest.rewards.push("minecraft:dirt")
-  saveSnapshot()
+  saveSnapshot({type: 'addItem', args: {itemType: 'Reward', name: active_quest.value}})
 }
 const sidebarDeleteReward = (reward) => {
   props.quest.rewards.splice(reward.num_id, 1)
-  saveSnapshot()
+  saveSnapshot({type: 'deleteItem', args: {itemType: 'Reward', id: reward.num_id, name: active_quest.value}})
 }
 
 const showItemPicker = (event, func, data) => {
@@ -119,18 +120,19 @@ const showContextMenu = (event, item) => {
 
 const copy = (item) => {
   buffer.value["Награды"][0] = item
+  saveSnapshot({type: 'copyItem', args: {itemType: 'Reward', value: JSON.stringify(item), id: item.num_id, name: active_quest.value}})
 }
 
 const paste = (item) => {
   const new_item = buffer.value["Награды"][0]
   const new_index = item !== null ? parseInt(item.num_id) + 1 : props.quest.rewards.length
   props.quest.rewards.splice(new_index, 0, new_item.count > 1 ? new_item.id + "=" + new_item.count : new_item.id)
-  saveSnapshot()
+  saveSnapshot({type: 'pasteItem', args: {itemType: 'Reward', value: JSON.stringify(new_item), id: new_index, name: active_quest.value}})
 }
 
 const editRewardItem = (reward, item) => {
   props.quest.rewards[reward.num_id] = reward.count > 1 ? item + "=" + reward.count : item;
-  saveSnapshot()
+  saveSnapshot({type: 'editItemItem', args: {itemType: 'Reward', value: item, id: reward.num_id, name: active_quest.value}})
 }
 
 const editRewardType = (event, n) => {
@@ -143,7 +145,7 @@ const editRewardType = (event, n) => {
   else if (event === "DEFAULT") {
     props.quest.rewards[n] = "minecraft:dirt"
   }
-  saveSnapshot()
+  saveSnapshot({type: 'editItemType', args: {itemType: 'Reward', value: event, id: n, name: active_quest.value}})
 }
 
 const isRewardCountDisabled = (rewardString) => {
@@ -158,7 +160,7 @@ const editRewardCount = (event, n) => {
     reward = reward.slice(0, index_count)
   }
   props.quest.rewards[n] = reward + "=" + event.target.value;
-  saveSnapshot()
+  saveSnapshot({type: 'editItemCount', args: {itemType: 'Reward', value: event.target.value, id: n, name: active_quest.value}})
 }
 
 const getRewardType = (id) => {

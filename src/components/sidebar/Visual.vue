@@ -47,15 +47,16 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const active_quest = inject('active_quest')
 
 const editSize = (event) => {
   props.quest.iconSize = event
-  saveSnapshot()
+  saveSnapshot({type: 'editSize', args: {value: event, name: active_quest.value}})
 }
 
 const editColor = (event) => {
   props.quest.rarity = event.target.value
-  saveSnapshot()
+  saveSnapshot({type: 'editColor', args: {value: event.target.value, name: active_quest.value}})
 }
 
 

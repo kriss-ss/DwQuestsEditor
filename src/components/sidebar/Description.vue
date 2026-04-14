@@ -36,7 +36,7 @@
         ref="textarea"
 
         v-model="quest.description"
-        @change="saveSnapshot"
+        @change="saveSnapshot({type: 'editDescription', args: {value: quest.description, name: quest.iconItem}})"
 
     ></textarea>
 
@@ -55,6 +55,7 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const active_quest = inject('active_quest')
 const textarea = ref(null)
 
 
@@ -76,11 +77,6 @@ const getRandomChar = () => {
 }
 
 
-const editDescription = (event) => {
-  props.quest.description = event.target.value;
-  saveSnapshot()
-}
-
 const wrapSelectedText = (colorSymbol) => {
 
   const start = textarea.value.selectionStart;
@@ -99,7 +95,7 @@ const wrapSelectedText = (colorSymbol) => {
     textarea.value.selectionStart = start;
     textarea.value.selectionEnd = start + wrappedText.length;
     textarea.value.focus();
-    saveSnapshot()
+    saveSnapshot({type: 'editDescription', args: {value: props.quest.description, name: active_quest.value}})
   });
 }
 

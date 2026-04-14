@@ -32,15 +32,16 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const active_quest = inject('active_quest')
 
 const editDisplayX = (event) => {
   props.quest.displayX = event.target.value;
-  saveSnapshot()
+  saveSnapshot({type: 'editDisplayX', args: {value: event.target.value, name: active_quest.value}})
 }
 
 const editDisplayY = (event) => {
   props.quest.displayY = event.target.value;
-  saveSnapshot()
+  saveSnapshot({type: 'editDisplayY', args: {value: event.target.value, name: active_quest.value}})
 }
 
 </script>

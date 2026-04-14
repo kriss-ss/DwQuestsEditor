@@ -77,7 +77,7 @@ const dataQuests = computed(() => {
 const deleteQuest = (name) => {
   delete props.tab.quests[name];
   emit('edit-active-quest', '')
-  saveSnapshot();
+  saveSnapshot({type: 'deleteQuest', args: {name: name}});
 }
 
 const onQuestClick = (name) => {
@@ -102,6 +102,7 @@ const onQuestClick = (name) => {
       },
       update: function (event, ui) {
         let target = event.target.classList[0];
+        let type = ""
         if (target.includes('tasks')) {
           let elems = $('.quest-tasks-items').children();
           const newElems = {};
@@ -110,6 +111,8 @@ const onQuestClick = (name) => {
             newElems[i.toString()] = props.tab.quests[name].tasks[elemId];
           }
           props.tab.quests[name].tasks = newElems;
+
+          type = "Задачи"
         }
         else if (target.includes('rewards')) {
           let elems = $('.quest-rewards-items').children();
@@ -119,6 +122,7 @@ const onQuestClick = (name) => {
             newElems.push(props.tab.quests[name].rewards[elemId]);
           }
           props.tab.quests[name].rewards = newElems;
+          type = "Награды"
         }
         else if (target.includes('parents')) {
           let elems = $('.quest-parents-items').children();
@@ -128,8 +132,9 @@ const onQuestClick = (name) => {
             newElems.push(props.tab.quests[name].parents[elemId]);
           }
           props.tab.quests[name].parents = newElems;
+          type = "Зависимости"
         }
-        saveSnapshot();
+        saveSnapshot({type: 'sortItemsSidebar', args: {itemsType: type, name: name}});
       },
     });
   });
@@ -245,7 +250,7 @@ const editMode = () => {
       }
     },
     stop: function (ev, ui) {
-      saveSnapshot()
+      saveSnapshot({type: 'dragQuests', args: {listNames: selected.toArray().map((quest) => {return quest.title}).join("`, `")}})
     }
   }).on("mousedown", function (event) {
     if ($(".ui-selected").length > 0 && !$(this).hasClass("ui-selected") && !event.ctrlKey) {

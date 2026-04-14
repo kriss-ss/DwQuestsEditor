@@ -132,6 +132,7 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const active_quest = inject('active_quest')
 
 const showItemPicker = (event, func, data) => {
   props.itemSelector.open(event, (selectedId) => {
@@ -194,7 +195,7 @@ const editGiftName = (event, reward) => {
 
   finalGift = finalGift + customStringify(giftNBT)
   props.quest.rewards[reward.num_id] = finalGift
-  saveSnapshot()
+  saveSnapshot({type: 'editGiftName', args: {value: event.target.value, id: reward.num_id, name: active_quest.value}})
 }
 
 const getGiftLore = () => {
@@ -212,7 +213,7 @@ const editGiftLore = (event, reward) => {
 
   finalGift = finalGift + customStringify(giftNBT)
   props.quest.rewards[reward.num_id] = finalGift
-  saveSnapshot()
+  saveSnapshot({type: 'editGiftLore', args: {value: event.target.value, id: reward.num_id, name: active_quest.value}})
 }
 
 const getGiftType = () => {
@@ -238,7 +239,7 @@ const editGiftType = (event, reward) => {
 
   finalGift = finalGift + customStringify(giftNBT)
   props.quest.rewards[reward.num_id] = finalGift
-  saveSnapshot()
+  saveSnapshot({type: 'editGiftType', args: {value: event, id: reward.num_id, name: active_quest.value}})
 }
 
 const getGiftRandomValues = () => {
@@ -264,7 +265,7 @@ const editGiftRandom = (event, reward, type) => {
 
   finalGift = finalGift + customStringify(giftNBT)
   props.quest.rewards[reward.num_id] = finalGift
-  saveSnapshot()
+  saveSnapshot({type: 'editGiftRandom', args: {value: event.target.value, randomType: type, id: reward.num_id, name: active_quest.value}})
 }
 
 const editGiftNbt = (event, reward) => {
@@ -283,7 +284,7 @@ const editGiftItem = (reward, item, count = undefined) => {
   giftNBT.Items[reward.num_id].ID = item_count > 1 ? item + '=' + item_count : item
   finalGift = finalGift + customStringify(giftNBT)
   props.quest.rewards[reward.reward_id] = finalGift;
-  saveSnapshot()
+  saveSnapshot({type: 'editGiftItem', args: {value: item, id: reward.num_id, name: active_quest.value}})
 }
 
 const addGiftItem = () => {
@@ -299,7 +300,7 @@ const addGiftItem = () => {
   }
   finalGift = finalGift + customStringify(giftNBT)
   props.quest.rewards[props.reward.num_id] = finalGift;
-  saveSnapshot()
+  saveSnapshot({type: 'addGiftItem', args: {name: active_quest.value}})
 }
 
 const deleteGiftItem = (item) => {
@@ -317,7 +318,7 @@ const deleteGiftItem = (item) => {
   giftNBT.Items = newGiftItems;
   finalGift = finalGift + customStringify(giftNBT)
   props.quest.rewards[item.reward_id] = finalGift;
-  saveSnapshot()
+  saveSnapshot({type: 'deleteGiftItem', args: {id: item.reward_id, name: active_quest.value}})
 }
 </script>
 

@@ -40,6 +40,7 @@ const props = defineProps({
 })
 
 const saveSnapshot = inject('saveSnapshot')
+const active_quest = inject('active_quest')
 
 const questIcon = computed(() =>
     iconByQuestName(props.questName, props.quest.iconItem, props.tabID)
@@ -47,12 +48,12 @@ const questIcon = computed(() =>
 
 const editDisplayName = (event) => {
   props.quest.displayName = event.target.value;
-  saveSnapshot()
+  saveSnapshot({type: 'editQuestTitle', args: {value: event.target.value, name: active_quest.value}})
 }
 
 const editQuestIcon = (questIcon, item) => {
   props.quest.iconItem = item;
-  saveSnapshot()
+  saveSnapshot({type: 'editQuestTitleIcon', args: {value: item, name: active_quest.value}})
 }
 
 const showItemPicker = (event, func, data) => {

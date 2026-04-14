@@ -81,6 +81,7 @@ const props = defineProps({
 const saveSnapshot = inject('saveSnapshot')
 const contextMenu = inject('contextMenu')
 const buffer = inject("buffer")
+const active_quest = inject('active_quest')
 
 
 const showContextMenu = (event, item) => {
@@ -95,6 +96,7 @@ const showContextMenu = (event, item) => {
 
 const copy = (item) => {
   buffer.value["Задачи"][0] = item
+  saveSnapshot({type: 'copyItem', args: {itemType: 'Task', value: JSON.stringify(item), id: item.num_id, name: active_quest.value}})
 }
 
 const paste = (item) => {
@@ -117,7 +119,7 @@ const paste = (item) => {
     'requiredCount': new_item.count,
     'forgeName': new_item.id,
   }
-  saveSnapshot()
+  saveSnapshot({type: 'pasteItem', args: {itemType: 'Task', value: JSON.stringify(new_item), id: new_index, name: active_quest.value}})
 }
 
 const sidebarDeleteTask = (task) => {
@@ -134,12 +136,12 @@ const sidebarDeleteTask = (task) => {
       });
 
   props.quest.tasks = newTasks;
-  saveSnapshot()
+  saveSnapshot({type: 'deleteItem', args: {itemType: 'Task', id: task.num_id, name: active_quest.value}})
 }
 
 const editTaskItem = (task, item) => {
   props.quest.tasks[task.num_id].forgeName = item
-  saveSnapshot()
+  saveSnapshot({type: 'editItemItem', args: {itemType: 'Task', value: item, id: task.num_id, name: active_quest.value}})
 }
 
 const showItemPicker = (event, func, data) => {
@@ -157,12 +159,12 @@ const editTaskType = (event, n) => {
     props.quest.tasks[n].requiredCount = 1
   }
   props.quest.tasks[n].type = event;
-  saveSnapshot()
+  saveSnapshot({type: 'editItemType', args: {itemType: 'Task', value: event, id: n, name: active_quest.value}})
 }
 
 const editTaskCount = (event, n) => {
   props.quest.tasks[n].requiredCount = event.target.value;
-  saveSnapshot()
+  saveSnapshot({type: 'editItemCount', args: {itemType: 'Task', value: event.target.value, id: n, name: active_quest.value}})
 }
 
 const sidebarAddTask = () => {
@@ -174,7 +176,7 @@ const sidebarAddTask = () => {
     "requiredCount": 1,
     "forgeName": "minecraft:dirt"
   }
-  saveSnapshot()
+  saveSnapshot({type: 'addItem', args: {itemType: 'Task', name: active_quest.value}})
 }
 
 const editTasksType = () => {
@@ -183,7 +185,7 @@ const editTasksType = () => {
   } else {
     props.quest.tasksType = "ONE_OF"
   }
-  saveSnapshot()
+  saveSnapshot({type: 'editTasksType', args: {value: props.quest?.tasksType, name: active_quest.value}})
 }
 
 </script>

@@ -33,11 +33,12 @@ const saveSnapshot = inject('saveSnapshot')
 
 const editTabID = (event) => {
   props.tab.tabID = event.target.value
+  saveSnapshot({type: 'editTabID', args: {value: event.target.value}})
 }
 
 const editTabIcon = (TabIcon, item) => {
   props.tab.iconItem = item;
-  saveSnapshot()
+  saveSnapshot({type: 'editTabIcon', args: {value: item}})
 }
 const showItemPicker = (event, func, data) => {
   props.itemSelector.open(event, (selectedId) => {
