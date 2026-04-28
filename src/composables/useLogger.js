@@ -17,7 +17,7 @@ export const useLogger = () => {
             case 'editQuestTitleIcon': return `Изменён QuestTitleIcon: \`${args.value}\``;
             case 'editDisplayX': return `Изменён DisplayX: \`${args.value}\``;
             case 'editDisplayY': return `Изменён DisplayY: \`${args.value}\``;
-            case 'editDescription': return `Изменён Description: \`\`\`${args.value}\`\`\``;
+            case 'editDescription': return `Изменён Description: \n\`\`\`${args.value}\`\`\``;
             case 'editSize': return `Изменён Size: \`${args.value}\``;
             case 'editColor': return `Изменён Color: \`${args.value}\``;
             case 'sortItemsSidebar': return `Отсортированы: \`${args.itemsType}\``;
@@ -27,8 +27,8 @@ export const useLogger = () => {
             case 'editItemType': return `Изменён \`${args.itemType}\` Type: \`${args.value}\`\nID: \`${args.id}\``;
             case 'editItemItem': return `Изменён \`${args.itemType}\` Item: \`${args.value}\`\nID: \`${args.id}\``;
             case 'editItemCount': return `Изменён \`${args.itemType}\`: \`${args.value}\`\nID: \`${args.id}\``;
-            case 'copyItem': return `Скопировано \`${args.itemType}\`: \`\`\`${args.value}\`\`\`\nID: \`${args.id}\``;
-            case 'pasteItem': return `Вставлено \`${args.itemType}\`: \`\`\`${args.value}\`\`\`\nID: \`${args.id}\``;
+            case 'copyItem': return `Скопировано \`${args.itemType}\`: \n\`\`\`${args.value}\`\`\`\nID: \`${args.id}\``;
+            case 'pasteItem': return `Вставлено \`${args.itemType}\`: \n\`\`\`${args.value}\`\`\`\nID: \`${args.id}\``;
 
             case 'editLineType': return `Изменён LineType: \`${args.value}\`\nID: \`${args.id}\``;
             case 'editTasksType': return `Изменён TasksType: \`${args.value}\``;
