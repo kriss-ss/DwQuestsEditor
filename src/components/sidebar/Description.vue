@@ -64,10 +64,9 @@ onMounted(() => {
 })
 
 const obfuscateText = () => {
-  $('.obfuscate-format').each(function () {
-    let text = $(this).text();
-    let obfuscated = text.split('').map(() => getRandomChar()).join('');
-    $(this).text(obfuscated);
+  document.querySelectorAll('.obfuscate-format').forEach(element => {
+    let text = element.textContent;
+    element.textContent = text.split('').map(() => getRandomChar()).join('');
   });
 }
 const getRandomChar = () => {
