@@ -88,55 +88,6 @@ const onQuestClick = (name) => {
     $(".sidebar-elem-title").click(function () {
       $(this).siblings().slideToggle("slow");
     })
-
-    $('.quest-tasks-items, .quest-rewards-items, .quest-parents-items').sortable({
-      opacity: 0.5,
-      scroll: true,
-      axis: 'y',
-      placeholder: "ui-state-highlight",
-      handle: ".sidebar-item-name",
-      tolerance: "pointer",
-      forcePlaceholderSize: true,
-      start: function(event, ui) {
-        $('.ui-state-highlight').height(ui.item.height() + 1);
-      },
-      update: function (event, ui) {
-        let target = event.target.classList[0];
-        let type = ""
-        if (target.includes('tasks')) {
-          let elems = $('.quest-tasks-items').children();
-          const newElems = {};
-          for(let i = 0; i < elems.length; i++) {
-            let elemId = elems[i].classList[2].split("-")[2]
-            newElems[i.toString()] = props.tab.quests[name].tasks[elemId];
-          }
-          props.tab.quests[name].tasks = newElems;
-
-          type = "Задачи"
-        }
-        else if (target.includes('rewards')) {
-          let elems = $('.quest-rewards-items').children();
-          const newElems = [];
-          for(let i = 0; i < elems.length; i++) {
-            let elemId = elems[i].classList[2].split("-")[2]
-            newElems.push(props.tab.quests[name].rewards[elemId]);
-          }
-          props.tab.quests[name].rewards = newElems;
-          type = "Награды"
-        }
-        else if (target.includes('parents')) {
-          let elems = $('.quest-parents-items').children();
-          const newElems = [];
-          for(let i = 0; i < elems.length; i++) {
-            let elemId = elems[i].classList[2].split("-")[2]
-            newElems.push(props.tab.quests[name].parents[elemId]);
-          }
-          props.tab.quests[name].parents = newElems;
-          type = "Зависимости"
-        }
-        saveSnapshot({type: 'sortItemsSidebar', args: {itemsType: type, name: name}});
-      },
-    });
   });
 }
 

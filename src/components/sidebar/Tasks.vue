@@ -7,35 +7,48 @@
     <p class="sidebar-elem-title">Задачи</p>
 
     <span class="quest-tasks-items">
-            <span class="quest-task-item sidebar-item"
-                  :key="task"
-                  :class="'task-item-' + task.num_id"
-                  v-for="task in getQuestTasks(quest)"
-                  @contextmenu.prevent
-                  @click.right.exact.stop="showContextMenu($event, task)"
-                  @click.right.shift="sidebarDeleteTask(task)"
+            <draggable
+                v-model="tasksList"
+                item-key="num_id"
+                handle=".sidebar-item-name"
+                ghost-class="ui-state-highlight"
+                tag="div"
+                class="quest-tasks-items"
             >
-              <span
-                  class="task-item-data"
-              >
-                <img loading="lazy" class="sidebar-item-icon" @click="showItemPicker($event, editTaskItem, task)" :src="iconById(task.id)" alt=""/>
-                <p class="sidebar-item-name" :title="task.id">{{task.name}}</p>
-              </span>
-              <SelectButton
-                  class="sidebar-medium-button quest-task-type center"
-                  :items="taskTypes"
-                  :selected="task.type"
-                  @change-select="editTaskType($event, task.num_id)"
-                  title="Тип задачи"
-              />
-              <input class="sidebar-small-button quest-task-count center"
-                     type="text" :value="quest.tasks[task.num_id].requiredCount"
-                     @change="editTaskCount($event, task.num_id)"
-                     :disabled="task.type === 'TASK_CONFIRM'"
-                     title="Количество предметов"
-              />
+              <template #item="{ element: task }">
+                <span class="quest-task-item sidebar-item"
+                      :class="'task-item-' + task.num_id"
+                      @contextmenu.prevent
+                      @click.right.exact.stop="showContextMenu($event, task)"
+                      @click.right.shift="sidebarDeleteTask(task)"
+                >
+                  <span class="task-item-data">
+                    <img loading="lazy"
+                         class="sidebar-item-icon"
+                         @click="showItemPicker($event, editTaskItem, task)"
+                         :src="iconById(task.id)"
+                         alt=""/>
+                    <p class="sidebar-item-name" :title="task.id">{{task.name}}</p>
+                  </span>
 
-            </span>
+                  <SelectButton
+                      class="sidebar-medium-button quest-task-type center"
+                      :items="taskTypes"
+                      :selected="task.type"
+                      @change-select="editTaskType($event, task.num_id)"
+                      title="Тип задачи"
+                  />
+
+                  <input class="sidebar-small-button quest-task-count center"
+                         type="text"
+                         :value="quest.tasks[task.num_id].requiredCount"
+                         @change="editTaskCount($event, task.num_id)"
+                         :disabled="task.type === 'TASK_CONFIRM'"
+                         title="Количество предметов"
+                  />
+                </span>
+              </template>
+            </draggable>
           </span>
 
     <span class="sidebar-add-button task-add center"
@@ -65,7 +78,8 @@ import SelectButton from "@/components/ui/SelectButton.vue";
 import {getQuestTasks} from "@/utils/getQuestData.js";
 import {iconById} from "@/utils/getIcon.js";
 import {taskTypes} from "@/constants/questConstants.js";
-import {inject} from "vue";
+import {inject, computed} from "vue";
+import draggable from 'vuedraggable';
 
 const props = defineProps({
   quest: {
@@ -82,6 +96,21 @@ const saveSnapshot = inject('saveSnapshot')
 const contextMenu = inject('contextMenu')
 const buffer = inject("buffer")
 const active_quest = inject('active_quest')
+
+const tasksList = computed({
+  get: () => {
+    return getQuestTasks(props.quest);
+  },
+  set: (newList) => {
+    const updatedTasks = {};
+    newList.forEach((task, index) => {
+      updatedTasks[index] = props.quest.tasks[task.num_id];
+    });
+    props.quest.tasks = updatedTasks;
+
+    saveSnapshot({type: 'sortItemsSidebar', args: { itemsType: 'Задачи', name: active_quest.value }});
+  }
+});
 
 
 const showContextMenu = (event, item) => {

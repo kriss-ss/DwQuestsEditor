@@ -7,50 +7,58 @@
     <p class="sidebar-elem-title">Награды</p>
 
     <span class="quest-rewards-items">
-            <span class="quest-reward-item sidebar-item"
-                  v-for="reward in getQuestRewards(quest)"
-                  :key="reward"
-                  :class="['reward-item-' + reward.num_id, {
-                            'gift-item': getRewardType(reward.id) === 'GIFT'
-                          }]"
-                  @contextmenu.prevent
-                  @click.right.exact.stop="showContextMenu($event, reward)"
-                  @click.right.shift="sidebarDeleteReward(reward)"
+            <draggable
+                v-model="rewardsList"
+                item-key="num_id"
+                handle=".sidebar-item-name"
+                ghost-class="ui-state-highlight"
+                tag="div"
+                class="quest-rewards-items"
             >
-              <span
-                  class="reward-item-data"
-              >
-                <img loading="lazy" class="sidebar-item-icon" @click="showItemPicker($event, editRewardItem, reward)" :src="iconById(reward.id)" alt=""/>
-                <p class="sidebar-item-name" :title="reward.id">{{ reward.name }}</p>
-              </span>
-              <SelectButton
-                  class="sidebar-medium-button quest-reward-type center"
-                  :items="rewardTypes"
-                  :selected="getRewardType(reward.id)"
-                  @change-select="editRewardType($event, reward.num_id)"
-                  title="Тип награды"
-              />
-              <!--              <span class="sidebar-medium-button quest-reward-type">{{getRewardTypeWord(reward.id)}}</span>-->
-              <input class="sidebar-small-button quest-reward-count center" type="text"
-                     :value="getRewardCount(quest.rewards[reward.num_id])"
-                     @change="editRewardCount($event, reward.num_id)"
-                     :disabled="isRewardCountDisabled(quest.rewards[reward.num_id])"
-                     title="Количество предметов"
-              />
+  <template #item="{ element: reward }">
+    <span class="quest-reward-item sidebar-item"
+          :class="['reward-item-' + reward.num_id, {
+                    'gift-item': getRewardType(reward.id) === 'GIFT'
+                  }]"
+          @contextmenu.prevent
+          @click.right.exact.stop="showContextMenu($event, reward)"
+          @click.right.shift="sidebarDeleteReward(reward)"
+    >
+      <span class="reward-item-data">
+        <img loading="lazy"
+             class="sidebar-item-icon"
+             @click="showItemPicker($event, editRewardItem, reward)"
+             :src="iconById(reward.id)"
+             alt=""/>
+        <p class="sidebar-item-name" :title="reward.id">{{ reward.name }}</p>
+      </span>
 
-              <span
-                  class="reward-settings"
-                  v-if="getRewardType(reward.id) === 'GIFT'"
-              >
-                <Gift :reward="reward" :quest="quest" :item-selector="itemSelector" />
-                </span>
-              <span
-                  class="reward-settings"
-                  v-if="getRewardType(reward.id) === 'SCRIPT'"
-              >
-                <Script :reward="reward" :quest="quest"/>
-              </span>
-            </span>
+      <SelectButton
+          class="sidebar-medium-button quest-reward-type center"
+          :items="rewardTypes"
+          :selected="getRewardType(reward.id)"
+          @change-select="editRewardType($event, reward.num_id)"
+          title="Тип награды"
+      />
+
+      <input class="sidebar-small-button quest-reward-count center"
+             type="text"
+             :value="getRewardCount(quest.rewards[reward.num_id])"
+             @change="editRewardCount($event, reward.num_id)"
+             :disabled="isRewardCountDisabled(quest.rewards[reward.num_id])"
+             title="Количество предметов"
+      />
+
+      <span class="reward-settings" v-if="getRewardType(reward.id) === 'GIFT'">
+        <Gift :reward="reward" :quest="quest" :item-selector="itemSelector" />
+      </span>
+
+      <span class="reward-settings" v-if="getRewardType(reward.id) === 'SCRIPT'">
+        <Script :reward="reward" :quest="quest"/>
+      </span>
+    </span>
+  </template>
+</draggable>
           </span>
 
     <span class="sidebar-add-button reward-add center"
@@ -69,11 +77,12 @@
 <script setup>
 import SelectButton from "@/components/ui/SelectButton.vue";
 import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
-import {getQuestRewards} from "@/utils/getQuestData.js";
+import {getQuestRewards, getQuestTasks} from "@/utils/getQuestData.js";
 import {iconById} from "@/utils/getIcon.js";
 import {rewardTypes} from "@/constants/questConstants.js";
 import Gift from "@/components/sidebar/Gift.vue";
-import {inject} from "vue";
+import {computed, inject} from "vue";
+import draggable from "vuedraggable";
 import Script from "@/components/sidebar/Script.vue";
 
 const props = defineProps({
@@ -91,6 +100,16 @@ const saveSnapshot = inject('saveSnapshot')
 const contextMenu = inject('contextMenu')
 const active_quest = inject('active_quest')
 const buffer = inject("buffer")
+
+const rewardsList = computed({
+  get: () => {
+    return getQuestRewards(props.quest);
+  },
+  set: (newList) => {
+    props.quest.rewards = newList.map(item => item.id);
+    saveSnapshot({type: 'sortItemsSidebar', args: { itemsType: 'Награды', name: active_quest.value }});
+  }
+});
 
 const sidebarAddReward = () => {
   props.quest.rewards.push("minecraft:dirt")
