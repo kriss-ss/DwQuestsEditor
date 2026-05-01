@@ -1,68 +1,44 @@
 <template>
   <div class="quests-sidebar"
-       :class="{
-         'collapsed': edit,
-         'ui-resizable': true,
-         'no-transition': isResizing
-       }"
-       :style="{ width: computedWidth }"
+       :class="{ 'collapsed': edit, 'no-transition': isResizing }"
+       :style="{ width: sidebarWidth + 'px' }"
        ref="sidebarElement"
   >
-    <div class="quests-sidebar-content"
-         @mousewheel.passive="resizableHandleEditor"
-    >
-
+    <div class="quests-sidebar-content">
       <TabTitle :item-selector="itemSelector" :tab="tab"/>
-
       <hr class="devider"/>
-
       <TabInfo :tab="tab"/>
-
       <hr class="devider"/>
-
       <div class="sidebar-quest-data" v-if="quest">
-
         <Title :item-selector="itemSelector"
                :quest-name="quest"
                :quest="tab.quests[quest]"
                :tabID="tab.tabID"
         />
-
         <hr class="devider"/>
-
         <Coords :quest="tab.quests[quest]"/>
-
         <hr class="devider"/>
-
         <Visual :quest="tab.quests[quest]"/>
-
         <hr class="devider"/>
-
         <Description :quest="tab.quests[quest]"/>
-
         <hr class="devider"/>
-
         <Tasks :item-selector="itemSelector"
                :quest="tab.quests[quest]"/>
-
         <hr class="devider"/>
-
         <Rewards :item-selector="itemSelector"
                  :quest="tab.quests[quest]"/>
-
         <hr class="devider"/>
-
         <Parents :parent-selector="parentSelector"
                  :quest="tab.quests[quest]"
                  :quests="tab.quests"
                  :tabID="tab.tabID"
         />
-
       </div>
-
-<!--      <Grid/>-->
-
     </div>
+    <div
+        class="resizer-handle"
+        @mousedown="startResizing"
+    ></div>
 
   </div>
     <Menu
@@ -81,9 +57,8 @@ import Description from "@/components/sidebar/Description.vue";
 import Tasks from "@/components/sidebar/Tasks.vue";
 import Rewards from "@/components/sidebar/Rewards.vue";
 import Parents from "@/components/sidebar/Parents.vue";
-import Grid from "@/components/sidebar/Grid.vue";
 import Menu from "@/components/sidebar/Menu.vue";
-import {nextTick, onMounted, ref, watch, inject, provide} from "vue";
+import {ref, inject} from "vue";
 import ContextMenu from "@/components/modals/ContextMenu.vue";
 
 const props = defineProps({
@@ -109,49 +84,35 @@ const props = defineProps({
   }
 })
 
-const sidebar = ref(null)
-const handler = ref(null)
 const edit = inject("edit");
+const sidebarElement = ref(null);
 const isResizing = ref(false);
+const sidebarWidth = ref(450);
 
-const sidebarElement = ref(null)
-const computedWidth = ref(null)
+const startResizing = (event) => {
+  isResizing.value = true;
 
+  window.addEventListener('mousemove', handleMouseMove);
+  window.addEventListener('mouseup', stopResizing);
 
-onMounted(() => {
-  $(".quests-sidebar").resizable({
-    handles: "e",
-    start() {
-      isResizing.value = true;
-    },
-    stop() {
-      isResizing.value = false;
-      computedWidth.value = sidebarElement.value.scrollWidth + 'px'
-    },
-    resize(event, ui) {
-    }
+  document.body.style.cursor = 'col-resize';
+  document.body.style.userSelect = 'none';
+};
 
-  });
+const handleMouseMove = (event) => {
+  if (!isResizing.value) return;
+  const w = window.innerWidth;
+  sidebarWidth.value = Math.min(Math.max(event.clientX, w * 0.15), w * 0.35);
+};
 
-  nextTick(() => {
-    if (sidebarElement.value) {
-      computedWidth.value = sidebarElement.value.scrollWidth + 'px'
-    }
-  })
+const stopResizing = () => {
+  isResizing.value = false;
+  window.removeEventListener('mousemove', handleMouseMove);
+  window.removeEventListener('mouseup', stopResizing);
 
-  sidebar.value = $('.quests-sidebar')
-  handler.value= $('.ui-resizable-handle')
-})
-
-const resizableHandleEditor = () => {
-  const height = props.quest ? sidebar.value[0].scrollHeight : sidebar.value.height();
-  handler.value.css('height', height + 'px');
-}
-
-watch(
-    () => props.quest,
-    () => resizableHandleEditor()
-);
+  document.body.style.cursor = '';
+  document.body.style.userSelect = '';
+};
 
 </script>
 
@@ -161,11 +122,33 @@ watch(
   width: 0;
 }
 
-.quests-sidebar {
-  height: 100vh;
-  min-width: 15%;
-  max-width: 35%;
+.resizer-handle {
+  width: 5px;
+  height: 100%;
+  bottom: 0;
+  background: white;
+  border-left: 4px var(--primary) solid;
+  position: sticky;
+  right: 0;
+  top: 0;
+  cursor: col-resize;
+  transition: background 0.2s;
+  z-index: 10;
+}
 
+.resizer-handle:hover,
+.quests-sidebar.no-transition .resizer-handle {
+  background: var(--secondary);
+}
+
+.quests-sidebar.collapsed .resizer-handle {
+  display: none;
+}
+
+.quests-sidebar {
+  position: relative;
+  height: 100vh;
+  display: flex;
   flex-shrink: 0;
 
   overflow: hidden;
