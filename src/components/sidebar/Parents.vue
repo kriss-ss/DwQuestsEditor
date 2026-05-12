@@ -27,7 +27,7 @@
               <span
                   class="parent-item-data"
               >
-                <img loading="lazy" class="sidebar-item-icon" @click="showParentPicker($event, editParentItem, parent)" :src="iconByQuestName(parent.name, parent.id, props.tabID)" alt=""/>
+                <img loading="lazy" class="sidebar-item-icon" @click="showParentPicker($event, editParentItem, parent)" :src="getIcon(parent.id)" alt=""/>
                 <p class="sidebar-item-name">{{parent.questName || parent.name}}</p>
               </span>
               <SelectButton
@@ -64,7 +64,7 @@
 import SelectButton from "@/components/ui/SelectButton.vue";
 import {parentTypes, lineTypes} from "@/constants/questConstants.js";
 import {getQuestParents} from "@/utils/getQuestData.js";
-import {iconByQuestName} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 import {inject} from "vue";
 
 const props = defineProps({

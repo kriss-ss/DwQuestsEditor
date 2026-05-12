@@ -16,7 +16,7 @@
       <div class="p-quest-data-icon">
         <img
             class="p-quest-icon"
-            :src="iconByQuestName(props.name, getIconItem(quest), props.tabID)"
+            :src="getIcon(getIconItem(quest))"
             alt="Иконка"
             :style="{
               filter: `drop-shadow(0 0 4px ${getQuestColor(quest)})`,
@@ -48,7 +48,7 @@
         <div class="p-quest-task"
              v-for="task in getQuestTasks(quest)">
           <div class="p-quest-task-icon">
-            <img loading="lazy" class="p-task-icon icon" :src="iconById(task.id)" alt="">
+            <img loading="lazy" class="p-task-icon icon" :src="getIcon(task.id)" alt="">
           </div>
           <div class="p-quest-task-data">
             <span class="p-quest-task-type" v-if="!task.hasCustomDescription">{{taskTypes[task.type] || "Сбор"}}:</span>
@@ -70,7 +70,7 @@
              @mousemove="updateTooltipPosition"
         >
           <div class="p-quest-reward-icon">
-            <img loading="lazy" class="p-reward-icon icon" :src="iconById(reward.id)" alt="">
+            <img loading="lazy" class="p-reward-icon icon" :src="getIcon(reward.id)" alt="">
           </div>
           <div class="p-quest-reward-data">
             <div class="p-quest-reward-name">{{reward.name}} -</div>
@@ -96,7 +96,7 @@
 
 import {questRarities, taskTypes} from "@/constants/questConstants.js";
 import {getPosQuest, getQuestSize, getQuestColor, getQuestDescription, getQuestRewards, getQuestTasks, getIconItem} from "@/utils/getQuestData.js";
-import {iconByQuestName, iconById} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 import {convertDescription} from "@/utils/convertDescription.js";
 import {reactive, ref} from "vue";
 

@@ -12,6 +12,8 @@ import {getItems} from "@/utils/getItems.js";
 import {parse} from "nbt-ts";
 import {nbtParser} from "@/utils/nbtParser.js";
 
+const items = await getItems()
+
 
 export const getDisplayName = (quest) => {
     return quest.displayName
@@ -115,8 +117,6 @@ export const getQuestParents = (quest, quests) => {
 }
 
 const getItemHover = (item) => {
-    const items = getItems();
-
     let test = item.replace(/\[/, "{").replace(/]/, "}")
     let hoverItemID = item
     if (~item.indexOf("{")) {

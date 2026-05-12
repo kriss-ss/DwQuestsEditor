@@ -82,7 +82,7 @@
               @click.right.shift.stop="deleteGiftItem(item)"
           >
         <img loading="lazy" class="sidebar-item-icon"
-             :src="iconById(item.id)"
+             :src="getIcon(item.id)"
              @click="showItemPicker($event, editGiftItem, item)"
              alt=""/>
         <p class="sidebar-item-name" :title="item.id">{{ item.name }}</p>
@@ -107,7 +107,7 @@
 </template>
 
 <script setup>
-import {iconById} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 import {parse} from "nbt-ts";
 import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
 import {giftStringToObject, customStringify} from "@/utils/giftParser.js";

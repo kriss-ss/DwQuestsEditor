@@ -189,8 +189,8 @@ onBeforeUnmount(() => {
   }
 })
 
-onMounted(() => {
-  items.value = getItems()
+onMounted(async () => {
+  items.value = await getItems()
 
   updateTabInterval.value = setInterval(() => {
     localStorage.setItem('current-tab', JSON.stringify(tab.value));

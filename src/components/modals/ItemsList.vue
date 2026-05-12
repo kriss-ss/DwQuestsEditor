@@ -35,7 +35,7 @@
             @click="handleItemClick(key)"
             :title="key"
         >
-          <img :key="key" loading="lazy" class="item-icon" :src="iconById(key)" alt="">
+          <img :key="key" loading="lazy" class="item-icon" :src="getIcon(key)" alt="">
           <p class="item-name">{{ getRusNameFromId(key) }} ({{ value.itemId }})</p>
         </div>
         <div
@@ -43,7 +43,7 @@
             class="item"
             @click="handleItemClick(key)"
         >
-          <img loading="lazy" class="item-icon" :src="iconByQuestName(key, value.id, props.tabID)" alt="">
+          <img class="item-icon" :src="getIcon(value.id)" alt="">
           <p class="item-name">{{ value.name || key }}</p>
         </div>
 
@@ -61,7 +61,7 @@ import { RecycleScroller } from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 import {onMounted, ref, watch} from "vue";
 import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
-import {iconById, iconByQuestName} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 
 const props = defineProps({
   itemsType: {

@@ -17,7 +17,7 @@
 
 <script setup>
 
-import {iconByQuestName} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 import {computed, inject} from "vue";
 
 const props = defineProps({
@@ -43,7 +43,7 @@ const saveSnapshot = inject('saveSnapshot')
 const active_quest = inject('active_quest')
 
 const questIcon = computed(() =>
-    iconByQuestName(props.questName, props.quest.iconItem, props.tabID)
+    getIcon(props.quest.iconItem)
 )
 
 const editDisplayName = (event) => {
