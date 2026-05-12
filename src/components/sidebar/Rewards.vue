@@ -28,7 +28,7 @@
         <img loading="lazy"
              class="sidebar-item-icon"
              @click="showItemPicker($event, editRewardItem, reward)"
-             :src="iconById(reward.id)"
+             :src="getIcon(reward.id)"
              alt=""/>
         <p class="sidebar-item-name" :title="reward.id">{{ reward.name }}</p>
       </span>
@@ -78,7 +78,7 @@
 import SelectButton from "@/components/ui/SelectButton.vue";
 import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
 import {getQuestRewards, getQuestTasks} from "@/utils/getQuestData.js";
-import {iconById} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 import {rewardTypes} from "@/constants/questConstants.js";
 import Gift from "@/components/sidebar/Gift.vue";
 import {computed, inject} from "vue";

@@ -9,13 +9,13 @@
         class="tab-title-icon"
         @click="showItemPicker($event, editTabIcon, 'NaN')"
     >
-      <img loading="lazy" class="sidebar-item-icon" :src="iconById(tab.iconItem)" alt="./assets/icons/minecraft/bedrock.png"/>
+      <img loading="lazy" class="sidebar-item-icon" :src="getIcon(tab.iconItem)" alt="./assets/icons/minecraft/bedrock.png"/>
     </div>
   </div>
 </template>
 
 <script setup>
-import {iconById} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 import {inject} from "vue";
 
 const props = defineProps({

@@ -31,7 +31,7 @@
 import {ref, watch, nextTick, inject, computed, provide} from 'vue';
 import {iconSize, questNodesOffset, scaleField} from "@/constants/questConstants.js";
 import {getPosQuest, getQuestSize, getQuestColor, getIconItem, getDisplayName} from "@/utils/getQuestData.js";
-import {iconByQuestName} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 
 const props = defineProps({
   tab: {
@@ -69,7 +69,7 @@ const dataQuests = computed(() => {
       y: getPosQuest(quest).y,
       size: getQuestSize(quest) * iconSize,
       color: getQuestColor(quest),
-      icon: iconByQuestName(quest_name, getIconItem(quest), props.tab.tabID),
+      icon: getIcon(getIconItem(quest)),
     };
   });
 })

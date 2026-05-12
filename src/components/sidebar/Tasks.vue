@@ -26,7 +26,7 @@
                     <img loading="lazy"
                          class="sidebar-item-icon"
                          @click="showItemPicker($event, editTaskItem, task)"
-                         :src="iconById(task.id)"
+                         :src="getIcon(task.id)"
                          alt=""/>
                     <p class="sidebar-item-name" :title="task.id">{{task.name}}</p>
                   </span>
@@ -76,7 +76,7 @@
 <script setup>
 import SelectButton from "@/components/ui/SelectButton.vue";
 import {getQuestTasks} from "@/utils/getQuestData.js";
-import {iconById} from "@/utils/getIcon.js";
+import {getIcon} from "@/utils/getIcon.js";
 import {taskTypes} from "@/constants/questConstants.js";
 import {inject, computed} from "vue";
 import draggable from 'vuedraggable';
