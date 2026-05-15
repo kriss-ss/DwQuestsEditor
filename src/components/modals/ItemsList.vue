@@ -124,6 +124,8 @@ const open = (event, callback) => {
   setTimeout(() => {
     document.addEventListener('click', handleOutsideClick);
   }, 0);
+
+  console.log(props.items)
 }
 
 defineExpose({

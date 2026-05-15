@@ -1,9 +1,13 @@
 import {defaultIcon} from "@/constants/questConstants.js";
 import {getItemsNames} from "@/utils/getItems.js";
 
-const itemsNames = await getItemsNames();
-
 export const getIcon = (id) => {
+    const itemsNames = getItemsNames();
+
+    if (itemsNames.length === 0) {
+        return new URL('/icons/' + defaultIcon, import.meta.url).href;
+    }
+
     if (!id) return new URL('/icons/' + defaultIcon, import.meta.url).href
     if (id.includes("{")) {
         id = id.substring(0, id.indexOf("{"));
