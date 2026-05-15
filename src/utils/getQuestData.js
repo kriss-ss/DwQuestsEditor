@@ -134,7 +134,7 @@ const getItemHover = (item) => {
         let giftItems = ""
         Object.values(nbt.Items).forEach(item => {
             let itemID = item.ID
-            let itemName = item.Tag?.display.Name
+            let itemName = item.Tag?.display?.Name
             let itemCount = 1
             if (item.ID.lastIndexOf("=") !== -1) {
                 itemID = item.ID.slice(0, item.ID.lastIndexOf("="));
@@ -167,7 +167,6 @@ const getItemHover = (item) => {
             itemLore = Object.values(nbt?.display?.Lore).join("\n")
         }
 
-        console.log(hoverItemID)
         return `${itemName} §r${items[hoverItemID]?.itemId}§7\n${itemLore}\n§o§9${hoverItemMod}`
 
     }
