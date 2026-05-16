@@ -1,8 +1,7 @@
 import {getItems} from "@/utils/getItems.js"
 
-const items = await getItems()
-
 export const getRusNameFromId = (id) => {
+    const items = getItems()
     if (id === undefined) return "Галочка";
 
     if (id.startsWith("DwQuests:Gift")) {

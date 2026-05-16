@@ -2,7 +2,6 @@ import {
     iconSize,
     scaleField,
     questNodesOffset,
-
     specialIconSizes,
     questRarities,
     defaultIcon, defaultID
@@ -11,8 +10,6 @@ import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
 import {getItems} from "@/utils/getItems.js";
 import {parse} from "nbt-ts";
 import {nbtParser} from "@/utils/nbtParser.js";
-
-const items = await getItems()
 
 
 export const getDisplayName = (quest) => {
@@ -117,6 +114,7 @@ export const getQuestParents = (quest, quests) => {
 }
 
 const getItemHover = (item) => {
+    const items = getItems()
     let test = item.replace(/\[/, "{").replace(/]/, "}")
     let hoverItemID = item
     if (~item.indexOf("{")) {
@@ -136,7 +134,7 @@ const getItemHover = (item) => {
         let giftItems = ""
         Object.values(nbt.Items).forEach(item => {
             let itemID = item.ID
-            let itemName = item.Tag?.display.Name
+            let itemName = item.Tag?.display?.Name
             let itemCount = 1
             if (item.ID.lastIndexOf("=") !== -1) {
                 itemID = item.ID.slice(0, item.ID.lastIndexOf("="));
@@ -169,7 +167,6 @@ const getItemHover = (item) => {
             itemLore = Object.values(nbt?.display?.Lore).join("\n")
         }
 
-        console.log(hoverItemID)
         return `${itemName} §r${items[hoverItemID]?.itemId}§7\n${itemLore}\n§o§9${hoverItemMod}`
 
     }

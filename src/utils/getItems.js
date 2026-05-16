@@ -1,22 +1,26 @@
-const cache = new Map()
+import { shallowReactive } from 'vue';
 
-const loadJson = async (url) => {
-    if (cache.has(url)) {
-        return cache.get(url)
-    }
+const state = shallowReactive({
+    items: [],
+    names: []
+});
 
-    const promise = fetch(url)
-        .then(response => {
-            return response.json()
-        })
+export const initItemsData = async () => {
+    const response = await fetch('/items/items.json');
+    state.items = await response.json();
+    return state.items;
+};
 
-    cache.set(url, promise)
+export const initItemsNamesData = async () => {
+    const response = await fetch('/items/itemsNamesIcons.json');
+    state.names = await response.json();
+    return state.names;
+};
 
-    return promise
-}
+export const getItems = () => {
+    return state.items;
+};
 
-export const getItems = () =>
-    loadJson('/items/items.json')
-
-export const getItemsNames = () =>
-    loadJson('/items/itemsNamesIcons.json')
+export const getItemsNames = () => {
+    return state.names;
+};

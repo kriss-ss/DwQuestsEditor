@@ -56,7 +56,7 @@
       <items-list
           ref="itemSelector"
           :items-type="'item'"
-          :items="items"
+          :items="getItems()"
           :placeholder-text="'Введите название или id..'"
       />
       <items-list
@@ -92,7 +92,6 @@ const tab = ref({})
 const active_quest = ref("")
 const edit = ref(null)
 const scale = ref(1)
-const items = ref({})
 const itemSelector = ref({})
 const parentSelector = ref({})
 const contextMenu = ref({})
@@ -189,9 +188,7 @@ onBeforeUnmount(() => {
   }
 })
 
-onMounted(async () => {
-  items.value = await getItems()
-
+onMounted(() => {
   updateTabInterval.value = setInterval(() => {
     localStorage.setItem('current-tab', JSON.stringify(tab.value));
   }, 5000);

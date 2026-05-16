@@ -150,7 +150,7 @@ const getGiftItems = () => {
     let count = 0
     Object.values(nbt.Items).forEach(item => {
       let itemID = item.ID
-      let itemName = item.Tag?.display.Name
+      let itemName = item.Tag?.display?.Name
       let itemCount = 1
       if (item.ID.lastIndexOf("=") !== -1) {
         itemID = item.ID.slice(0, item.ID.lastIndexOf("="));
