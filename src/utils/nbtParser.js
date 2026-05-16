@@ -6,6 +6,9 @@ export const nbtParser = (nbt) => {
              .replace(/Layers:[{\[](\d{1,2})[}\]]/g, 'Layers:[$1]')
              .replace(/Layers:\{(\d{1,2}),(\d{1,2})}/g, 'Layers:[$1,$2]');
     nbt = parse(nbt)
+    if (!nbt) {
+        nbt = "{}"
+    }
     return nbt
 }
 
