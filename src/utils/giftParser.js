@@ -3,7 +3,8 @@ import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
 
 export const giftStringToObject = (giftID) => {
     let giftNBT = {}
-    const nbt = nbtParser(giftID)
+    let nbt = giftID.slice(giftID.indexOf("{"), giftID.lastIndexOf("}") + 1);
+    nbt = nbtParser(nbt)
     giftNBT.MinRandom = nbt.MinRandom || {"value": 1}
     giftNBT.display = nbt.display || {"Lore": "", "Name": "Гифт"}
     giftNBT.Items = nbt.Items || {}
