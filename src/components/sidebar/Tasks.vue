@@ -169,6 +169,10 @@ const sidebarDeleteTask = (task) => {
 }
 
 const editTaskItem = (task, item) => {
+  if (task.type === "TASK_CONFIRM") {
+    props.quest.tasks[task.num_id].type = "ITEM_DETECT"
+    props.quest.tasks[task.num_id].requiredCount = 1
+  }
   props.quest.tasks[task.num_id].forgeName = item
   saveSnapshot({type: 'editItemItem', args: {itemType: 'Task', value: item, id: task.num_id, name: active_quest.value}})
 }
