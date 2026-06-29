@@ -36,7 +36,7 @@
         ref="textarea"
 
         v-model="quest.description"
-        @change="saveSnapshot({type: 'editDescription', args: {value: quest.description, name: quest.iconItem}})"
+        @change="formatDescription"
 
     ></textarea>
 
@@ -77,25 +77,27 @@ const getRandomChar = () => {
 
 
 const wrapSelectedText = (colorSymbol) => {
-
   const start = textarea.value.selectionStart;
   const end = textarea.value.selectionEnd;
 
-
-  if (start === end) return; // Если ничего не выделено
+  if (start === end) return;
 
   const selectedText = props.quest.description.substring(start, end);
   const wrappedText = `§${colorSymbol + selectedText}§r`;
   props.quest.description =
       props.quest.description.substring(0, start) + wrappedText + props.quest.description.substring(end);
 
-  // Вернуть курсор на место после замены
   nextTick(() => {
     textarea.value.selectionStart = start;
     textarea.value.selectionEnd = start + wrappedText.length;
     textarea.value.focus();
     saveSnapshot({type: 'editDescription', args: {value: props.quest.description, name: active_quest.value}})
   });
+}
+
+const formatDescription = () => {
+  props.quest.description = props.quest.description.trimEnd()
+  saveSnapshot({type: 'editDescription', args: {value: props.quest.description, name: props.quest.iconItem}})
 }
 
 </script>
