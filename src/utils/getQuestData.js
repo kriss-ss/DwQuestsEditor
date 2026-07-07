@@ -8,8 +8,8 @@ import {
 } from "@/constants/questConstants.js";
 import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
 import {getItems} from "@/utils/getItems.js";
-import {parse} from "nbt-ts";
 import {nbtParser} from "@/utils/nbtParser.js";
+import {getGiftItems} from "@/utils/giftParser.js";
 
 
 export const getDisplayName = (quest) => {
@@ -17,11 +17,8 @@ export const getDisplayName = (quest) => {
 }
 
 export const getPosQuest = (quest) => {
-
-
     let posX = quest.displayX * scaleField - (getQuestSize(quest) - 1) * iconSize / 2 + questNodesOffset * 2
     let posY = quest.displayY * scaleField - (getQuestSize(quest) - 1) * iconSize / 2 + questNodesOffset
-
 
     return {x: posX, y: posY};
 }
@@ -115,7 +112,7 @@ export const getQuestParents = (quest, quests) => {
 
 const getItemHover = (item) => {
     const items = getItems()
-    let test = item.replace(/\[/, "{").replace(/]/, "}")
+
     let hoverItemID = item
     if (~item.indexOf("{")) {
         hoverItemID = item.slice(0, item.indexOf("{"))
@@ -127,21 +124,12 @@ const getItemHover = (item) => {
     let hoverItemMod = hoverItemID.slice(0, item.indexOf(":"));
     let nbt = item.slice(item.indexOf("{"), item.lastIndexOf("}") + 1).replace(/\[/, "{").replace(/]/, "}")
 
-    // {ench:[0:{lvl:10s,id:34s}],display:{Lore:[0:"§8Выдан за полное завершение §6испытаний"],Name:"§6Легендарный косяк"},id:6495s,Count:1b,Damage:0s}
-
     if (~nbt.indexOf("DropType")) {
         nbt = nbtParser(nbt)
         let giftItems = ""
-        Object.values(nbt.Items).forEach(item => {
-            let itemID = item.ID
-            let itemName = item.Tag?.display?.Name
-            let itemCount = 1
-            if (item.ID.lastIndexOf("=") !== -1) {
-                itemID = item.ID.slice(0, item.ID.lastIndexOf("="));
-                itemCount = item.ID.slice(item.ID.lastIndexOf("=") + 1);
-            }
-            giftItems += "&emsp;- " + (itemName || getRusNameFromId(itemID)) + "§7 x" + itemCount + "\n"
-        })
+        getGiftItems(nbt.Items).forEach(item => {
+            giftItems += "&emsp;- " + item.name + "§7 x" + item.count + "\n";
+        });
         let itemsCount = ""
         if (typeof nbt.MaxRandom?.value === "undefined") {
             itemsCount = "Содержит все предметы"
@@ -159,8 +147,7 @@ const getItemHover = (item) => {
     } else if (~item.indexOf("ScriptedData")) {
         return ""
     } else if (~item.indexOf("{")) {
-        nbt = nbt.replace(/\[/g, "{").replace(/]/g, "}")
-        nbt = parse(nbt)
+        nbt = nbtParser(nbt)
         let itemName = nbt?.display?.Name
         let itemLore = ""
         if (nbt?.display?.Lore) {

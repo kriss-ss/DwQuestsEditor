@@ -74,7 +74,7 @@
     </div>
         <span
             class="reward-gift-item"
-            v-for="item in getGiftItems()"
+            v-for="item in getGiftItems_()"
         >
           <span
               class="reward-item-data"
@@ -108,9 +108,7 @@
 
 <script setup>
 import {getIcon} from "@/utils/getIcon.js";
-import {parse} from "nbt-ts";
-import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
-import {giftStringToObject, customStringify} from "@/utils/giftParser.js";
+import {giftStringToObject, customStringify, getGiftItems} from "@/utils/giftParser.js";
 import {inject} from "vue";
 import {nbtParser} from "@/utils/nbtParser.js";
 import {giftTypes} from "@/constants/questConstants.js";
@@ -140,42 +138,12 @@ const showItemPicker = (event, func, data) => {
   });
 }
 
-const getGiftItems = () => {
+const getGiftItems_ = () => {
   let giftID = props.reward.id
-  let gift_items = []
-
   let nbt = giftID.slice(giftID.indexOf("{"), giftID.lastIndexOf("}") + 1);
   if (~nbt.indexOf("DropType")) {
     nbt = nbtParser(nbt)
-    let count = 0
-    Object.values(nbt.Items).forEach(item => {
-      let itemID = item.ID
-      let itemName = item.Tag?.display?.Name
-      let itemCount = 1
-      if (item.ID.lastIndexOf("=") !== -1) {
-        itemID = item.ID.slice(0, item.ID.lastIndexOf("="));
-        itemCount = item.ID.slice(item.ID.lastIndexOf("=") + 1);
-      }
-      gift_items.push({
-        id: itemID,
-        num_id: count++,
-        reward_id: props.reward.num_id,
-        name: itemName || getRusNameFromId(itemID),
-        count: itemCount,
-      })
-      // items += "&emsp;- " + (itemName || this.getRusNameFromId(itemID)) + "§7 x" + itemCount + "\n"
-    })
-    // let itemsCount = ""
-    // if (typeof nbt.MaxRandom?.value === "undefined") {
-    //   itemsCount = "Содержит все предметы"
-    // } else if (nbt.MaxRandom.value === 1) {
-    //   itemsCount = "Содержит 1 случайный предмет"
-    // } else {
-    //   itemsCount = `Содержит от ${nbt.MinRandom?.value} до ${nbt.MaxRandom?.value} случайных предметов`
-    // }
-    // gift_items['items_count'] = itemsCount
-
-    return gift_items;
+    return getGiftItems(nbt.Items)
   }
   return ""
 }

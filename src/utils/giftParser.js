@@ -1,15 +1,10 @@
-import {parse} from "nbt-ts";
+import {nbtParser} from "@/utils/nbtParser.js";
+import {getRusNameFromId} from "@/utils/getRusNameFromId.js";
 
 export const giftStringToObject = (giftID) => {
     let giftNBT = {}
     let nbt = giftID.slice(giftID.indexOf("{"), giftID.lastIndexOf("}") + 1);
-    nbt = nbt.replace(/\[/g, "{").replace(/]/g, "}")
-        .replace(/Layers:[{\[](\d{1,2})[}\]]/g, 'Layers:[$1]')
-        .replace(/Layers:\{(\d{1,2}),(\d{1,2})}/g, 'Layers:[$1,$2]');
-    if (!nbt) {
-        nbt = "{}"
-    }
-    nbt = parse(nbt)
+    nbt = nbtParser(nbt)
     giftNBT.MinRandom = nbt.MinRandom || {"value": 1}
     giftNBT.display = nbt.display || {"Lore": "", "Name": "Гифт"}
     giftNBT.Items = nbt.Items || {}
@@ -17,6 +12,27 @@ export const giftStringToObject = (giftID) => {
     giftNBT.Layers = nbt.Layers || [{"value": 0}, {"value": 2}]
     giftNBT.MaxRandom = nbt.MaxRandom || {"value": 2}
     return giftNBT
+}
+
+export const getGiftItems = (items) => {
+    let gift_items = []
+    Object.values(items).forEach((item, index) => {
+        let itemID = item.ID
+        let itemName = item.Tag?.display?.Name
+        let itemCount = 1
+        if (item.ID.lastIndexOf("=") !== -1) {
+            itemID = item.ID.slice(0, item.ID.lastIndexOf("="));
+            itemCount = item.ID.slice(item.ID.lastIndexOf("=") + 1);
+        }
+        gift_items.push({
+            id: itemID,
+            num_id: index,
+            name: itemName || getRusNameFromId(itemID),
+            count: itemCount,
+        })
+    })
+
+    return gift_items;
 }
 
 export const customStringify = (obj) => {
