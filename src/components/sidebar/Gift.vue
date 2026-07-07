@@ -242,7 +242,7 @@ const editGiftNbt = (event, reward) => {
 }
 
 const editGiftItem = (reward, item, count = undefined) => {
-  let giftID = props.quest.rewards[reward.reward_id]
+  let giftID = props.quest.rewards[props.reward.num_id]
   let giftNBT = giftStringToObject(giftID)
   let item_count = reward.count
   if (count !== undefined && count !== null) {
@@ -251,7 +251,7 @@ const editGiftItem = (reward, item, count = undefined) => {
   let finalGift = giftID.slice(0, giftID.indexOf("{"));
   giftNBT.Items[reward.num_id].ID = item_count > 1 ? item + '=' + item_count : item
   finalGift = finalGift + customStringify(giftNBT)
-  props.quest.rewards[reward.reward_id] = finalGift;
+  props.quest.rewards[props.reward.num_id] = finalGift;
   saveSnapshot({type: 'editGiftItem', args: {value: item, id: reward.num_id, name: active_quest.value}})
 }
 
