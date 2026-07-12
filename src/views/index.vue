@@ -65,10 +65,16 @@
 </template>
 <script setup>
 import {useRouter} from "vue-router";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 
 const router = useRouter();
 const fileInput = ref(null)
+
+onMounted(() => {
+  localStorage.removeItem("scale");
+  localStorage.removeItem("offsetX");
+  localStorage.removeItem("offsetY");
+})
 
 const readFile = (file) => {
   if (!file.name.endsWith('.json') && !file.name.endsWith('.txt')) {

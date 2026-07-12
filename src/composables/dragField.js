@@ -1,13 +1,21 @@
-import {ref, onMounted, onUnmounted, provide} from 'vue'
+import {ref, provide, watch} from 'vue'
 
 export function dragField() {
-    const offset = ref({ x: 0, y: 0 })
-    const scale = ref(1)
+    const offset = ref({
+        x: Number(localStorage.getItem('offsetX')) || 0,
+        y: Number(localStorage.getItem('offsetY')) || 0 })
+    const scale = ref(Number(localStorage.getItem('scale')) || 1)
     const isDragging = ref(false)
     const startDragPosition = ref({ x: 0, y: 0 })
 
     provide('scale', scale)
     provide("offset", offset)
+
+    watch([offset, scale], ([newOffset, newScale]) => {
+        localStorage.setItem('offsetX', newOffset.x)
+        localStorage.setItem('offsetY', newOffset.y)
+        localStorage.setItem('scale', newScale)
+    }, {deep: true})
 
     const config = {
         minScale: 0.5,
