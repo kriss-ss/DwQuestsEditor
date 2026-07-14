@@ -44,6 +44,7 @@
           :item-selector="itemSelector"
           :print-graph="printGraph"
       />
+      <transition name="bounce">
       <PrevertQuest
           v-if="active_quest"
           @wheel.stop
@@ -53,6 +54,7 @@
           :name="active_quest"
           :tabID="tab.tabID"
       />
+      </transition>
       <items-list
           ref="itemSelector"
           :items-type="'item'"
@@ -259,5 +261,22 @@ onMounted(() => {
   cursor: grabbing;
 }
 
+.bounce-enter-active {
+  animation: bounce-in 0.2s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.1s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 </style>
