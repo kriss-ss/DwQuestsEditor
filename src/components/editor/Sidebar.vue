@@ -162,9 +162,7 @@ const stopResizing = () => {
 }
 
 .quests-sidebar.collapsed {
-  width: 0;
-  min-width: 0;
-  max-width: 0;
+  width: 0 !important;
   opacity: 25%;
 }
 

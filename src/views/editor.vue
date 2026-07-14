@@ -55,12 +55,15 @@
           :tabID="tab.tabID"
       />
       </transition>
+      <transition name="bounce">
       <items-list
           ref="itemSelector"
           :items-type="'item'"
           :items="getItems()"
           :placeholder-text="'Введите название или id..'"
       />
+      </transition>
+        <transition name="bounce">
       <items-list
           ref="parentSelector"
           :items-type="'parent'"
@@ -68,6 +71,7 @@
           :placeholder-text="'Введите название родителя..'"
           :tabID="tab.tabID"
       />
+        </transition>
       <context-menu
         ref="contextMenu"
       />
