@@ -83,6 +83,7 @@ const gridEnable = inject('gridEnable')
 const active_quest = inject('active_quest')
 const gridSize = inject('gridSize')
 const gridModifier = inject('gridModifier')
+const notifyData = inject('notifyData')
 
 
 
@@ -168,7 +169,9 @@ const enableEditMode = () => {
 const copyTab = async () => {
   const jsonString = JSON.stringify(props.tab, null, 2);
   await navigator.clipboard.writeText(jsonString);
+  sendCopyNotify()
 }
+
 
 const saveTab = () => {
   const jsonString = JSON.stringify(props.tab, null, 2);
@@ -182,6 +185,21 @@ const saveTab = () => {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+  sendSaveNotify()
+}
+
+const sendCopyNotify = () => {
+  notifyData.value.visible = true;
+  notifyData.value.text = "Успешно скопирован код вкладки"
+  notifyData.value.status = "success"
+  notifyData.value.icon = '<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>'
+}
+
+const sendSaveNotify = () => {
+  notifyData.value.visible = true;
+  notifyData.value.text = "Успешно загружен код вкладки"
+  notifyData.value.status = "success"
+  notifyData.value.icon = '<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>'
 }
 
 </script>

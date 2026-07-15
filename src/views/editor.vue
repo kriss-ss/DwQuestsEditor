@@ -75,6 +75,9 @@
       <context-menu
         ref="contextMenu"
       />
+      <notifications
+          :data="notifyData"
+      />
     </div>
   </main>
 </template>
@@ -92,6 +95,7 @@ import {useLogger} from '@/composables/useLogger'
 import {getItems} from "@/utils/getItems.js";
 import {onBeforeUnmount, onMounted, ref, provide, nextTick, inject} from "vue";
 import {useRouter} from "vue-router";
+import Notifications from "@/components/ui/Notifications.vue";
 
 
 const tab = ref({})
@@ -108,6 +112,12 @@ const updateTabInterval = ref(null)
 const gridEnable = ref(false)
 const gridSize = ref(4)
 const gridModifier = ref({left: 0, top: 0})
+const notifyData = ref({
+  visible: false,
+  text: "",
+  status: "",
+  icon: ""
+})
 const buffer = ref({
   "Описание": [],
   "Задачи": [],
@@ -132,6 +142,7 @@ provide('gridSize', gridSize)
 provide('gridModifier', gridModifier)
 provide('contextMenu', contextMenu)
 provide('buffer', buffer)
+provide('notifyData', notifyData)
 
 
 const editActiveQuest = (name) => {
