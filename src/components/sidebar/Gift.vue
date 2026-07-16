@@ -272,7 +272,7 @@ const addGiftItem = () => {
 }
 
 const deleteGiftItem = (item) => {
-  let giftID = props.quest.rewards[item.reward_id]
+  let giftID = props.quest.rewards[props.reward.num_id]
   let giftNBT = giftStringToObject(giftID)
   let finalGift = giftID.slice(0, giftID.indexOf("{"));
 
@@ -285,8 +285,8 @@ const deleteGiftItem = (item) => {
 
   giftNBT.Items = newGiftItems;
   finalGift = finalGift + customStringify(giftNBT)
-  props.quest.rewards[item.reward_id] = finalGift;
-  saveSnapshot({type: 'deleteGiftItem', args: {id: item.reward_id, name: active_quest.value}})
+  props.quest.rewards[props.reward.num_id] = finalGift;
+  saveSnapshot({type: 'deleteGiftItem', args: {id: props.reward.num_id, name: active_quest.value}})
 }
 </script>
 
