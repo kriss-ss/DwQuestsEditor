@@ -141,9 +141,9 @@ const getItemHover = (item) => {
             itemsCount = `Содержит от ${nbt.MinRandom?.value} до ${nbt.MaxRandom?.value} случайных предметов`
         }
 
-        const lore = nbt.display.Lore.replace(/\/\//g, "/")
+        const lore = nbt.display.Lore?.replace(/\/\//g, "/") ?? ''
 
-        return `${nbt.display.Name} §r7318§7\n${lore}§7\n\n${itemsCount}\n${giftItems}§o§9Dwarven Quests`
+        return `${nbt.display.Name} §r7318§7\n${lore}§7${lore ? '\n' : ''}\n${itemsCount}\n${giftItems}§o§9Dwarven Quests`
     } else if (~item.indexOf("ScriptedData")) {
         return ""
     } else if (~item.indexOf("{")) {
